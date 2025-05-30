@@ -1,0 +1,14 @@
+/* In your global CSS file (e.g., globals.css) */
+.rotated-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/bg7.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: rotate(20deg); /* change angle as needed */
+  transform-origin: center center;
+  z-index: 0;
+  pointer-events: none;
+}

@@ -1,0 +1,34 @@
+@media (min-device-width:350px) and (max-device-width:375px){
+    .holder{
+        margin-left: 18px;
+    }
+  
+}
+
+@media (min-device-width:377px) and (max-device-width:399px){
+    .holder{
+        margin-left: 28px;
+    }
+  
+}
+
+
+
+@media (min-device-width:400px) and (max-device-width:425px){
+    .holder{
+        margin-left: 45px;
+    }
+  
+}
+
+@keyframes vertical-marquee {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+.marquee-vertical {
+  animation: vertical-marquee 16s linear infinite;
+  will-change: transform;
+}
+.marquee-vertical:hover {
+  animation-play-state: paused;
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Colorful gradients for a modern, vibrant look -->
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF6B6B; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFD93D; stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4AC29A; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BDFFF3; stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#42A5F5; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5C6BC0; stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <g>
+    <!-- Speaker/Megaphone Icon Body -->
+    <path d="M15 20 H45 L60 30 L45 40 H15 Z" fill="url(#grad1)" />
+    
+    <!-- Handle for the speaker/megaphone -->
+    <rect x="10" y="35" width="10" height="15" rx="2" ry="2" fill="url(#grad2)" />
+    
+    <!-- Sound waves -->
+    <path d="M55,20 Q60,32 55,44" stroke="url(#grad3)" stroke-width="4" fill="none"/>
+    <path d="M50,22 Q55,32 50,42" stroke="url(#grad3)" stroke-width="4" fill="none"/>
+    
+    <!-- Notification Icon (symbolizing digital reach) -->
+    <circle cx="45" cy="10" r="6" fill="#FFD93D" stroke="#FF6B6B" stroke-width="2"/>
+    <text x="43" y="13" font-family="Arial" font-size="8" fill="white">!</text>
+    
+    <!-- Social icons as part of the body (symbolizing digital platforms) -->
+    <circle cx="25" cy="27" r="3" fill="#42A5F5"/>
+    <circle cx="35" cy="27" r="3" fill="#FF6B6B"/>
+    <circle cx="45" cy="27" r="3" fill="#4AC29A"/>
+  </g>
+</svg>

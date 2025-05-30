@@ -1,0 +1,14 @@
+/* styles.css */
+
+.menu-text {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  color: #14142b; /* Text color */
+  font-family: "HCLTech Roobert", sans-serif;
+  font-weight: 300;
+  font-size: 2.25rem;
+  line-height: 2.6875rem;
+  text-align: left !important; /* Align text to the left */
+  margin: 0 0 1.25rem; /* Margin below the text */
+  text-transform: inherit !important; /* Inherit text transform */
+}
