@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css';
 
 type FormState = {
     name: string;
@@ -34,6 +36,24 @@ const servicesList = [
 ];
 
 export default function ContactUs() {
+    const [country, setCountry] = useState<string>('');
+    useEffect(() => {
+        // Only fetch if country is not already set
+        if (!country) {
+            fetch('https://ipapi.co/json/')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.country_code) {
+                        setCountry(data.country_code.toLowerCase());
+                    } else {
+                        setCountry('sa'); // fallback to Saudi Arabia
+                    }
+                })
+                .catch(() => setCountry('sa')); // fallback on error
+        }
+    }, [country]);
+
+
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const service = searchParams.get('service') || '';
@@ -65,6 +85,12 @@ export default function ContactUs() {
         setErrors((prev) => ({ ...prev, [name]: undefined }));
     };
 
+
+    const handlePhoneChange = (value: string) => {
+        setForm((prev) => ({ ...prev, phone: value }));
+        setErrors((prev) => ({ ...prev, phone: undefined }));
+    };
+
     const validate = (): ErrorState => {
         const newErrors: ErrorState = {};
         if (!form.name.trim()) newErrors.name = "Name is required.";
@@ -93,7 +119,7 @@ export default function ContactUs() {
             };
             delete dataToSave.otherService;
 
-            await addDoc(collection(db, "contactRequests"), dataToSave);
+            await addDoc(collection(db, "contactRequests"), { dataToSave, created: new Date() });
             setForm({
                 name: "",
                 email: "",
@@ -128,7 +154,7 @@ export default function ContactUs() {
                             YOUR SUCCESS STORY STARTS HERE!
                         </h2>
                         <p className="mb-6 text-base sm:text-lg md:text-xl font-light leading-relaxed">
-                            We’re ready to turn your vision into reality with these key services:
+                            We re ready to turn your vision into reality with these key services:
                         </p>
                         <ul className="space-y-8 text-sm sm:text-base md:text-lg">
                             <li className="flex items-start gap-4">
@@ -186,14 +212,26 @@ export default function ContactUs() {
                             )}
                         </div>
                         <div>
-                            <input
-                                id="phone"
-                                name="phone"
-                                type="tel"
+                            <PhoneInput
+                                country={country}
                                 value={form.phone}
-                                onChange={handleChange}
-                                placeholder="Phone"
-                                className="w-full border-b text-gray-700 border-gray-300 bg-transparent px-2 py-2 text-base sm:text-lg focus:outline-none focus:border-black transition"
+                                onChange={handlePhoneChange}
+                                inputClass="!w-full !border-b !border-gray-300 bg-transparent !text-gray-700  !pl-10 !py-1 !focus:outline-none !focus:border-mai"
+                                inputStyle={{
+                                    background: "none",
+                                    border: "none",
+                                    borderBottom: "1px solid #d1d5db",
+                                    borderRadius: 0,
+                                }}
+                                buttonStyle={{
+                                    border: "none",
+                                    background: "none",
+                                }}
+                                dropdownStyle={{
+                                    zIndex: 9999,
+                                    color: "#000"
+                                }}
+                                enableSearch
                             // required
                             />
                             {triedSubmit && errors.phone && (

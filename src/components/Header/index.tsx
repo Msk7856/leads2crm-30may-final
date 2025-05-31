@@ -718,7 +718,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header left-0 top-0 z-40 w-full items-center  ${sticky ? "fixed bg-[#ffffff] text-black  shadow-lg backdrop-blur-2xl " : "absolute bg-[#ffffff00]  "} transition-all`}>
+      <header className={`header left-0 top-0 z-40 w-full items-center  ${sticky ? "fixed bg-[#ffffff] text-black  shadow-lg backdrop-blur-2xl " : "absolute bg-[#ffffff]  "} transition-all`}>
         <div className="flex justify-between items-center px-5 py-4 max-w-7xl mx-auto w-full">
           <Link href="/">
             <img
@@ -727,9 +727,6 @@ const Header = () => {
 
               alt="Logo"
               className="h-15 w-[160px] z-40 mt-[-1px]" // Adjust height as needed
-
-
-
             />
           </Link>
 
@@ -757,7 +754,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden sm:flex space-x-10 ml-auto">
-            <ul className={`flex space-x-6 font-medium items-center transition-colors duration-300  ${sticky ? "text-black " : "text-white "}`}>
+            <ul className={`flex space-x-6 font-medium items-center transition-colors duration-300  ${sticky ? "text-black " : "text-black "}`}>
               {menuData.map((menu, menuIndex) => (
                 // <li
                 //   key={menuIndex}
@@ -798,7 +795,7 @@ const Header = () => {
 
                   {currentMenu === menu.menuName && (
                     <div
-                      className="fixed left-0 right-0 top-18 bg-white text-black shadow-none  z-25 w-screen p-6"
+                      className="fixed left-0 right-0 top-18 bg-white text-black shadow-none  z-10 w-screen p-6"
                       onMouseEnter={() => setCurrentMenu(menu.menuName)} // Keep dropdown open
                       onMouseLeave={() => {
                         setCurrentMenu(null); // Close when not hovering over the entire dropdown

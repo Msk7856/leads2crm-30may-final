@@ -39,16 +39,18 @@ import ZohoCRMIndustry from "./zoho-crm/ZohoCRMIndustry";
 import InteriorDesignCRMHero from "./zoho-crm/InteriorDesignCRMHero";
 import Login from '@/components/animate/Login'
 
+import 'react-phone-input-2/lib/style.css';
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.leads2crm.com"),
-  title: "Maiprosoft - Expertise You Can Trust",
-  description: "We are committed to transform clients businesses and driving success in the digital age",
+  title: "Leads2CRM - Driven by Experience. Focused on Results.",
+  description: "Dedicated to transforming businesses and accelerating success.",
   // other metadata
   openGraph: {
 
-    title: "Maiprosoft - Expertise You Can Trust",
+    title: "Leads2CRM - Driven by Experience. Focused on Results.",
     description:
-      "We are committed to transforming clients businesses and driving success in the digital age",
+      "Dedicated to transforming businesses and accelerating success.",
     url: "https://maiprosoft.com",
     type: "website",
     images: [
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
         // url: "/images/logo/newmaiprosoftLogo.png", // Replace with your actual image URL
         width: 700,
         height: 630,
-        alt: "We are committed to transforming clients businesses and driving success in the digital age",
+        alt: "Dedicated to transforming businesses and accelerating success.",
 
       },
     ],
@@ -69,13 +71,15 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+
+
   return (
     <>
       <ScrollUp />
       <Homes />
       <ExpertiseSection />
       <ZohoCRMIndustry />
-      <InteriorDesignCRMHero />
+      {/* <InteriorDesignCRMHero /> */}
       {/* <MeetClients/>
       <PartnerSection/> */}
 

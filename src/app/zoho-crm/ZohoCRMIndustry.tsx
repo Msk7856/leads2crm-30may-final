@@ -1,9 +1,13 @@
 'use client';
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
 import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 
 interface Industry {
     title: string;
@@ -57,18 +61,18 @@ const industries = [
         btn: "border-orange-300 text-orange-800 hover:bg-orange-200",
     },
     {
-        title: "Kitchen & Interiors",
+        title: "Kitchen CRM",
         desc: "Create unique client experiences with customizable CRM, Interior Design CRM software integrates client data, project management, and communication tools to enhance customer experience and project delivery.",
-        image: "/images/zoho/zoho-crm/Segmentation-of-leads.svg",
-        bg: "bg-orange-50",
-        btn: "border-orange-300 text-orange-800 hover:bg-orange-200",
+        image: "/images/zoho/zoho-crm/kitchen-design-crm.png",
+        bg: "bg-red-50",
+        btn: "border-red-300 text-red-800 hover:bg-red-200",
     },
     {
         title: "Interior Design CRM",
         desc: "Every kitchen and interior design business has unique workflows and client needs. A customizable CRM allows you to tailor pipelines, fields, and stages to fit your specific business processes.",
-        image: "/images/zoho/zoho-crm/Customizable-reports.svg",
-        bg: "bg-orange-50",
-        btn: "border-orange-300 text-orange-800 hover:bg-orange-200",
+        image: "/images/zoho/zoho-crm/interior-design-crm.png",
+        bg: "bg-sky-50",
+        btn: "border-sky-300 text-sky-800 hover:bg-sky-200",
     },
 ];
 
@@ -90,7 +94,31 @@ interface ErrorState {
 
 export default function ZohoCRMIndustry() {
     const [modalOpen, setModalOpen] = useState(false);
+    const [country, setCountry] = useState<string>('');
     const [selectedIndustry, setSelectedIndustry] = useState<string>("");
+
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+        });
+
+        if (!country) {
+            fetch('https://ipapi.co/json/')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.country_code) {
+                        setCountry(data.country_code.toLowerCase());
+                    } else {
+                        setCountry('sa'); // fallback to Saudi Arabia
+                    }
+                })
+                .catch(() => setCountry('sa')); // fallback on error
+        }
+
+    }, [country, modalOpen]);
+
+
     const [form, setForm] = useState<FormState>({
         name: "",
         email: "",
@@ -194,7 +222,7 @@ export default function ZohoCRMIndustry() {
                                 onClick={() => openModal(item.title)}
                                 type="button"
                             >
-                                Read more
+                                Enquiry Now
                             </button>
                         </div>
                     </div>
@@ -242,7 +270,7 @@ export default function ZohoCRMIndustry() {
                             <div>
                                 <label className="block text-gray-700 text-sm font-medium mb-1">Mobile<span className="text-red-500">*</span></label>
                                 <PhoneInput
-                                    country={'sa'}
+                                    country={country || 'sa'}
                                     value={form.phone}
                                     onChange={handlePhoneChange}
                                     inputClass="!w-full !border-b !border-gray-300 bg-transparent !text-gray-700  !pl-10 !py-1 !focus:outline-none !focus:border-mai"
