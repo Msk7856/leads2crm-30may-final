@@ -194,7 +194,7 @@ export default function ZohoCrmHero() {
                                     country={country}
                                     value={form.phone}
                                     onChange={handlePhoneChange}
-                                    inputClass="!w-full !border !border-gray-400 bg-transparent !text-gray-700  !pl-10 !py-1 !focus:outline-none !focus:border-mai"
+                                    inputClass="!w-full !border !border-gray-400 bg-transparent !text-gray-700  !pl-10 !py-2 !focus:outline-none !focus:border-mai"
                                     inputStyle={{
                                         background: "none",
                                         // border: "1px solid #d1d5db",
