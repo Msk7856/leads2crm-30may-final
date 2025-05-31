@@ -37,6 +37,10 @@ const servicesList = [
 
 export default function ContactUs() {
     const [country, setCountry] = useState<string>('');
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const service = searchParams.get('service') || '';
+
     useEffect(() => {
         // Only fetch if country is not already set
         if (!country) {
@@ -51,12 +55,11 @@ export default function ContactUs() {
                 })
                 .catch(() => setCountry('sa')); // fallback on error
         }
-    }, [country]);
+        setForm((prev) => ({ ...prev, source: pathname }));
+    }, [country, pathname]);
 
 
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
-    const service = searchParams.get('service') || '';
+
 
     const [form, setForm] = useState<FormState>({
         name: "",
@@ -94,7 +97,11 @@ export default function ContactUs() {
     const validate = (): ErrorState => {
         const newErrors: ErrorState = {};
         if (!form.name.trim()) newErrors.name = "Name is required.";
-        if (!form.email.trim()) newErrors.email = "Email is required.";
+        if (!form.email.trim()) {
+            newErrors.email = "Email is required.";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+            newErrors.email = "Please enter a valid email address.";
+        }
         // if (!form.phone.trim()) newErrors.phone = "Phone is required.";
         if (!form.service) newErrors.service = "Please select a service.";
         if (form.service === "other" && !form.otherService.trim())
@@ -190,7 +197,7 @@ export default function ContactUs() {
                                 onChange={handleChange}
                                 placeholder="Name"
                                 className="w-full border-b text-gray-700 border-gray-300 bg-transparent px-2 py-2 text-base sm:text-lg focus:outline-none focus:border-black transition"
-                                required
+                            // required
                             />
                             {triedSubmit && errors.name && (
                                 <div className="text-red-600 pl-2 text-xs sm:text-sm mt-1">{errors.name}</div>
@@ -205,7 +212,7 @@ export default function ContactUs() {
                                 onChange={handleChange}
                                 placeholder="Email"
                                 className="w-full border-b text-gray-700 border-gray-300 bg-transparent px-2 py-2 text-base sm:text-lg focus:outline-none focus:border-black transition"
-                                required
+                            // required
                             />
                             {triedSubmit && errors.email && (
                                 <div className="text-red-600 pl-2 text-xs sm:text-sm mt-1">{errors.email}</div>

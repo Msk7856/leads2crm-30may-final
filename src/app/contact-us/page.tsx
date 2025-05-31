@@ -28,6 +28,11 @@ type ErrorState = {
 
 const ContactUs = () => {
   const [country, setCountry] = useState<string>('');
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const source = searchParams.get('source') || '';
+  const service = searchParams.get('service') || '';
+
   useEffect(() => {
     // Only fetch if country is not already set
     if (!country) {
@@ -42,12 +47,10 @@ const ContactUs = () => {
         })
         .catch(() => setCountry('sa')); // fallback on error
     }
-  }, [country]);
 
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const source = searchParams.get('source') || '';
-  const service = searchParams.get('service') || '';
+    setForm((prev) => ({ ...prev, source: pathname }));
+  }, [country, pathname]);
+
 
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -84,7 +87,11 @@ const ContactUs = () => {
   const validate = (): ErrorState => {
     const newErrors: ErrorState = {};
     if (!form.name.trim()) newErrors.name = "Name is required.";
-    if (!form.email.trim()) newErrors.email = "Email is required.";
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = "Please enter a valid email address.";
+    }
     // if (!form.phone.trim()) newErrors.phone = "Phone is required.";
     if (!form.service) newErrors.service = "Please select a service.";
     if (form.service === "other" && !form.otherService.trim())
@@ -190,7 +197,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   placeholder="Name"
                   className="w-full border-b text-gray-700 border-gray-300 bg-transparent px-2 py-2 text-lg focus:outline-none focus:border-black transition"
-                  required
+                // required
                 />
                 {triedSubmit && errors.name && (
                   <div className="text-red-600 pl-2 text-xs mt-1">{errors.name}</div>
@@ -206,7 +213,7 @@ const ContactUs = () => {
                   onChange={handleChange}
                   placeholder="Email"
                   className="w-full border-b text-gray-700 border-gray-300 bg-transparent px-2 py-2 text-lg focus:outline-none focus:border-black transition"
-                  required
+                // required
                 />
                 {triedSubmit && errors.email && (
                   <div className="text-red-600 pl-2 text-xs mt-1">{errors.email}</div>
@@ -253,7 +260,7 @@ const ContactUs = () => {
                   <option value="">Select a service</option>
                   <option value="zoho crm">Zoho CRM</option>
                   <option value="zoho one">Zoho One</option>
-                  <option value="zoho one">Zoho Creator</option>
+                  <option value="zoho creator">Zoho Creator</option>
                   <option value="app development">App Development</option>
                   <option value="web development">Web Development</option>
                   <option value="other">Other</option>

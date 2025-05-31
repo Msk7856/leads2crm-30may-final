@@ -1,16 +1,16 @@
 'use client'
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { usePathname } from 'next/navigation';
+import PhoneInput from "react-phone-input-2";
 
 interface FormState {
     name: string;
     email: string;
     phone: string;
-    agree: boolean;
     page: string;
 }
 
@@ -18,20 +18,36 @@ type ErrorState = {
     name?: string;
     email?: string;
     phone?: string;
-    agree?: string;
 };
 
 export default function ZohoCrmHero() {
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [country, setCountry] = useState<string>('');
     const router = useRouter();
     const pathname = usePathname();
+
+    useEffect(() => {
+
+        if (!country) {
+            fetch('https://ipapi.co/json/')
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.country_code) {
+                        setCountry(data.country_code.toLowerCase());
+                    } else {
+                        setCountry('sa'); // fallback to Saudi Arabia
+                    }
+                })
+                .catch(() => setCountry('sa')); // fallback on error
+        }
+
+    }, [country]);
 
     const [form, setForm] = useState<FormState>({
         name: "",
         email: "",
         phone: "",
-        agree: false,
         page: pathname,
     });
     const [errors, setErrors] = useState<ErrorState>({});
@@ -46,14 +62,34 @@ export default function ZohoCrmHero() {
         setErrors((prev) => ({ ...prev, [name]: undefined }));
     };
 
+    const handlePhoneChange = (value: string) => {
+        setForm((prev) => ({ ...prev, phone: value }));
+        setErrors((prev) => ({ ...prev, phone: undefined }));
+    };
+
     const validate = (): ErrorState => {
         const newErrors: ErrorState = {};
+
         if (!form.name.trim()) newErrors.name = "Full Name is required.";
-        if (!form.email.trim()) newErrors.email = "Email is required.";
-        if (!form.phone.trim()) newErrors.phone = "Phone Number is required.";
-        if (!form.agree) newErrors.agree = "You must agree before submitting.";
+
+        if (!form.email.trim()) {
+            newErrors.email = "Email is required.";
+        } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(form.email)) {
+            newErrors.email = "Please enter a valid email address.";
+        }
+
+        if (!form.phone.trim()) {
+            newErrors.phone = "Phone Number is required.";
+        } else {
+            const digits = form.phone.replace(/\D/g, "");
+            if (digits.length < 10 || digits.length > 15) {
+                newErrors.phone = "Please enter a valid phone number.";
+            }
+        }
+
         return newErrors;
     };
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -70,7 +106,6 @@ export default function ZohoCrmHero() {
                 name: "",
                 email: "",
                 phone: "",
-                agree: false,
                 page: pathname,
             });
             setTriedSubmit(false);
@@ -155,33 +190,32 @@ export default function ZohoCrmHero() {
                                 )}
                             </div>
                             <div>
-                                <input
-                                    type="tel"
-                                    name="phone"
+                                <PhoneInput
+                                    country={country}
                                     value={form.phone}
-                                    onChange={handleChange}
-                                    placeholder="Phone Number *"
-                                    className="w-full border rounded placeholder-slate-600 bg-[#ffffff7f] border-gray-400 rounded-r px-4 py-2 focus:outline-none focus:ring-2 focus:ring-mai"
+                                    onChange={handlePhoneChange}
+                                    inputClass="!w-full !border !border-gray-400 bg-transparent !text-gray-700  !pl-10 !py-1 !focus:outline-none !focus:border-mai"
+                                    inputStyle={{
+                                        background: "none",
+                                        // border: "1px solid #d1d5db",
+                                        borderRadius: 4,
+                                    }}
+                                    buttonStyle={{
+                                        border: "none",
+                                        background: "none",
+                                    }}
+                                    dropdownStyle={{
+                                        zIndex: 9999,
+                                        color: "#000"
+                                    }}
+                                    enableSearch
+                                // required
                                 />
                                 {triedSubmit && errors.phone && (
                                     <div className="text-red-600 text-xs px-1 pt-1">{errors.phone}</div>
                                 )}
                             </div>
-                            <div>
-                                <label className="flex items-center mt-1 text-xs text-gray-800">
-                                    <input
-                                        type="checkbox"
-                                        name="agree"
-                                        checked={form.agree}
-                                        onChange={handleChange}
-                                        className="mr-2 size-4 text-2xl accent-mai"
-                                    />
-                                    I agree to the terms.
-                                </label>
-                                {triedSubmit && errors.agree && (
-                                    <div className="text-red-600 text-xs">{errors.agree}</div>
-                                )}
-                            </div>
+
                             <button
                                 type="submit"
                                 className="mt-2 w-full bg-[#e53935] hover:bg-[#c62828] text-white font-bold py-3 text-base shadow transition"

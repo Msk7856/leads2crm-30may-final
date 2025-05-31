@@ -153,8 +153,14 @@ export default function ZohoCRMIndustry() {
     const validate = (): ErrorState => {
         const errs: ErrorState = {};
         if (!form.name.trim()) errs.name = "Name is required";
-        if (!form.email.trim()) errs.email = "Email is required";
-        if (!form.phone.trim()) errs.phone = "Mobile is required";
+        if (!form.email.trim()) {
+            errs.email = "Email is required";
+        } else {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(form.email)) {
+                errs.email = "Invalid email format";
+            }
+        } if (!form.phone.trim()) errs.phone = "Mobile is required";
         return errs;
     };
 
@@ -270,7 +276,7 @@ export default function ZohoCRMIndustry() {
                             <div>
                                 <label className="block text-gray-700 text-sm font-medium mb-1">Mobile<span className="text-red-500">*</span></label>
                                 <PhoneInput
-                                    country={country || 'sa'}
+                                    country={country}
                                     value={form.phone}
                                     onChange={handlePhoneChange}
                                     inputClass="!w-full !border-b !border-gray-300 bg-transparent !text-gray-700  !pl-10 !py-1 !focus:outline-none !focus:border-mai"
