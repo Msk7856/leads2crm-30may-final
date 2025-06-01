@@ -722,14 +722,9 @@ const Header = () => {
         <div className="flex justify-between items-center px-5 py-4 max-w-7xl mx-auto w-full">
           <Link href="/">
             <img
-
               src="/images/logo/Leads2crm.jpg"
-
               alt="Logo"
-              className="h-15 w-[160px] z-40 mt-[-1px]" // Adjust height as needed
-
-
-
+              className="h-15 w-[160px] z-40 mt-[-1px]"
             />
           </Link>
 
@@ -933,7 +928,7 @@ const Header = () => {
 
                 </li>
               ))}
-              <li>
+              <li className='z-[9999]'>
                 <a href="/contact-us">
                   <button className="px-6 py-2 rounded-md transition-colors duration-300 bg-mai text-white dark:bg-mai dark:text-white  hover:bg-maihover dark:hover:bg-maihover">
                     Contact Us
