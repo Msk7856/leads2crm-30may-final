@@ -5,6 +5,7 @@ import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
+import ZohoLogoScroll from "@/components/animate/ZohoLogoScroll";
 
 const ZohoServices = [
     {
@@ -181,13 +182,14 @@ export default function ContactUs() {
                         <p className="mb-6 text-base sm:text-lg md:text-xl font-light leading-relaxed">
                             We re ready to turn your vision into reality with these key services:
                         </p>
-                        <div className="flex my-10 gap-2">
+                        {/* <div className="flex my-10 gap-2">
                             {ZohoServices.map((item, index) => (
                                 <div key={index} className="flex gap-10 items-center w-full">
-                                    <img src={item.img} alt="" className="w-20 h-10 shadow-sm p-2 bg-white rounded hover:bg-gray-100" />
+                                    <img src={item.img} alt="" className="w-20 h-10 shadow-sm p-2 bg-gray-50 hover:bg-gray-100" />
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
+                        <ZohoLogoScroll />
                         <ul className="space-y-8 text-sm sm:text-base md:text-lg">
                             <li className="flex items-start gap-4">
                                 <img src="/images/icon/contactsvg/mobile.png" alt="" className="bg-mai rounded-full p-1 w-8 h-8" />

@@ -2,26 +2,22 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { FaEye } from "react-icons/fa";
 
-export default function Login() {
+export default function ParticlesBackground() {
   const [init, setInit] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
 
-  // Initialize tsParticles engine
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => setInit(true));
   }, []);
 
-  // Particle options
   const options = useMemo(
     () => ({
       background: {
-        color: { value: "#1566a1" }, // blue gradient look
+        color: { value: "transparent" },
       },
-      fpsLimit: 70,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: { enable: false },
@@ -30,7 +26,16 @@ export default function Login() {
       },
       particles: {
         color: {
-          value: ["#ffffff", "#00ffdd", "#ff66ee", "#ffcc11", "#66ff88"],
+          value: [
+            "#ffffff",
+            "#fcad03",
+            "#08e300",
+            "#02d9d9",
+            "#0525f5",
+            "#0525f5",
+            "#08e300",
+            "#02d9d9",
+          ],
           animation: {
             enable: true,
             speed: 20,
@@ -64,15 +69,14 @@ export default function Login() {
   );
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Particle Background */}
+    <>
       {init && (
         <Particles
           id="tsparticles"
           options={options}
-          className="fixed inset-0 z-0"
+          className="absolute left-0 top-0 -z-10 h-screen w-full"
         />
       )}
-    </div>
+    </>
   );
 }
