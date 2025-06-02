@@ -4,38 +4,6 @@ import React from 'react'
 const ZohoCrmAudit = () => {
     return (
         <div className='bg-white py-10'>
-            {/* How It Works Section */}
-            {/* <section className="mb-16">
-                <h2 className="text-3xl font-bold text-center text-gray-700 mb-8">How It Works</h2>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-center text-gray-700">
-                    <div className="flex flex-col items-center max-w-xs">
-                        <div className="mb-4 p-4 bg-blue-100 rounded-full">
-                            <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <path d="M12 4v16m8-8H4" />
-                            </svg>
-                        </div>
-                        <p className="font-semibold ">You submit your CRM details</p>
-                    </div>
-                    <div className="flex flex-col items-center max-w-xs text-gray-700">
-                        <div className="mb-4 p-4 bg-blue-100 rounded-full">
-                            <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 6v6l4 2" />
-                            </svg>
-                        </div>
-                        <p className="font-semibold">We analyze & audit your CRM</p>
-                    </div>
-                    <div className="flex flex-col items-center max-w-xs">
-                        <div className="mb-4 p-4 bg-blue-100 rounded-full">
-                            <svg className="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <path d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <p className="font-semibold">Receive a personalized report & call</p>
-                    </div>
-                </div>
-            </section> */}
-
             <section className="relative w-full py-10 md:py-10 bg-[#5c5be5] overflow-hidden flex items-center justify-center">
                 {/* Decorative circles */}
                 <div className="absolute left-4 top-8 w-5 h-5 rounded-full bg-white/80 opacity-80" />
