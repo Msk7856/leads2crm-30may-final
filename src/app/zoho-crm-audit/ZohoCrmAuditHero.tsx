@@ -6,6 +6,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { usePathname } from 'next/navigation';
 import PhoneInput from "react-phone-input-2";
+import 'react-phone-input-2/lib/style.css';
 import ParticlesBackground from "@/components/animate/ParticlesBackground";
 
 interface FormState {
@@ -219,7 +220,7 @@ export default function ZohoCrmAuditHero() {
                                     value={form.phone}
                                     onChange={handlePhoneChange}
                                     // inputStyle={{ width: "100%", padding: '8px 4px' }}
-                                    inputClass="!w-full !border !border-gray-400 !bg-transparent !text-gray-700  !pl-10 !py-2 !focus:outline-none !focus:border-mai"
+                                    inputClass="!w-full !border !border-gray-300 !bg-transparent !text-gray-700  !pl-10 !py-2 !focus:outline-none !focus:border-mai"
                                     inputStyle={{
                                         background: "none",
                                         // border: "1px solid #d1d5db",
