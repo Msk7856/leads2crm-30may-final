@@ -68,7 +68,7 @@ const FreeZohoCRMAuditLandingPage = () => {
                     content="Boost your Zoho CRM efficiency with our free audit. Analyze, optimize, and grow your business with expert CRM insights."
                 />
                 <meta property="og:image" content="https://www.leads2crm.com/zoho-crm.png" />
-                <meta property="og:url" content="https://www.leads2crm.com/zoho-crm" />
+                <meta property="og:url" content="https://www.leads2crm.com/zoho-crm-audit" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Free Zoho CRM Audit | Optimize Your CRM Effectively" />
                 <meta

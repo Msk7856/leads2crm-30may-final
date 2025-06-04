@@ -3,10 +3,10 @@ import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
-    {
-        question: "Is the Zoho CRM audit really free?",
-        answer: "Yes, the audit is completely free with no obligations or hidden costs.",
-    },
+    // {
+    //     question: "Is the Zoho CRM audit really free?",
+    //     answer: "Yes, the audit is completely free with no obligations or hidden costs.",
+    // },
     {
         question: "How long does the audit process take?",
         answer: "Typically, you will receive your personalized audit report within 3-5 business days.",

@@ -37,7 +37,6 @@ const freeEmailDomains = [
     "protonmail.com",
     "gmx.com",
     "ymail.com",
-    "zoho.com"
 ];
 
 

@@ -52,11 +52,13 @@ export default function HowItWorks() {
                                 {String(step.id).padStart(2, "0")}
                             </span>
                             {/* Card */}
-                            <div className="relative z-10 hover:bg-mai cursor-pointer bg-white shadow-lg rounded-md p-6 flex flex-col items-center w-full max-w-[300px] mx-auto md:mx-0">
-                                <div className="mb-4 flex items-center justify-center w-14 h-14 rounded-full bg-indigo-50 shadow">
+                            <div className="group relative z-10 cursor-pointer bg-gray-100 shadow-lg rounded-md p-6 flex flex-col items-center w-full max-w-[300px] mx-auto md:mx-0 hover:bg-mai transition-colors">
+                                <div className="mb-4 flex items-center justify-center w-14 h-14 rounded-full bg-indigo-50 shadow  transition-colors">
                                     {step.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-700 mb-2 text-center">{step.title}</h3>
+                                <h3 className="text-xl font-bold text-gray-700 mb-2 text-center group-hover:text-white transition-colors">
+                                    {step.title}
+                                </h3>
                             </div>
                             {/* Description */}
                             <div className="w-full md:w-1/3 flex flex-col justify-center z-10">
