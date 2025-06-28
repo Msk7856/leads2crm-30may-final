@@ -257,6 +257,7 @@ export default function ContactUs() {
                         <div>
                             <PhoneInput
                                 country={country}
+                                placeholder="9470244795"
                                 value={form.phone}
                                 onChange={handlePhoneChange}
                                 inputClass="!w-full !border-b !border-gray-300 bg-transparent !text-gray-700  !pl-10 !py-1 !focus:outline-none !focus:border-mai"
