@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
@@ -720,12 +721,17 @@ const Header = () => {
     <>
       <header className={`header left-0 top-0 z-40 w-full items-center  ${sticky ? "fixed bg-[#ffffff] text-black  shadow-lg backdrop-blur-2xl " : "absolute bg-[#ffffff]  "} transition-all`}>
         <div className="flex justify-between items-center px-5 py-4 max-w-7xl mx-auto w-full">
-          <Link href="/">
-            <img
-              src="/images/logo/Leads2crm.jpg"
-              alt="Logo"
-              className="h-15 w-[160px] z-40 mt-[-1px]"
-            />
+          <Link href="/" legacyBehavior>
+            <a>
+              <Image
+                src="/images/logo/Leads2crm.jpg"
+                alt="Leads2CRM Logo"
+                width={160}
+                height={60}
+                priority
+                className="z-40 mt-[-1px]" // Optional: adjust styles
+              />
+            </a>
           </Link>
 
           <button
