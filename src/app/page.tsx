@@ -110,7 +110,7 @@ export default function Home() {
       <ContactUs />
       {/* <Pricing />  */}
       {/* <FAQs/> */}
-      {/* <Blog /> */}
+      <Blog />
       {/* <Contact /> */}
       {/* <RequestDemoForm/> */}
       {/* <DelayedForm/> */}

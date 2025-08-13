@@ -668,6 +668,12 @@ const Header = () => {
               contentKey: "financialManagement",
               "icon": 'images/icon/header-icon/global-footprint.png'
             },
+            {
+              text: "Blog",
+              url: "/blog",
+              contentKey: "blog",
+              "icon": 'images/icon/header-icon/blog.png'
+            },
             // {
             //   text: "Experience certainty",
             //   url: "https://example.com/erp-solutions",
