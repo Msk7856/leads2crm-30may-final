@@ -26,19 +26,19 @@ const Header = () => {
               text: "Zoho",
               url: "/zoho",
               contentKey: "api",
-              "icon": 'images/icon/header-icon/zoho.png'
+              "icon": '/images/icon/header-icon/zoho.png'
             },
             {
               text: "Zoho-CRM",
               url: "/zoho-crm",
               contentKey: "api",
-              "icon": 'images/icon/header-icon/zohocrm.png'
+              "icon": '/images/icon/header-icon/zohocrm.png'
             },
             {
               text: "Zoho-Creator",
               url: "/zoho-creator",
               contentKey: "api",
-              "icon": 'images/icon/header-icon/zoho-creator.png'
+              "icon": '/images/icon/header-icon/zoho-creator.png'
             },
             // {
             //   text: "Zoho CRM",
@@ -122,26 +122,26 @@ const Header = () => {
               text: "Cloud",
               url: "https://example.com/connectors-workflows",
               contentKey: "connectorsWorkflows",
-              "icon": 'images/icon/header-icon/cloud.png'
+              "icon": '/images/icon/header-icon/cloud.png'
             },
             {
               text: "IoT",
               url: "https://example.com/connectors-workflows",
               contentKey: "connectorsWorkflows",
-              "icon": 'images/icon/header-icon/iot.png'
+              "icon": '/images/icon/header-icon/iot.png'
             },
             {
               text: "Mobile App Development",
               url: "https://example.com/connectors-workflows",
               contentKey: "connectorsWorkflows",
-              "icon": 'images/icon/header-icon/mobileapp.png'
+              "icon": '/images/icon/header-icon/mobileapp.png'
             },
 
             {
               text: "AI & ML",
               url: "https://example.com/connectors-workflows",
               contentKey: "connectorsWorkflows",
-              "icon": 'images/icon/header-icon/aiml.png'
+              "icon": '/images/icon/header-icon/aiml.png'
             },
           ],
         },
@@ -159,28 +159,28 @@ const Header = () => {
               "url": "https://example.com/enterprise-it",
               "altText": "ERP, SAP, and Oracle implementations",
               "contentKey": "enterpriseIT",
-              "icon": 'images/icon/header-icon/itservice.png'
+              "icon": '/images/icon/header-icon/itservice.png'
             },
             {
               "text": "Application Development & Maintenance Services",
               "url": "https://example.com/application-development",
               "altText": "Custom Software, Legacy Modernisation",
               "contentKey": "applicationDevelopment",
-              "icon": 'images/icon/header-icon/appdevelopment.png'
+              "icon": '/images/icon/header-icon/appdevelopment.png'
             },
             {
               "text": "Digital Transformation",
               "url": "digitrans#page",
               "altText": "Strategy, Automation and Process Optimization, Blockchain, UX/UI Design and Customer Experience",
               "contentKey": "digitalTransformation",
-              "icon": 'images/icon/header-icon/digitalization.png'
+              "icon": '/images/icon/header-icon/digitalization.png'
             },
             {
               "text": "Cloud Services",
               "url": "cloudser#page",
               "altText": "Hybrid Cloud Strategy, Cloud Migration and Management, Edge Computing",
               "contentKey": "cloudServices",
-              "icon": 'images/icon/header-icon/cloud.png'
+              "icon": '/images/icon/header-icon/cloud.png'
             },
             // {
             //   "text": "IoT Services",
@@ -358,32 +358,32 @@ const Header = () => {
               "text": "Case Study",
               "url": "https://example.com/case-study",
               "contentKey": "caseStudy",
-              "icon": 'images/icon/header-icon/case-study.png'
+              "icon": '/images/icon/header-icon/case-study.png'
 
             },
             {
               "text": "Tech Articles",
               "url": "https://example.com/tech-articles",
               "contentKey": "techArticles",
-              "icon": 'images/icon/header-icon/tech-artical.png'
+              "icon": '/images/icon/header-icon/tech-artical.png'
             },
             {
               "text": "Our Client & Testimonials",
               "url": "https://example.com/client-testimonials",
               "contentKey": "clientTestimonials",
-              "icon": 'images/icon/header-icon/testimonial.png'
+              "icon": '/images/icon/header-icon/testimonial.png'
             },
             {
               "text": "Career",
               "url": "https://example.com/career",
               "contentKey": "career",
-              "icon": 'images/icon/header-icon/career.png'
+              "icon": '/images/icon/header-icon/career.png'
             },
             {
               "text": "FAQ",
               "url": "#faq",
               "contentKey": "faq",
-              "icon": 'images/icon/header-icon/faq.png'
+              "icon": '/images/icon/header-icon/faq.png'
             },
           ],
         },
@@ -401,55 +401,55 @@ const Header = () => {
               text: "React.js",
               url: "frontend#react-js",
               contentKey: "erpSolutions",
-              "icon": 'images/icon/header-icon/react.png'
+              "icon": '/images/icon/header-icon/react.png'
             },
             {
               text: "Next.js",
               url: "frontend#next-js",
               contentKey: "operationsManagement",
-              "icon": 'images/icon/header-icon/next.png'
+              "icon": '/images/icon/header-icon/next.png'
             },
             {
               text: "Vue.js ",
               url: "frontend#vue-js",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/vue.png'
+              "icon": '/images/icon/header-icon/vue.png'
             },
             {
               text: "Angular ",
               url: "frontend#angular",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/angular.png'
+              "icon": '/images/icon/header-icon/angular.png'
             },
             {
               text: "HTML5 & CSS3 ",
               url: "frontend#html-css",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/htmlcss.png'
+              "icon": '/images/icon/header-icon/htmlcss.png'
             },
             {
               text: "Tailwind CSS ",
               url: "frontend#tailwind-css",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/tailwind.svg'
+              "icon": '/images/icon/header-icon/tailwind.svg'
             },
             {
               text: " Bootstrap ",
               url: "frontend#bootstrap",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/bootstrap.png'
+              "icon": '/images/icon/header-icon/bootstrap.png'
             },
             {
               text: "Sass ",
               url: "frontend#sass",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/saas.png'
+              "icon": '/images/icon/header-icon/saas.png'
             },
             {
               text: " jQuery ",
               url: "frontend#jquery",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/jquery.png'
+              "icon": '/images/icon/header-icon/jquery.png'
             },
           ],
         },
@@ -461,63 +461,63 @@ const Header = () => {
               text: "Node.js ",
               url: "backend#node-js",
               contentKey: "erpSolutions",
-              "icon": 'images/icon/header-icon/nodejs.png'
+              "icon": '/images/icon/header-icon/nodejs.png'
             },
             {
               text: "Express.js",
               url: "backend#express-js",
               contentKey: "operationsManagement",
-              "icon": 'images/icon/header-icon/nodejs.png'
+              "icon": '/images/icon/header-icon/nodejs.png'
             },
             {
               text: "Django ",
               url: "backend#django",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/django.png'
+              "icon": '/images/icon/header-icon/django.png'
             },
             {
               text: "Ruby on Rails ",
               url: "backend#ruby-on-rails",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/ruby.png'
+              "icon": '/images/icon/header-icon/ruby.png'
 
             },
             {
               text: "Spring Boot ",
               url: "backend#spring-boot",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/spring.png'
+              "icon": '/images/icon/header-icon/spring.png'
             },
 
             {
               text: "Flask ",
               url: "backend#flask",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/flask.png'
+              "icon": '/images/icon/header-icon/flask.png'
             },
             {
               text: " .NET Core ",
               url: "backend#dotnet-core",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/net.png'
+              "icon": '/images/icon/header-icon/net.png'
             },
             {
               text: " Go ",
               url: "backend#go",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/go.png'
+              "icon": '/images/icon/header-icon/go.png'
             },
             {
               text: " Java ",
               url: "backend#java",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/java.png'
+              "icon": '/images/icon/header-icon/java.png'
             },
             {
               text: " Python ",
               url: "backend#python",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/python.png'
+              "icon": '/images/icon/header-icon/python.png'
             },
           ],
         },
@@ -530,43 +530,43 @@ const Header = () => {
               text: "SQL Server",
               url: "database#sql-server",
               contentKey: "operationsManagement",
-              "icon": 'images/icon/header-icon/sql.png'
+              "icon": '/images/icon/header-icon/sql.png'
             },
             {
               text: "PostgreSQL ",
               url: "database#postgresql",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/sql.png'
+              "icon": '/images/icon/header-icon/sql.png'
             },
             {
               text: "Firebase ",
               url: "database#firebase",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/firebase.png'
+              "icon": '/images/icon/header-icon/firebase.png'
             },
             {
               text: "MongoDB ",
               url: "database#mongodb",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/mongodb.png'
+              "icon": '/images/icon/header-icon/mongodb.png'
             },
             {
               text: "MySQL ",
               url: "database#mysql",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/sql.png'
+              "icon": '/images/icon/header-icon/sql.png'
             },
             {
               text: "Elasticsearch ",
               url: "database#elasticsearch",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/elasticsearch.png'
+              "icon": '/images/icon/header-icon/elasticsearch.png'
             },
             {
               text: " Redis ",
               url: "database#redis",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/redis.png'
+              "icon": '/images/icon/header-icon/redis.png'
             },
           ],
         },
@@ -583,49 +583,49 @@ const Header = () => {
               "text": "Energy & Utilities",
               "url": "#",
               "contentKey": "energyUtilities",
-              "icon": 'images/icon/header-icon/energy.png'
+              "icon": '/images/icon/header-icon/energy.png'
             },
             {
               "text": "Retail &  Consumer Goods",
               "url": "#",
               "contentKey": "retailConsumerGoods",
-              "icon": 'images/icon/header-icon/ecomm.png'
+              "icon": '/images/icon/header-icon/ecomm.png'
             },
             {
               "text": "Healthcare &  Life Sciences",
               "url": "#",
               "contentKey": "healthcareLifeSciences",
-              "icon": 'images/icon/header-icon/healthcares.png'
+              "icon": '/images/icon/header-icon/healthcares.png'
             },
             {
               "text": "Government &  Public Sector",
               "url": "#",
               "contentKey": "governmentPublicSector",
-              "icon": 'images/icon/header-icon/government.png'
+              "icon": '/images/icon/header-icon/government.png'
             },
             {
               "text": "Technology &  Communications",
               "url": "#",
               "contentKey": "technologyCommunications",
-              "icon": 'images/icon/header-icon/technologycomm.png'
+              "icon": '/images/icon/header-icon/technologycomm.png'
             },
             {
               "text": "Hitech &  Semiconductor",
               "url": "#",
               "contentKey": "hitechSemiconductor",
-              "icon": 'images/icon/header-icon/fintech.png'
+              "icon": '/images/icon/header-icon/fintech.png'
             },
             {
               "text": "Aerospace &  Defense",
               "url": "#",
               "contentKey": "aerospaceDefense",
-              "icon": 'images/icon/header-icon/defence.png'
+              "icon": '/images/icon/header-icon/defence.png'
             },
             {
               "text": "Industrial Manufacturing",
               "url": "#",
               "contentKey": "industrialManufacturing",
-              "icon": 'images/icon/header-icon/industrys.png'
+              "icon": '/images/icon/header-icon/industrys.png'
             }
           ]
 
@@ -660,19 +660,19 @@ const Header = () => {
               text: "About Leads2CRM",
               url: "/about-us",
               contentKey: "operationsManagement",
-              "icon": 'images/icon/header-icon/about.png'
+              "icon": '/images/icon/header-icon/about.png'
             },
             {
               text: "Our Global Footprint",
               url: "https://example.com/financial-management",
               contentKey: "financialManagement",
-              "icon": 'images/icon/header-icon/global-footprint.png'
+              "icon": '/images/icon/header-icon/global-footprint.png'
             },
             {
               text: "Blog",
               url: "/blog",
               contentKey: "blog",
-              "icon": 'images/icon/header-icon/blog.png'
+              "icon": '/images/icon/header-icon/blog.png'
             },
             // {
             //   text: "Experience certainty",
