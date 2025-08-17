@@ -45,7 +45,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                         <div className="flex flex-wrap gap-2">
                             <button
                                 onClick={() => setSelectedCategory(null)}
-                                className={`px-4 py-1 rounded-full border ${selectedCategory === null ? "bg-black text-white shadow-md" : "bg-white shadow-md"
+                                className={`px-4 py-1 rounded-full border ${selectedCategory === null ? "bg-black text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                     }`}
                             >
                                 All
@@ -54,7 +54,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                                 <button
                                     key={cat}
                                     onClick={() => setSelectedCategory(cat)}
-                                    className={`px-4 py-1 rounded-full border ${selectedCategory === cat ? "bg-black text-white shadow-md" : "bg-white shadow-md"
+                                    className={`px-4 py-1 rounded-full border ${selectedCategory === cat ? "bg-black text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                         }`}
                                 >
                                     {cat}
@@ -66,11 +66,11 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                     <hr />
                     {/* Industry Filter as buttons */}
                     <div>
-                        <label className="block mb-2 text-base font-semibold">Industry</label>
+                        <label className="block mb-2 text-black text-base font-semibold">Industry</label>
                         <div className="flex flex-wrap gap-2">
                             <button
                                 onClick={() => setSelectedIndustry(null)}
-                                className={`px-4 py-1 rounded-full border ${selectedIndustry === null ? "bg-black text-white shadow-md" : "bg-white shadow-md"
+                                className={`px-4 py-1 rounded-full border ${selectedIndustry === null ? "bg-black text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                     }`}
                             >
                                 All
@@ -79,7 +79,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                                 <button
                                     key={ind}
                                     onClick={() => setSelectedIndustry(ind)}
-                                    className={`px-4 py-1 rounded-full border ${selectedIndustry === ind ? "bg-black text-white shadow-md" : "bg-white shadow-md"
+                                    className={`px-4 py-1 rounded-full border ${selectedIndustry === ind ? "bg-black text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                         }`}
                                 >
                                     {ind}
