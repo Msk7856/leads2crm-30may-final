@@ -48,7 +48,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
           {subtitle}
         </h3>
 
-        <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-gray-700 dark:border-white dark:border-opacity-10">
+        <p className="mb-2 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-gray-700 dark:border-white dark:border-opacity-10">
           {paragraph}
         </p>
 
