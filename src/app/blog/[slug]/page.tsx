@@ -50,11 +50,11 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                         height={450}
                         className="rounded-lg mb-6"
                     />
-                    <span className="inline-block bg-primary text-white px-4 py-1 rounded-full mb-4">
+                    <span className="inline-block bg-gray-800 text-white px-4 py-1 rounded-full mb-4">
                         {blog.tags?.[0]}
                     </span>
-                    <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
-                    <h1 className="text-xl font-semibold mb-4">{blog.subtitle}</h1>
+                    <h1 className="text-3xl text-mai font-bold mb-4">{blog.title}</h1>
+                    <h1 className="text-xl text-gray-700 font-semibold mb-4">{blog.subtitle}</h1>
                     <p className="text-gray-600 text-justify text-base mb-8">{blog.description}</p>
                     <p className="text-gray-600 text-justify text-lg font-bold mb-8">{blog.excerpt}</p>
 
