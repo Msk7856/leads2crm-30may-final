@@ -93,6 +93,7 @@ export default function RegisterCertificate() {
                     value={form.dob}
                     onChange={handleChange}
                     required
+                    placeholder='Date of Birth'
                     className="w-full p-2 border rounded"
                 />
                 <input
