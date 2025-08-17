@@ -13,7 +13,7 @@ const RelatedPost = ({
   title: string;
   date: string;
 }) => {
-  console.log("Slug in RelatedPost:", slug);
+  // console.log("Slug in RelatedPost:", slug);
   return (
     <Link
       href={slug}
