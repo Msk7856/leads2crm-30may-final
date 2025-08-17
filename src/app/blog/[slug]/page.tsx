@@ -68,13 +68,13 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                                 className="rounded-full"
                             />
                             <div>
-                                <p className="font-medium text-gray-700">By {authorName}</p>
+                                <p className="font-medium text-gray-800">By {authorName}</p>
                                 <p className="text-sm text-gray-500">{authorDesignation}</p>
                             </div>
                         </div>
                         <div className="ml-auto text-sm text-gray-500">
                             <div className="inline-block">
-                                <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
+                                <h4 className="mb-1 text-sm font-medium text-gray-800 dark:text-white">
                                     Date
                                 </h4>
                                 <p className="text-xs text-body-color">{formattedDateTime}</p>
@@ -90,7 +90,7 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                             {blog.tags.map((tag, index) => (
                                 <span
                                     key={index}
-                                    className="inline-block bg-primary text-gray-600 px-4 py-1 rounded-full text-sm"
+                                    className="inline-block bg-gray-400 text-gray-700 px-4 py-1 rounded-full text-sm"
                                 >
                                     {tag}
                                 </span>

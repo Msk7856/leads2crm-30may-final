@@ -76,7 +76,7 @@ export default function RegisterCertificate() {
 
     return (
         <div className="max-w-lg mx-auto mt-20 mb-10 p-2">
-            <h1 className="text-2xl font-bold mb-4">Register Certificate</h1>
+            <h1 className="text-2xl text-gray-800 font-bold mb-4">Register Certificate</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <input
                     type="text"

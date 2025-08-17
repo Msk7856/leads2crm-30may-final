@@ -40,14 +40,14 @@ export default function VerifyCertificate() {
 
     return (
         <div className="max-w-lg mx-auto mt-20 mb-10 p-2">
-            <h1 className="text-2xl font-bold mb-4">Verify Certificate</h1>
+            <h1 className="text-2xl text-gray-800 font-bold mb-4">Verify Certificate</h1>
             <form onSubmit={handleVerify} className="space-y-4">
                 <input type="text" placeholder="Reference ID" value={ref} onChange={(e) => setRef(e.target.value)} required className="w-full p-2 border rounded" />
-                <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required className="w-full p-2 border rounded" />
+                <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required placeholder='DOB' className="w-full p-2 border rounded" />
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className={`w-full px-4 py-2 rounded text-white ${isLoading ? 'bg-green' : 'bg-lime-700 hover:bg-lime-600'}`}
+                    className={`w-full px-4 py-2 rounded text-white ${isLoading ? 'bg-green' : 'bg-green hover:bg-lime-600'}`}
                 >
                     {isLoading ? 'Verifying...' : 'Verify'}
                 </button>
