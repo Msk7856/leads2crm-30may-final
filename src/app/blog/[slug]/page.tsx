@@ -68,7 +68,7 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                                 className="rounded-full"
                             />
                             <div>
-                                <p className="font-medium">By {authorName}</p>
+                                <p className="font-medium text-gray-700">By {authorName}</p>
                                 <p className="text-sm text-gray-500">{authorDesignation}</p>
                             </div>
                         </div>
