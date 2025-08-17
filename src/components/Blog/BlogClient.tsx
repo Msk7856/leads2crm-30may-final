@@ -37,7 +37,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
 
                 {/* LEFT: Sidebar */}
                 <aside className="md:col-span-1 space-y-6">
-                    <label className="block mb-2 text-lg font-semibold">Filter&apos;s</label>
+                    <label className="block mb-2 text-lg font-semibold">Filters</label>
 
                     {/* Category Filter as buttons */}
                     <div>

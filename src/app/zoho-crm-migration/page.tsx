@@ -17,7 +17,7 @@ const Page = () => {
             "@type": "Organization",
             "name": "Leads2CRM",
             "url": "https://www.leads2crm.com",
-            "logo": "https://www.leads2crm.com/logo.png",
+            "logo": "https://www.leads2crm.com/_next/image?url=%2Fimages%2Flogo%2FLeads2crm.jpg&w=256&q=75",
             "email": "info@leads2crm.com"
         },
         "areaServed": [
