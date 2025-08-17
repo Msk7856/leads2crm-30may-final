@@ -58,7 +58,7 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                     <p className="text-gray-600 text-justify text-base mb-8">{blog.description}</p>
                     <p className="text-gray-600 text-justify text-lg font-bold mb-8">{blog.excerpt}</p>
 
-                    <div className="flex items-center gap-4 border-t border-b py-4 mb-8">
+                    <div className="flex items-center gap-4 border-t border-b border-gray-500 py-4 mb-8">
                         <div className="flex items-center gap-3">
                             <Image
                                 src={authorImage}
