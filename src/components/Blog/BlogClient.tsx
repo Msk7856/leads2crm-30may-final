@@ -45,7 +45,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                         <div className="flex flex-wrap gap-2">
                             <button
                                 onClick={() => setSelectedCategory(null)}
-                                className={`px-4 py-1 rounded-full border ${selectedCategory === null ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
+                                className={`px-4 py-1 rounded-full border border-gray-300 ${selectedCategory === null ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                     }`}
                             >
                                 All
@@ -54,7 +54,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                                 <button
                                     key={cat}
                                     onClick={() => setSelectedCategory(cat)}
-                                    className={`px-4 py-1 rounded-full border ${selectedCategory === cat ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
+                                    className={`px-4 py-1 rounded-full border border-gray-300 ${selectedCategory === cat ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                         }`}
                                 >
                                     {cat}
@@ -70,7 +70,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                         <div className="flex flex-wrap gap-2">
                             <button
                                 onClick={() => setSelectedIndustry(null)}
-                                className={`px-4 py-1 rounded-full border ${selectedIndustry === null ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
+                                className={`px-4 py-1 rounded-full border border-gray-300 ${selectedIndustry === null ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                     }`}
                             >
                                 All
@@ -79,7 +79,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                                 <button
                                     key={ind}
                                     onClick={() => setSelectedIndustry(ind)}
-                                    className={`px-4 py-1 rounded-full border ${selectedIndustry === ind ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
+                                    className={`px-4 py-1 rounded-full border border-gray-300 ${selectedIndustry === ind ? "bg-mai text-white shadow-md" : "bg-white text-gray-700 shadow-md"
                                         }`}
                                 >
                                     {ind}
@@ -96,8 +96,8 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                         <div className="flex gap-3">
                             <button
                                 onClick={() => setSortOrder("newest")}
-                                className={`px-4 py-1 rounded-lg border transition-colors ${sortOrder === "newest"
-                                    ? "bg-mai text-white border-black shadow-md"
+                                className={`px-4 py-1 rounded-lg border border-gray-300 transition-colors ${sortOrder === "newest"
+                                    ? "bg-mai text-white border-gray-300 shadow-md"
                                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 shadow-md"
                                     }`}
                             >
@@ -106,7 +106,7 @@ export default function BlogClient({ blogs, categories, industries }: BlogClient
                             <button
                                 onClick={() => setSortOrder("oldest")}
                                 className={`px-4 py-1 rounded-lg border transition-colors ${sortOrder === "oldest"
-                                    ? "bg-mai text-white border-black shadow-md"
+                                    ? "bg-mai text-white border-gray-300 shadow-md"
                                     : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100 shadow-md"
                                     }`}
                             >
