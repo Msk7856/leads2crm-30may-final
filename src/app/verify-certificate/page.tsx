@@ -56,13 +56,13 @@ export default function VerifyCertificate() {
             {message && <p className="mt-4 text-red-500">{message}</p>}
 
             {result && (
-                <div className="mt-6 border p-4 rounded shadow bg-white">
+                <div className="mt-6 border p-4 rounded shadow text-black bg-white">
                     <h2 className="text-xl font-bold mb-2">Certificate Details</h2>
-                    <p><strong>Name:</strong> {result.fullName}</p>
-                    <p><strong>DOB:</strong> {result.dob}</p>
-                    <p><strong>Course:</strong> {result.courseTitle} ({result.courseId})</p>
-                    <p><strong>Issued At:</strong> {new Date(result.issuedAt).toLocaleDateString()}</p>
-                    {result.pdfUrl && <a href={result.pdfUrl} target="_blank" className="text-blue-600 underline mt-2 inline-block">View Certificate</a>}
+                    <p className='text-black'><strong>Name:</strong> {result.fullName}</p>
+                    <p className='text-black'><strong>DOB:</strong> {result.dob}</p>
+                    <p className='text-black'><strong>Course:</strong> {result.courseTitle} ({result.courseId})</p>
+                    <p className='text-black'><strong>Issued At:</strong> {new Date(result.issuedAt).toLocaleDateString()}</p>
+                    {result.pdfUrl && <a href={result.pdfUrl} target="_blank" className="text-blue underline mt-2 inline-block">View Certificate</a>}
                 </div>
             )}
         </div>
