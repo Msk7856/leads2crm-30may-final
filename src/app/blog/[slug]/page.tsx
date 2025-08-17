@@ -84,13 +84,13 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                     <div className="prose max-w-none">{blog.paragraph}</div>
 
                     {/* Tags */}
-                    <h4 className="mb-2 text-lg font-medium text-dark dark:text-white">Tags:</h4>
+                    <h4 className="mb-2 text-lg font-medium text-gray-800 dark:text-white">Tags:</h4>
                     {blog.tags && blog.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-4">
                             {blog.tags.map((tag, index) => (
                                 <span
                                     key={index}
-                                    className="inline-block bg-primary text-white px-4 py-1 rounded-full text-sm"
+                                    className="inline-block bg-primary text-gray-600 px-4 py-1 rounded-full text-sm"
                                 >
                                     {tag}
                                 </span>
@@ -101,7 +101,7 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                     {/* Related Posts */}
                     {relatedPosts.length > 0 && (
                         <div className="mt-10">
-                            <h2 className="text-xl font-semibold mb-4">Related Posts</h2>
+                            <h2 className="text-xl text-gray-800 font-semibold mb-4">Related Posts</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 {relatedPosts.map((post) => (
                                     <RelatedPost

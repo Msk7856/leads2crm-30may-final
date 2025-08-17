@@ -48,30 +48,30 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
           {subtitle}
         </h3>
 
-        <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
+        <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-gray-700 dark:border-white dark:border-opacity-10">
           {paragraph}
         </p>
 
         <div className="flex items-center">
-          <div className="mr-2 flex items-center border-r border-body-color border-opacity-10 pr-2 dark:border-white dark:border-opacity-10 xl:mr-2 xl:pr-2 2xl:mr-2 2xl:pr-2">
+          <div className="mr-2 flex items-center border-r border-gray-300 border-opacity-10 pr-2 dark:border-white dark:border-opacity-10 xl:mr-2 xl:pr-2 2xl:mr-2 2xl:pr-2">
             <div className="mr-2">
               <div className="relative h-10 w-10 overflow-hidden rounded-full">
                 <Image src={author.image} alt={author.name} fill unoptimized />
               </div>
             </div>
             <div className="w-full">
-              <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
+              <h4 className="mb-1 text-sm font-medium text-gray-700 dark:text-white">
                 By {author.name}
               </h4>
-              <p className="text-xs text-body-color">{author.designation}</p>
+              <p className="text-xs text-gray-700">{author.designation}</p>
             </div>
 
           </div>
           <div className="inline-block">
-            <h4 className="mb-1 text-sm font-medium text-dark dark:text-white">
+            <h4 className="mb-1 text-sm font-medium text-gray-700 dark:text-white">
               Date
             </h4>
-            <p className="text-xs text-body-color">{formattedDateTime}</p>
+            <p className="text-xs text-gray-700">{formattedDateTime}</p>
           </div>
 
         </div>
