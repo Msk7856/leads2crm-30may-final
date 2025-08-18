@@ -90,7 +90,7 @@ export default async function BlogSlugPage({ params }: BlogSlugPageProps) {
                             {blog.tags.map((tag, index) => (
                                 <span
                                     key={index}
-                                    className="inline-block bg-gray-400 text-gray-700 px-4 py-1 rounded-full text-sm"
+                                    className="inline-block bg-gray-200 text-gray-700 px-4 py-1 rounded-full text-sm"
                                 >
                                     {tag}
                                 </span>
