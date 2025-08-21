@@ -11,6 +11,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Providers } from "./providers";
+import TopBar from "@/components/topbar";
+import { usePathname } from "next/navigation";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +32,11 @@ export default function RootLayout({
     });
   }, []);
 
+  const pathname = usePathname();
+
+  // If pathname is not ready yet, fallback to showing layout
+  const isStandalone = pathname?.startsWith("/standalone");
+
   return (
     <html suppressHydrationWarning lang="en">
       {/*
@@ -39,19 +48,21 @@ export default function RootLayout({
       {/* <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}> */}
       <body className={`bg-[#FFFFFF]  ${inter.className}`}>
 
+
+
         <Providers>
           {/* <TopBar/> */}
           {/* <TopBar/> */}
-          <Header />
+          {/* <Header /> */}
+          {!isStandalone && <Header />}
           {children}
-          <Footer />
-          <ScrollToTop />
+          {!isStandalone && <Footer />}
+          {/* <Footer /> */}
+          {!isStandalone && <ScrollToTop />}
+          {/* <ScrollToTop /> */}
         </Providers>
+
       </body>
     </html>
   );
 }
-
-import { Providers } from "./providers";
-import TopBar from "@/components/topbar";
-
