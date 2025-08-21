@@ -25,7 +25,7 @@ export function FinalCta() {
                             className="inline-flex items-center justify-center rounded-full bg-orange-500 text-white hover:bg-orange-400 hover:text-accent shadow-lg text-lg font-medium px-8 py-4 transition-all duration-300 group"
                             aria-label="Book a 30-Minute Zoho CRM Strategy Call"
                         >
-                            Book a 30-Minute Strategy Call
+                            Book a 30 Minute Strategy Call
                             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </Link>
 
