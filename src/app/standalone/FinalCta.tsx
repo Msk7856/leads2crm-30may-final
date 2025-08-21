@@ -5,7 +5,7 @@ export function FinalCta() {
     return (
         <section
             id="cta"
-            className="py-20 sm:py-28 bg-mai text-primary-foreground"
+            className="py-16 sm:py-24 bg-mai text-primary-foreground"
         >
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center max-w-3xl mx-auto">
@@ -13,8 +13,8 @@ export function FinalCta() {
                         Ready to Elevate Your CRM?
                     </h2>
                     <p className="mt-4 text-lg text-primary-foreground/80">
-                        Let's discuss how we can tailor Zoho CRM to meet your specific
-                        business goals. Unlock your business's full potential with a
+                        Let&apos;s discuss how we can tailor Zoho CRM to meet your specific
+                        business goals. Unlock your business&apos;s full potential with a
                         personalized strategy.
                     </p>
 
@@ -31,7 +31,7 @@ export function FinalCta() {
 
                         <p className="mt-4 text-sm text-primary-foreground/60 flex items-center justify-center gap-2">
                             <Calendar className="h-4 w-4" />
-                            <span>Powered by Calendly for easy scheduling</span>
+                            <span>Powered by Lead2CRM </span>
                         </p>
                     </div>
                 </div>

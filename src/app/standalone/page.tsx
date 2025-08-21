@@ -1,5 +1,6 @@
 import { CaseStudies } from "./CaseStudies";
 import { FinalCta } from "./FinalCta";
+import { Footer } from "./Footer";
 import StandalonePage from "./hero";
 import { Services } from "./Services";
 import { Testimonials } from "./Testimonials";
@@ -14,6 +15,7 @@ export default function Standalone() {
             <CaseStudies />
             <Testimonials />
             <FinalCta />
+            {/* <Footer /> */}
         </div>
     );
 }

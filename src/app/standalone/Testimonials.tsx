@@ -35,8 +35,7 @@ export function Testimonials() {
                         What Our Clients Say
                     </h2>
                     <p className="mt-4 text-lg text-foreground/70">
-                        Hear from businesses that have transformed their operations with our
-                        help.
+                        Hear from businesses that have transformed their operations with our help.
                     </p>
                 </div>
 
@@ -49,7 +48,7 @@ export function Testimonials() {
                         >
                             {/* Quote */}
                             <p className="text-foreground/80 italic">
-                                "{testimonial.quote}"
+                                &quot;{testimonial.quote}&quot;
                             </p>
 
                             {/* Footer */}
