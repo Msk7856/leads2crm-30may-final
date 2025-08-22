@@ -1,4 +1,5 @@
 import { Settings, GitMerge, Zap, Database } from "lucide-react";
+import CRMImage from "./CRMImage";
 
 const services = [
     {
@@ -41,6 +42,9 @@ export function Services() {
                         Zoho CRM services.
                     </p>
                 </div>
+
+                {/* <img src="images/zoho/crm-image.png" alt="" /> */}
+                
 
                 {/* Services Grid */}
                 <div className="mt-12  grid gap-6 md:grid-cols-2 lg:grid-cols-4">

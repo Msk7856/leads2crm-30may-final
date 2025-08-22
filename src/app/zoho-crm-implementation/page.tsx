@@ -1,4 +1,5 @@
 import { CaseStudies } from "./CaseStudies";
+import CRMImage from "./CRMImage";
 import { FinalCta } from "./FinalCta";
 import { Footer } from "./Footer";
 import StandalonePage from "./hero";
@@ -12,6 +13,7 @@ export default function Standalone() {
             <StandalonePage />
             <TrustAuthority />
             <Services />
+            <CRMImage />
             <CaseStudies />
             <Testimonials />
             <FinalCta />

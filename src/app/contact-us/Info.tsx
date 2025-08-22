@@ -4,13 +4,13 @@ import { MapPin, Phone, Mail, Building } from "lucide-react";
 
 export default function ContactInfo() {
     return (
-        <section id="contact" className="py-16 max-w-6xl md:mx-auto sm:py-24 bg-white">
-            <div className="container mx-auto  px-2 md:px-4">
+        <section id="contact" className="py-8 max-w-6xl md:mx-auto sm:py-16 bg-white">
+            <div className="container mx-auto  px-2 md:px-2">
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                     {/* Australia Office */}
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md">
-                        <div className="p-3 rounded-full bg-sky-100 text-sky-600">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md border hover:shadow-xl hover:scale-105 transition">
+                        <div className="p-3 rounded-full bg-sky-200 text-sky-600">
                             <Building className="h-6 w-6" />
                         </div>
                         <div>
@@ -23,8 +23,8 @@ export default function ContactInfo() {
                     </div>
 
                     {/* Melbourne Office */}
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md">
-                        <div className="p-3 rounded-full bg-sky-100 text-sky-600">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md border hover:shadow-xl hover:scale-105 transition">
+                        <div className="p-3 rounded-full bg-sky-200 text-sky-600">
                             <Building className="h-6 w-6" />
                         </div>
                         <div>
@@ -37,19 +37,20 @@ export default function ContactInfo() {
                     </div>
 
                     {/* Phone */}
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md">
-                        <div className="p-3 rounded-full bg-green-100 text-green-600">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md border hover:shadow-xl hover:scale-105 transition">
+                        <div className="p-3 rounded-full bg-lime-200 text-green">
                             <Phone className="h-6 w-6" />
                         </div>
                         <div>
                             <h3 className="font-semibold text-lg">Phone</h3>
-                            <p className="text-gray-600 mt-1">1300 921 280</p>
+                            <p className="text-gray-600 mt-1">+966-559034101</p>
+                            <p className="text-gray-600 mt-1">+91 9470244795</p>
                         </div>
                     </div>
 
                     {/* Email */}
-                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md">
-                        <div className="p-3 rounded-full bg-yellow-100 text-yellow-600">
+                    <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md border hover:shadow-xl hover:scale-105 transition">
+                        <div className="p-3 rounded-full bg-amber-200 text-yellow">
                             <Mail className="h-6 w-6" />
                         </div>
                         <div>

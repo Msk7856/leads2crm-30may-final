@@ -31,7 +31,7 @@ export default function SchemaLD() {
               name: "Leads2CRM Madhubai Office",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Saudi Arabia, Riyadh,",
+                streetAddress: "Noida sector 32,",
                 addressLocality: "Delhi",
                 addressCountry: "IN",
               },
