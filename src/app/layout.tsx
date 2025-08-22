@@ -35,7 +35,7 @@ export default function RootLayout({
   const pathname = usePathname();
 
   // If pathname is not ready yet, fallback to showing layout
-  const isStandalone = pathname?.startsWith("/standalone");
+  const isStandalone = pathname?.startsWith("/zoho-crm-implementation");
 
   return (
     <html suppressHydrationWarning lang="en">

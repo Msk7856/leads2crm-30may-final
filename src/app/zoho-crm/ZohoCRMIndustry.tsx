@@ -60,13 +60,13 @@ const industries = [
         bg: "bg-orange-50",
         btn: "border-orange-300 text-orange-800 hover:bg-orange-200",
     },
-    {
-        title: "Kitchen CRM",
-        desc: "Create unique client experiences with customizable CRM, Interior Design CRM software integrates client data, project management, and communication tools to enhance customer experience and project delivery.",
-        image: "/images/zoho/zoho-crm/kitchen-design-crm.png",
-        bg: "bg-red-50",
-        btn: "border-red-300 text-red-800 hover:bg-red-200",
-    },
+    // {
+    //     title: "Kitchen CRM",
+    //     desc: "Create unique client experiences with customizable CRM, Interior Design CRM software integrates client data, project management, and communication tools to enhance customer experience and project delivery.",
+    //     image: "/images/zoho/zoho-crm/kitchen-design-crm.png",
+    //     bg: "bg-red-50",
+    //     btn: "border-red-300 text-red-800 hover:bg-red-200",
+    // },
     {
         title: "Interior Design CRM",
         desc: "Every kitchen and interior design business has unique workflows and client needs. A customizable CRM allows you to tailor pipelines, fields, and stages to fit your specific business processes.",

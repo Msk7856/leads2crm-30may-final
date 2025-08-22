@@ -13,17 +13,17 @@ export function TrustAuthority() {
         <section id="trust" className="py-16 sm:py-24 bg-card">
             <div className="container mx-auto px-4 md:px-6">
                 {/* Heading */}
-                <div className="text-center max-w-3xl mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-headline font-bold tracking-tight text-mai">
-                        Trusted by Businesses in Saudi Arabia, India, and Beyond
+                <div className="text-center max-w-4xl mx-auto">
+                    <h2 className="text-3xl  text-center sm:text-4xl font-headline font-bold tracking-tight text-mai">
+                        Trusted by Businesses in Saudi Arabia, India,<br />  and Beyond
                     </h2>
-                    <p className="mt-4 text-lg text-foreground/70">
+                    <p className="mt-4 text-center  text-lg text-foreground/70">
                         Top 1% Zoho CRM Consultant recognized for delivering scalable solutions that drive growth and efficiency.
                     </p>
                 </div>
 
                 {/* Logos */}
-                <div className="mt-12 max-w-4xl mx-auto">
+                {/* <div className="mt-12 max-w-4xl mx-auto">
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-4 gap-y-8 items-center justify-items-center">
                         {logos.map((logo, index) => (
                             <Image
@@ -38,6 +38,17 @@ export function TrustAuthority() {
                         ))}
                     </div>
                 </div>
+                 */}
+                <div className="mt-12 max-w-5xl mx-auto">
+                    <video
+                        src="/video/crm-for-everyone-home-video.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover rounded-xl shadow-xl"
+                    /></div>
+
             </div>
         </section>
     );

@@ -6,6 +6,7 @@ import { collection, addDoc } from "firebase/firestore";
 import FAQ from "@/components/FAQ/FAQ";
 import PhoneInput from "react-phone-input-2";
 import 'react-phone-input-2/lib/style.css';
+import ContactInfo from "./Info";
 
 type FormState = {
   name: string;
@@ -319,6 +320,7 @@ const ContactUs = () => {
           </form>
         </div>
       </div>
+      <ContactInfo />
       <FAQ />
     </>
   );
