@@ -102,7 +102,7 @@ export function FinalCta() {
                     <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl text-white">
                         Ready to Elevate Your CRM?
                     </h2>
-                    <p className="mt-4 text-lg text-primary-foreground/80">
+                    <p className="mt-4 text-lg text-white">
                         Let&apos;s discuss how we can tailor Zoho CRM to meet your specific
                         business goals. Unlock your business&apos;s full potential with a
                         personalized strategy.
@@ -118,7 +118,7 @@ export function FinalCta() {
                             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </button>
 
-                        <p className="mt-4 text-sm text-primary-foreground/60 flex items-center justify-center gap-2">
+                        <p className="mt-4 text-sm text-gray-300 flex items-center justify-center gap-2">
                             <Calendar className="h-4 w-4" />
                             <span>Powered by Lead2CRM </span>
                         </p>
@@ -129,12 +129,12 @@ export function FinalCta() {
             {/* ✅ Popup Modal */}
             {showForm && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-                    <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
+                    <div className="bg-white rounded shadow-lg w-full max-w-md p-6 relative">
                         <button
                             onClick={() => setShowForm(false)}
                             className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
                         >
-                            <X className="h-5 w-5" />
+                            <X className="h-6 w-6 bg-gray-200 hover:bg-red-400 font-bold rounded-full p-1" />
                         </button>
 
                         <h2 className="text-2xl text-gray-800 font-bold mb-4">
@@ -155,7 +155,7 @@ export function FinalCta() {
                                         onChange={(e) =>
                                             setForm({ ...form, firstName: e.target.value })
                                         }
-                                        className="mt-1 w-full rounded-md border outline-none p-2"
+                                        className="mt-1 w-full  bg-white border outline-none p-2"
                                     />
                                     {errors.firstName && (
                                         <p className="text-red-500 text-sm">{errors.firstName}</p>
@@ -170,7 +170,7 @@ export function FinalCta() {
                                         onChange={(e) =>
                                             setForm({ ...form, email: e.target.value })
                                         }
-                                        className="mt-1 w-full rounded-md border outline-none p-2"
+                                        className="mt-1 w-full  bg-white border outline-none p-2"
                                     />
                                     {errors.email && (
                                         <p className="text-red-500 text-sm">{errors.email}</p>
@@ -190,7 +190,7 @@ export function FinalCta() {
                                             onChange={(e) =>
                                                 setForm({ ...form, phone: e.target.value })
                                             }
-                                            className="mt-0 w-full rounded-r-md border p-2"
+                                            className="mt-0 w-full  bg-white border outline-none p-2"
                                         />
                                     </div>
                                     {errors.phone && (
@@ -207,7 +207,7 @@ export function FinalCta() {
                                             onChange={(e) =>
                                                 setForm({ ...form, date: e.target.value })
                                             }
-                                            className="mt-1 w-full rounded-md border outline-none p-2"
+                                            className="mt-1 w-full  bg-white border outline-none p-2"
                                         />
                                         {errors.date && (
                                             <p className="text-red-500 text-sm">{errors.date}</p>
@@ -222,7 +222,7 @@ export function FinalCta() {
                                             onChange={(e) =>
                                                 setForm({ ...form, time: e.target.value })
                                             }
-                                            className="mt-1 w-full rounded-md border outline-none p-2"
+                                            className="mt-1 w-full bg-white border outline-none p-2"
                                         />
                                         {errors.time && (
                                             <p className="text-red-500 text-sm">{errors.time}</p>
@@ -233,7 +233,7 @@ export function FinalCta() {
                                 <button
                                     type="submit"
                                     disabled={loading}
-                                    className="w-full rounded-full bg-orange-500 text-white py-3 font-medium hover:bg-orange-400 transition disabled:opacity-50"
+                                    className="w-full  bg-orange-500 text-white py-3 font-medium hover:bg-orange-400 transition disabled:opacity-50"
                                 >
                                     {loading ? "Submitting..." : "Submit"}
                                 </button>

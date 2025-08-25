@@ -10,12 +10,12 @@ const logos = [
 
 export function TrustAuthority() {
     return (
-        <section id="trust" className="py-16 sm:py-24 bg-card">
+        <section id="trust" className="py-16 sm:py-24 bg-white">
             <div className="container mx-auto px-4 md:px-6">
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto">
                     <h2 className="text-3xl  text-center sm:text-4xl font-headline font-bold tracking-tight text-mai">
-                        Trusted by Businesses in Saudi Arabia, India,<br />  and Beyond
+                        Trusted by Businesses in Saudi Arabia, Dubai, Indai, <br />  and Beyond
                     </h2>
                     <p className="mt-4 text-center  text-lg text-foreground/70">
                         Top 1% Zoho CRM Consultant recognized for delivering scalable solutions that drive growth and efficiency.
@@ -46,7 +46,7 @@ export function TrustAuthority() {
                         muted
                         loop
                         playsInline
-                        className="w-full h-full object-cover rounded-xl shadow-xl"
+                        className="w-full h-full object-cover rounded-xl shadow-2xl"
                     /></div>
 
             </div>

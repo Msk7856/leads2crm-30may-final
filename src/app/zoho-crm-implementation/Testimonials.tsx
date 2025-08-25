@@ -1,27 +1,27 @@
 const testimonials = [
     {
         quote:
-            "The level of expertise and dedication is unmatched. Our CRM is now a powerful asset that drives our sales forward. The transformation has been incredible.",
-        name: "Ahmed Al-Fahim",
-        title: "CEO, Manufacturing Co.",
-        avatar: "https://placehold.co/100x100.png",
-        hint: "professional portrait man",
+            "The transformation has been beyond expectations. With the complete implementation of Zoho CRM and Zoho One, fully integrated with our portal, we now have full visibility across finance, sales, and operations. The automation has saved us countless hours, and our decision-making has become data-driven. Truly a game changer for our organization.",
+        name: "Mr. Weal",
+        title: "CFO.",
+        avatar: "/images/userIcon.png",
+        hint: "Opolia KSA",
     },
     {
         quote:
-            "We were struggling with data silos and inefficient processes. CRM Ascent not only integrated our systems but also automated key workflows, saving us countless hours.",
-        name: "Priya Sharma",
-        title: "Director of Operations, Service Firm",
-        avatar: "https://placehold.co/100x100.png",
-        hint: "professional portrait woman",
+            "Before working with them, we were handling job requests manually on paper forms, which slowed down our business. With Zoho One and a custom app integrated with our Zoho CRM and Zoho Books, From Riyadh to Jeddah, our branches now run with efficiency, and our customers experience much faster service. This digital shift has transformed our company.",
+        name: "Mr. Abdullah",
+        title: "Head of Operations",
+        avatar: "/images/userIcon.png",
+        hint: "Jairat Al Wafa - Riyadh & Jeddah",
     },
     {
         quote:
-            "A true partner who understands both the technology and our business needs. The custom dashboards they built give us insights we never had before.",
-        name: "Fatima Khan",
-        title: "Marketing Manager, Tech Startup",
-        avatar: "https://placehold.co/100x100.png",
-        hint: "business woman portrait",
+            "Partnering with them has given us the right foundation to scale. From setting up Zoho CRM to automating sales and customer support workflows, everything now runs seamlessly. The dashboards and reports give us real-time insights, helping our team stay ahead and focused on growth.",
+        name: "Sara Ahmed",
+        title: "Marketing Manager",
+        avatar: "/images/userIcon.png",
+        hint: "NextGen Tech Solutions",
     },
 ];
 
@@ -31,23 +31,25 @@ export function Testimonials() {
             <div className="container mx-auto px-4 md:px-10">
                 {/* Heading */}
                 <div className="text-center max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl">
+                    <h1 className="text-3xl text-gray-950 font-headline text-center font-bold tracking-tight sm:text-4xl">
                         What Our Clients Say
-                    </h2>
-                    <p className="mt-4 text-lg text-foreground/70">
+                    </h1>
+                    <p className="mt-4 text-lg text-gray-700 text-center">
                         Hear from businesses that have transformed their operations with our help.
                     </p>
                 </div>
 
                 {/* Testimonials Grid */}
-                <div className="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+                <div className="mt-12 grid gap-4 md:grid-cols-1 lg:grid-cols-3">
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="flex flex-col justify-between border bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
+                            className="flex flex-col justify-between border bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
                         >
+                            {/* company */}
+                            <h1 className="font-bold uppercase mb-2 text-mai">{testimonial.hint}</h1>
                             {/* Quote */}
-                            <p className="text-foreground/80 italic">
+                            <p className="text-gray-700 italic ">
                                 &quot;{testimonial.quote}&quot;
                             </p>
 
@@ -60,10 +62,10 @@ export function Testimonials() {
                                     className="h-12 w-12 rounded-full object-cover"
                                 />
                                 <div>
-                                    <p className="font-semibold font-headline">
+                                    <p className="font-semibold text-gray-950 font-headline">
                                         {testimonial.name}
                                     </p>
-                                    <p className="text-sm text-foreground/70">
+                                    <p className="text-sm text-gray-700">
                                         {testimonial.title}
                                     </p>
                                 </div>

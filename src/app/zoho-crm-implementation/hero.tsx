@@ -103,7 +103,7 @@ export default function StandalonePage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-white to-orange-200 -z-10" />
 
                 <div className="max-w-4xl mx-auto">
-                    <h1 className="font-headline text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
+                    <h1 className="font-headline text-gray-900 text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
                         Scale Your Business with a{" "}
                         <span className="text-mai">Zoho CRM</span> Partner You Can Trust
                     </h1>
@@ -139,15 +139,15 @@ export default function StandalonePage() {
             {/* Modal Popup Form */}
             {showForm && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-                    <div className="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
+                    <div className="bg-white rounded shadow-lg w-full max-w-md p-6 relative">
                         <button
                             onClick={() => setShowForm(false)}
-                            className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+                            className="absolute top-3 right-3 hover:text-gray-800"
                         >
-                            <X className="h-5 w-5" />
+                            <X className="h-6 w-6 bg-gray-200 hover:bg-red-400 font-bold rounded-full p-1" />
                         </button>
 
-                        <h2 className="text-2xl font-bold mb-4">Book Your Strategy Call</h2>
+                        <h2 className="text-2xl font-bold mb-4 text-gray-900">Book Your Strategy Call</h2>
 
                         {submitted ? (
                             <p className="text-green-600 font-medium">
@@ -155,15 +155,15 @@ export default function StandalonePage() {
                             </p>
                         ) : (
                             <form onSubmit={handleSubmit} className="space-y-4">
-                                <div>
-                                    <label className="block text-sm font-medium">Full Name</label>
+                                <div className="text-gray-800">
+                                    <label className="block text-sm text-gray-800 font-medium">Full Name</label>
                                     <input
                                         type="text"
                                         value={form.firstName}
                                         onChange={(e) =>
                                             setForm({ ...form, firstName: e.target.value })
                                         }
-                                        className="mt-1 w-full rounded-md border outline-none p-2"
+                                        className="mt-1 w-full  border outline-none p-2"
                                     />
                                     {errors.firstName && (
                                         <p className="text-red-500 text-sm">{errors.firstName}</p>
@@ -171,14 +171,14 @@ export default function StandalonePage() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium">Email</label>
+                                    <label className="block text-sm text-gray-800 font-medium">Email</label>
                                     <input
                                         type="email"
                                         value={form.email}
                                         onChange={(e) =>
                                             setForm({ ...form, email: e.target.value })
                                         }
-                                        className="mt-1 w-full rounded-md border outline-none p-2"
+                                        className="mt-1 w-full  border outline-none p-2"
                                     />
                                     {errors.email && (
                                         <p className="text-red-500 text-sm">{errors.email}</p>
@@ -186,8 +186,8 @@ export default function StandalonePage() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium">
-                                        Phone 
+                                    <label className="block text-sm text-gray-800 font-medium">
+                                        Phone
                                     </label>
                                     <input
                                         type="tel"
@@ -195,7 +195,7 @@ export default function StandalonePage() {
                                         onChange={(e) =>
                                             setForm({ ...form, phone: e.target.value })
                                         }
-                                        className="mt-1 w-full rounded-md border outline-none p-2"
+                                        className="mt-1 w-full  border outline-none p-2"
                                     />
                                     {errors.phone && (
                                         <p className="text-red-500 text-sm">{errors.phone}</p>
@@ -204,14 +204,14 @@ export default function StandalonePage() {
 
                                 <div className="flex gap-4">
                                     <div className="flex-1">
-                                        <label className="block text-sm font-medium">Date</label>
+                                        <label className="block text-sm text-gray-800 font-medium">Date</label>
                                         <input
                                             type="date"
                                             value={form.date}
                                             onChange={(e) =>
                                                 setForm({ ...form, date: e.target.value })
                                             }
-                                            className="mt-1 w-full rounded-md border outline-none p-2"
+                                            className="mt-1 w-full  border outline-none p-2"
                                         />
                                         {errors.date && (
                                             <p className="text-red-500 text-sm">{errors.date}</p>
@@ -219,14 +219,14 @@ export default function StandalonePage() {
                                     </div>
 
                                     <div className="flex-1">
-                                        <label className="block text-sm font-medium">Time</label>
+                                        <label className="block text-sm text-gray-800 font-medium">Time</label>
                                         <input
                                             type="time"
                                             value={form.time}
                                             onChange={(e) =>
                                                 setForm({ ...form, time: e.target.value })
                                             }
-                                            className="mt-1 w-full rounded-md border outline-none p-2"
+                                            className="mt-1 w-full  border outline-none p-2"
                                         />
                                         {errors.time && (
                                             <p className="text-red-500 text-sm">{errors.time}</p>

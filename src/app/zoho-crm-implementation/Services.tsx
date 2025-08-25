@@ -34,7 +34,7 @@ export function Services() {
             <div className="container mx-auto px-4 md:px-10">
                 {/* Section Header */}
                 <div className="text-center max-w-4xl mx-auto">
-                    <h2 className="text-3xl text-center font-headline font-bold tracking-tight sm:text-5xl">
+                    <h2 className="text-3xl text-center text-gray-900 font-headline font-bold tracking-tight sm:text-5xl">
                         A Full Suite of CRM Solutions
                     </h2>
                     <p className="mt-4 text-xl text-center text-gray-700 font-semibold">
@@ -44,7 +44,7 @@ export function Services() {
                 </div>
 
                 {/* <img src="images/zoho/crm-image.png" alt="" /> */}
-                
+
 
                 {/* Services Grid */}
                 <div className="mt-12  grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -56,7 +56,7 @@ export function Services() {
                             <div className="bg-sky-100 p-4 rounded-full mb-4">
                                 {service.icon}
                             </div>
-                            <h1 className="text-2xl font-semibold mb-2">{service.title}</h1>
+                            <h1 className="text-2xl font-semibold text-gray-950 mb-2">{service.title}</h1>
                             <p className="text-gray-700 text-lg">
                                 {service.description}
                             </p>

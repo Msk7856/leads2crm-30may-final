@@ -17,7 +17,7 @@ const results = [
 
 export function CaseStudies() {
     return (
-        <section id="results" className="py-16 sm:py-24 bg-card">
+        <section id="results" className="py-16 sm:py-24 bg-white">
             <div className="container mx-auto px-4 md:px-6">
                 {/* Section Heading */}
                 <div className="text-center max-w-4xl mx-auto">
@@ -42,10 +42,10 @@ export function CaseStudies() {
                                     {result.value}
                                 </span>
                             </div>
-                            <h3 className="mt-4 text-2xl font-bold font-headline">
+                            <h3 className="mt-4 text-2xl text-black font-bold font-headline">
                                 {result.title}
                             </h3>
-                            <p className="mt-2 text-foreground/70">{result.description}</p>
+                            <p className="mt-2 text-gray-700">{result.description}</p>
                             <div className="mt-4 flex items-center text-green">
                                 <CheckCircle className="h-5 w-5 mr-2" />
                                 <span className="font-semibold">Success Story</span>

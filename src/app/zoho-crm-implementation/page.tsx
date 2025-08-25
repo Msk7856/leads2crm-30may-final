@@ -7,6 +7,12 @@ import { Services } from "./Services";
 import { Testimonials } from "./Testimonials";
 import { TrustAuthority } from "./TrustAuthority";
 
+
+export const metadata = {
+    title: "Zoho CRM Integration Services | Move to Zoho Seamlessly",
+    description: "Integration your existing CRM to Zoho with zero data loss. Our experts ensure smooth, secure CRM Integration tailored to your business workflows.",
+};
+
 export default function Standalone() {
     return (
         <div>

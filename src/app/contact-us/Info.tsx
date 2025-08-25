@@ -14,13 +14,16 @@ export default function ContactInfo() {
                             <Building className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Australia Office</h3>
+                            <h3 className="font-semibold text-lg">Dubai Office / Jeedah Office</h3>
                             <p className="text-gray-600 mt-1">
-                                FI Digital 3 Tanunda Street, Vermont South, Victoria-3133,
-                                Melbourne, Australia.
+                                Commercial-5 Building,
+                                Plot No. 176-0, Saih Shuaib 2,
+                                Dubai, United Arab Emirates
                             </p>
                         </div>
                     </div>
+
+
 
                     {/* Melbourne Office */}
                     <div className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-md border hover:shadow-xl hover:scale-105 transition">
@@ -28,10 +31,10 @@ export default function ContactInfo() {
                             <Building className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Melbourne CBD Office</h3>
+                            <h3 className="font-semibold text-lg">New Delhi Office</h3>
                             <p className="text-gray-600 mt-1">
-                                FI Digital Level 9/440, Little Collins St. Melbourne VIC 3000,
-                                Australia.
+                                P3, world Trade tower
+                                Sector 16, Noida, Uttar Pradesh.
                             </p>
                         </div>
                     </div>
@@ -43,8 +46,8 @@ export default function ContactInfo() {
                         </div>
                         <div>
                             <h3 className="font-semibold text-lg">Phone</h3>
-                            <p className="text-gray-600 mt-1">+966-559034101</p>
-                            <p className="text-gray-600 mt-1">+91 9470244795</p>
+                            <p className="text-gray-600 mt-1">+966-559034101, +91 9470244795</p>
+                            {/* <p className="text-gray-600 mt-1">+91 9470244795</p> */}
                         </div>
                     </div>
 
@@ -55,22 +58,35 @@ export default function ContactInfo() {
                         </div>
                         <div>
                             <h3 className="font-semibold text-lg">Email</h3>
-                            <p className="text-gray-600 mt-1">support@fidigital.com.au</p>
+                            <p className="text-gray-600 mt-1">info@leads2crm.com</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Map */}
-                <div className="mt-12 w-full h-[400px] overflow-hidden rounded-lg shadow-md">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509394!2d144.95592331531694!3d-37.81720997975192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5778b0b1f1a1b!2s440%20Little%20Collins%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sau!4v1682520000000!5m2!1sen!2sau"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                    ></iframe>
+                <div className="mt-12 flex w-full h-[340px] overflow-hidden rounded bg-gray-200 p-4 shadow-md gap-4">
+                    <div className="w-full rounded">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d327625.5045178468!2d54.87284314767266!3d24.970168720512184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f0be7f7f1555d%3A0x956692a9f6a923da!2sSaih%20Shuaib%202%20-%20Dubai%20-%20United%20Arab%20Emirates!5e1!3m2!1sen!2sin!4v1756105256760!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                    <div className="w-full rounded">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.865688333837!2d77.31459607450776!3d28.576929186605277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce45b22a79785%3A0xac760eff02b41b9a!2sWorld%20Trade%20Tower!5e1!3m2!1sen!2sin!4v1756105389226!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
                 </div>
             </div>
         </section>
