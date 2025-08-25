@@ -14,7 +14,7 @@ export default function ContactInfo() {
                             <Building className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Dubai Office / Jeedah Office</h3>
+                            <h3 className="font-semibold text-gray-900 text-lg">Dubai Office / Jeedah Office</h3>
                             <p className="text-gray-600 mt-1">
                                 Commercial-5 Building,
                                 Plot No. 176-0, Saih Shuaib 2,
@@ -31,7 +31,7 @@ export default function ContactInfo() {
                             <Building className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">New Delhi Office</h3>
+                            <h3 className="font-semibold  text-gray-900 text-lg">New Delhi Office</h3>
                             <p className="text-gray-600 mt-1">
                                 P3, world Trade tower
                                 Sector 16, Noida, Uttar Pradesh.
@@ -45,7 +45,7 @@ export default function ContactInfo() {
                             <Phone className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Phone</h3>
+                            <h3 className="font-semibold  text-gray-900 text-lg">Phone</h3>
                             <p className="text-gray-600 mt-1">+966-559034101, +91 9470244795</p>
                             {/* <p className="text-gray-600 mt-1">+91 9470244795</p> */}
                         </div>
@@ -57,7 +57,7 @@ export default function ContactInfo() {
                             <Mail className="h-6 w-6" />
                         </div>
                         <div>
-                            <h3 className="font-semibold text-lg">Email</h3>
+                            <h3 className="font-semibold  text-gray-900 text-lg">Email</h3>
                             <p className="text-gray-600 mt-1">info@leads2crm.com</p>
                         </div>
                     </div>
