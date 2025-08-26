@@ -216,7 +216,7 @@ export default function StandalonePage() {
                                             onChange={(e) =>
                                                 setForm({ ...form, date: e.target.value })
                                             }
-                                            className="mt-1 w-full bg-white border border-gray-500 outline-none p-2"
+                                            className="mt-1 w-full bg-white border placeholder:text-slate-500 border-gray-500 outline-none p-2"
                                         />
                                         {errors.date && (
                                             <p className="text-red-500 text-sm">{errors.date}</p>
@@ -231,7 +231,7 @@ export default function StandalonePage() {
                                             onChange={(e) =>
                                                 setForm({ ...form, time: e.target.value })
                                             }
-                                            className="mt-1 w-full bg-white border border-gray-500 outline-none p-2"
+                                            className="mt-1 w-full bg-white border placeholder:text-slate-500 border-gray-500 outline-none p-2"
                                         />
                                         {errors.time && (
                                             <p className="text-red-500 text-sm">{errors.time}</p>

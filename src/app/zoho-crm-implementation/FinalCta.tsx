@@ -212,7 +212,7 @@ export function FinalCta() {
                                             onChange={(e) =>
                                                 setForm({ ...form, date: e.target.value })
                                             }
-                                            className="mt-1 w-full  bg-white border outline-none p-2"
+                                            className="mt-1 w-full  bg-white placeholder:text-slate-500 border outline-none p-2"
                                         />
                                         {errors.date && (
                                             <p className="text-red-500 text-sm">{errors.date}</p>
@@ -227,7 +227,7 @@ export function FinalCta() {
                                             onChange={(e) =>
                                                 setForm({ ...form, time: e.target.value })
                                             }
-                                            className="mt-1 w-full bg-white border outline-none p-2"
+                                            className="mt-1 w-full bg-white placeholder:text-slate-500 border outline-none p-2"
                                         />
                                         {errors.time && (
                                             <p className="text-red-500 text-sm">{errors.time}</p>
