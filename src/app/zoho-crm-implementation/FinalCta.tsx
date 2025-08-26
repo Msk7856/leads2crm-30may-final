@@ -61,9 +61,14 @@ export function FinalCta() {
         const newErrors: ErrorState = {};
         if (!form.firstName.trim()) newErrors.firstName = "Full Name is required.";
         if (!form.email.trim()) newErrors.email = "Email is required.";
-        if (!form.phone.trim()) newErrors.phone = "Phone Number is required.";
-        if (!form.date) newErrors.date = "Please select a date.";
-        if (!form.time) newErrors.time = "Please select a time.";
+        if (!form.phone.trim()) {
+            newErrors.phone = "Phone Number is required.";
+        } else if (!/^\d{9,}$/.test(form.phone.replace(/\D/g, ""))) {
+            // remove non-digits, check at least 10 digits
+            newErrors.phone = "Phone Number must be at least 10 digits.";
+        }
+        // if (!form.date) newErrors.date = "Please select a date.";
+        // if (!form.time) newErrors.time = "Please select a time.";
         return newErrors;
     };
 
@@ -129,7 +134,7 @@ export function FinalCta() {
             {/* ✅ Popup Modal */}
             {showForm && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-                    <div className="bg-white rounded shadow-lg w-full max-w-md p-6 relative">
+                    <div className="bg-white rounded shadow-lg w-full max-w-sm p-6 relative">
                         <button
                             onClick={() => setShowForm(false)}
                             className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"

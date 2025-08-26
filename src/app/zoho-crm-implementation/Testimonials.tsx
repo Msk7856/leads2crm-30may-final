@@ -1,3 +1,5 @@
+import { Building, Building2, ComponentIcon } from "lucide-react";
+
 const testimonials = [
     {
         quote:
@@ -46,21 +48,22 @@ export function Testimonials() {
                             key={index}
                             className="flex flex-col justify-between border bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
                         >
-                            {/* company */}
-                            <h1 className="font-bold uppercase mb-2 text-mai">{testimonial.hint}</h1>
+
                             {/* Quote */}
                             <p className="text-gray-700 italic ">
                                 &quot;{testimonial.quote}&quot;
                             </p>
-
+                            {/* company */}
+                            <p className="uppercase my-2 flex text-gray-600 gap-2"><Building2 className="h-6 w-6 text-mai" />{testimonial.hint}</p>
                             {/* Footer */}
-                            <div className="flex items-center gap-4 mt-6">
+                            <div className="flex items-center gap-4 mt-2">
                                 <img
                                     src={testimonial.avatar}
                                     alt={testimonial.name}
                                     data-ai-hint={testimonial.hint}
                                     className="h-12 w-12 rounded-full object-cover"
                                 />
+
                                 <div>
                                     <p className="font-semibold text-gray-950 font-headline">
                                         {testimonial.name}

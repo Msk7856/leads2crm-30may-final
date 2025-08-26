@@ -2,6 +2,7 @@ import { CaseStudies } from "./CaseStudies";
 import CRMImage from "./CRMImage";
 import { FinalCta } from "./FinalCta";
 import { Footer } from "./Footer";
+import { Header } from "./Header";
 import StandalonePage from "./hero";
 import { Services } from "./Services";
 import { Testimonials } from "./Testimonials";
@@ -16,6 +17,7 @@ export const metadata = {
 export default function Standalone() {
     return (
         <div>
+            <Header />
             <StandalonePage />
             <TrustAuthority />
             <Services />
