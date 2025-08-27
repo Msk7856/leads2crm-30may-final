@@ -1,4 +1,4 @@
-import { TrendingUp, BarChart3, Globe } from "lucide-react";
+import { TrendingUp, BarChart3, Globe, CheckCircle } from "lucide-react";
 
 const results = [
     {
@@ -66,6 +66,7 @@ export function CaseStudies() {
                                     {result.title}
                                 </h3>
                                 <p className="mt-2 text-center text-gray-700">{result.description}</p>
+                                <div className="mt-4 flex items-center text-green"> <CheckCircle className="h-5 w-5 mr-2" /> <span className="font-semibold">Success Story</span> </div>
                             </div>
                         );
                     })}
