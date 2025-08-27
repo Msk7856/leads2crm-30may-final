@@ -148,7 +148,7 @@ export default function StandalonePage() {
                         <span className="text-mai">Zoho CRM</span> Implementation
                     </h1>
 
-                    <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl text-center mx-auto">
                         We help organizations replace chaos with clarity — delivering streamlined sales, integrated operations, and real-time insights across teams.
                     </p>
 
@@ -157,10 +157,10 @@ export default function StandalonePage() {
                         {/* Demo Button */}
                         <button
                             onClick={() => setShowForm(true)}
-                            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-base sm:text-lg font-medium text-white shadow-lg transition hover:bg-orange-400 hover:scale-105"
+                            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-orange-500 text-white hover:bg-orange-400 shadow-lg text-base sm:text-lg font-medium px-6 py-3 transition-all duration-300 group"
                         >
                             Schedule a Company Demo
-                            <ArrowRight className="ml-2 h-5 w-5" />
+                            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </button>
 
                         {/* WhatsApp Link */}

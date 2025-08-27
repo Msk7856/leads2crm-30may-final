@@ -179,7 +179,7 @@ export function FinalCta() {
                             href="https://wa.me/966559034101?text=Hello%2C%20I%20would%20like%20to%20talk%20to%20a%20CRM%20Consultant."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 text-base sm:text-lg font-medium text-gray-700 bg-white hover:text-gray-900 transition hover:bg-gray-100 hover:scale-105 shadow-sm"
+                            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-gray-200 px-6 py-3 text-base sm:text-lg font-medium  text-white hover:text-gray-900 transition hover:bg-gray-100 hover:scale-105 shadow-sm"
                         >
                             <UserCircle className="mr-2 h-5 w-5" />
                             Talk to a CRM Consultant
