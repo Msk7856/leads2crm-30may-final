@@ -113,21 +113,20 @@ export function FinalCta() {
             id="cta"
             className="relative py-16 sm:py-24 bg-mai text-primary-foreground"
         >
-                    {/* ✅ Inline CSS fix for live issue */}
-                        <style jsx global>{`
+            {/* ✅ Inline CSS fix for live issue */}
+            <style jsx global>{`
                     input[type="date"]:not(:valid)::before {
                       content: attr(placeholder);
-                      color: #aaa;
-                      margin-right: 5px;
+                      color: #aaaaaa;
+                      margin-right: 2px;
                     }
                     input[type="time"]:not(:valid)::before {
                       content: attr(placeholder);
-                      color: #aaa;
-                      margin-right: 5px;
+                      color: #aaaaaa;
+                      margin-right: 2px;
                     }
                   `}</style>
-            
-            
+
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl text-white">
