@@ -206,7 +206,7 @@ export function FinalCta() {
                                     ✅ Thank you! We&apos;ll contact you soon.
                                 </p>
                             ) : (
-                                <form onSubmit={handleSubmit} className="space-y-4 text-black">
+                                <form onSubmit={handleSubmit} className="space-y-3 text-black">
                                     <div>
                                         <label className="block text-sm font-medium">Full Name</label>
                                         <input
@@ -263,8 +263,8 @@ export function FinalCta() {
                                                 className="mt-1 w-full border bg-white p-2 rounded"
                                             />
                                         </div>
-                                        {errors.phone && (
-                                            <p className="text-red-500 text-sm">{errors.phone}</p>
+                                        {errors.description && (
+                                            <p className="text-red-500 text-sm">{errors.description}</p>
                                         )}
                                     </div>
 

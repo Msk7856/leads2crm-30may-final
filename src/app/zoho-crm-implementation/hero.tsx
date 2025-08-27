@@ -114,12 +114,12 @@ export default function StandalonePage() {
                 <style jsx global>{`
                     input[type="date"]:not(:valid)::before {
                       content: attr(placeholder);
-                      color: #aaaaaa;
+                      color: #000000;
                       margin-right: 2px;
                     }
                     input[type="time"]:not(:valid)::before {
                       content: attr(placeholder);
-                      color: #aaaaaa;
+                      color: #000000;
                       margin-right: 2px;
                     }
                   `}</style>
@@ -176,7 +176,7 @@ export default function StandalonePage() {
                                 ✅ Thank you! We&apos;ll contact you soon.
                             </p>
                         ) : (
-                            <form onSubmit={handleSubmit} className="space-y-4">
+                            <form onSubmit={handleSubmit} className="space-y-3">
                                 <div className="text-gray-800">
                                     <label className="block text-sm text-gray-800 font-medium">Full Name</label>
                                     <input
@@ -235,7 +235,7 @@ export default function StandalonePage() {
                                         onChange={(e) =>
                                             setForm({ ...form, description: e.target.value })
                                         }
-                                        rows={4}
+                                        rows={3}
                                         className="mt-1 w-full bg-white text-gray-950 border border-gray-500 outline-none p-2"
                                     />
                                 </div>
