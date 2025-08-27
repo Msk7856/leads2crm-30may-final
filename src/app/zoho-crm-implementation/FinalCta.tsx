@@ -208,7 +208,7 @@ export function FinalCta() {
                                             type="text"
                                             value={form.firstName}
                                             onChange={(e) => handleChange("firstName", e.target.value)}
-                                            className="mt-1 w-full border p-2 rounded"
+                                            className="mt-1 w-full border bg-white p-2 rounded"
                                         />
                                         {errors.firstName && (
                                             <p className="text-red-500 text-sm">{errors.firstName}</p>
@@ -221,7 +221,7 @@ export function FinalCta() {
                                             type="email"
                                             value={form.email}
                                             onChange={(e) => handleChange("email", e.target.value)}
-                                            className="mt-1 w-full border p-2 rounded"
+                                            className="mt-1 w-full border bg-white p-2 rounded"
                                         />
                                         {errors.email && (
                                             <p className="text-red-500 text-sm">{errors.email}</p>
@@ -239,7 +239,7 @@ export function FinalCta() {
                                                 type="tel"
                                                 value={form.phone}
                                                 onChange={(e) => handleChange("phone", e.target.value)}
-                                                className="w-full border p-2 rounded-r-md"
+                                                className="w-full border bg-white p-2 rounded-r-md"
                                             />
                                         </div>
                                         {errors.phone && (
@@ -254,7 +254,7 @@ export function FinalCta() {
                                                 type="date"
                                                 value={form.date}
                                                 onChange={(e) => handleChange("date", e.target.value)}
-                                                className="w-full border p-2 rounded"
+                                                className="w-full border bg-gray-200 p-2 rounded"
                                             />
                                         </div>
 
@@ -264,7 +264,7 @@ export function FinalCta() {
                                                 type="time"
                                                 value={form.time}
                                                 onChange={(e) => handleChange("time", e.target.value)}
-                                                className="w-full border p-2 rounded"
+                                                className="w-full border bg-gray-200 p-2 rounded"
                                             />
                                         </div>
                                     </div>

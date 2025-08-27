@@ -179,7 +179,7 @@ export default function StandalonePage() {
                                         onChange={(e) =>
                                             setForm({ ...form, firstName: e.target.value })
                                         }
-                                        className="mt-1 w-full bg-white  border border-gray-500 outline-none p-2"
+                                        className="mt-1 w-full bg-white text-gray-950 border border-gray-500 outline-none p-2"
                                     />
                                     {errors.firstName && (
                                         <p className="text-red-500 text-sm">{errors.firstName}</p>
@@ -194,7 +194,7 @@ export default function StandalonePage() {
                                         onChange={(e) =>
                                             setForm({ ...form, email: e.target.value })
                                         }
-                                        className="mt-1 w-full bg-white border border-gray-500 outline-none p-2"
+                                        className="mt-1 w-full bg-white text-gray-950 border border-gray-500 outline-none p-2"
                                     />
                                     {errors.email && (
                                         <p className="text-red-500 text-sm">{errors.email}</p>
@@ -211,7 +211,7 @@ export default function StandalonePage() {
                                         onChange={(e) =>
                                             setForm({ ...form, phone: e.target.value })
                                         }
-                                        className="mt-1 w-full bg-white border border-gray-500 outline-none p-2"
+                                        className="mt-1 w-full bg-white text-gray-950 border border-gray-500 outline-none p-2"
                                     />
                                     {errors.phone && (
                                         <p className="text-red-500 text-sm">{errors.phone}</p>
@@ -227,7 +227,7 @@ export default function StandalonePage() {
                                             onChange={(e) =>
                                                 setForm({ ...form, date: e.target.value })
                                             }
-                                            className="mt-1 w-full bg-white border placeholder:text-slate-500 border-gray-500 outline-none p-2"
+                                            className="mt-1 w-full bg-gray-200  border placeholder:text-slate-500 border-gray-500 outline-none p-2"
                                         />
                                         {errors.date && (
                                             <p className="text-red-500 text-sm">{errors.date}</p>
@@ -242,7 +242,7 @@ export default function StandalonePage() {
                                             onChange={(e) =>
                                                 setForm({ ...form, time: e.target.value })
                                             }
-                                            className="mt-1 w-full bg-white border placeholder:text-slate-500 border-gray-500 outline-none p-2"
+                                            className="mt-1 w-full bg-gray-200 border placeholder:text-slate-500 border-gray-500 outline-none p-2"
                                         />
                                         {errors.time && (
                                             <p className="text-red-500 text-sm">{errors.time}</p>
