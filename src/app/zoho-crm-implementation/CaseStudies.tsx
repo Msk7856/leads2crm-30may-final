@@ -42,8 +42,8 @@ export function CaseStudies() {
                 {/* Regional Trust */}
                 <div className="mt-6 text-center">
                     <p className="text-lg font-semibold text-center italic text-gray-800">
-                        " 🌍 Trusted by Businesses in <span className="text-orange-500">Saudi Arabia</span>,{" "}
-                        <span className="text-orange-500">Dubai</span>, and Beyond "
+                        🌍 Trusted by Businesses in <span className="text-orange-500">Saudi Arabia</span>,{" "}
+                        <span className="text-orange-500">Dubai</span>, and Beyond
                     </p>
                 </div>
 
