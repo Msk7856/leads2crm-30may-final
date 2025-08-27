@@ -13,6 +13,7 @@ interface FormData {
     countryCode: string;
     date: string;
     time: string;
+    description: string;
 }
 
 interface ErrorState {
@@ -21,6 +22,7 @@ interface ErrorState {
     phone?: string;
     date?: string;
     time?: string;
+    description?: string;
 }
 
 export default function StandalonePage() {
@@ -32,6 +34,7 @@ export default function StandalonePage() {
         countryCode: "",
         date: "",
         time: "",
+        description: "",
     });
     const [errors, setErrors] = useState<ErrorState>({});
     const [loading, setLoading] = useState(false);
@@ -91,6 +94,7 @@ export default function StandalonePage() {
                 countryCode: "",
                 date: "",
                 time: "",
+                description: "",
             });
         } catch (err) {
             alert("Something went wrong. Please try again.");
@@ -142,7 +146,9 @@ export default function StandalonePage() {
                         </button>
 
                         <Link
-                            href="#results"
+                            href="https://wa.me/966559034101?text=Hello%2C%20I%20would%20like%20to%20talk%20to%20a%20CRM%20Consultant."
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center justify-center rounded-full border border-gray-300 px-8 py-3 text-lg font-medium text-gray-700 transition hover:bg-gray-100 hover:scale-105"
                         >
                             <UserCheck2 className="mr-2 h-5 w-5" />
@@ -175,6 +181,7 @@ export default function StandalonePage() {
                                     <label className="block text-sm text-gray-800 font-medium">Full Name</label>
                                     <input
                                         type="text"
+                                        placeholder="Full Name"
                                         value={form.firstName}
                                         onChange={(e) =>
                                             setForm({ ...form, firstName: e.target.value })
@@ -190,6 +197,7 @@ export default function StandalonePage() {
                                     <label className="block text-sm text-gray-800 font-medium">Email</label>
                                     <input
                                         type="email"
+                                        placeholder="Email"
                                         value={form.email}
                                         onChange={(e) =>
                                             setForm({ ...form, email: e.target.value })
@@ -217,6 +225,20 @@ export default function StandalonePage() {
                                         <p className="text-red-500 text-sm">{errors.phone}</p>
                                     )}
                                 </div>
+                                <div>
+                                    <label className="block text-sm text-gray-800 font-medium">
+                                        Description
+                                    </label>
+                                    <textarea
+                                        placeholder="Tell us more about your CRM needs..."
+                                        value={form.description}
+                                        onChange={(e) =>
+                                            setForm({ ...form, description: e.target.value })
+                                        }
+                                        rows={4}
+                                        className="mt-1 w-full bg-white text-gray-950 border border-gray-500 outline-none p-2"
+                                    />
+                                </div>
 
                                 <div className="flex gap-4">
                                     <div className="flex-1">
@@ -227,7 +249,7 @@ export default function StandalonePage() {
                                             onChange={(e) =>
                                                 setForm({ ...form, date: e.target.value })
                                             }
-                                            className="mt-1 w-full bg-gray-200  border placeholder:text-slate-500 border-gray-500 outline-none p-2"
+                                            className="mt-1 w-full bg-gray-100  border placeholder:text-slate-500 border-gray-500 outline-none p-2"
                                         />
                                         {errors.date && (
                                             <p className="text-red-500 text-sm">{errors.date}</p>
@@ -242,7 +264,7 @@ export default function StandalonePage() {
                                             onChange={(e) =>
                                                 setForm({ ...form, time: e.target.value })
                                             }
-                                            className="mt-1 w-full bg-gray-200 border placeholder:text-slate-500 border-gray-500 outline-none p-2"
+                                            className="mt-1 w-full bg-gray-100 border placeholder:text-slate-500 border-gray-500 outline-none p-2"
                                         />
                                         {errors.time && (
                                             <p className="text-red-500 text-sm">{errors.time}</p>

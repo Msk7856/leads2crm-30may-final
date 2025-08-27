@@ -14,6 +14,7 @@ interface FormData {
     date: string;
     time: string;
     countryCode: string;
+    description: string;
 }
 
 interface ErrorState {
@@ -22,6 +23,7 @@ interface ErrorState {
     phone?: string;
     date?: string;
     time?: string;
+    description?: string;
 }
 
 export function FinalCta() {
@@ -33,6 +35,7 @@ export function FinalCta() {
         date: "",
         time: "",
         countryCode: "",
+        description: "",
     });
     const [errors, setErrors] = useState<ErrorState>({});
     const [loading, setLoading] = useState(false);
@@ -62,6 +65,7 @@ export function FinalCta() {
         const newErrors: ErrorState = {};
         if (!form.firstName.trim()) newErrors.firstName = "Full Name is required.";
         if (!form.email.trim()) newErrors.email = "Email is required.";
+        if (!form.description.trim()) newErrors.description = "Email is required.";
         if (!form.phone.trim()) {
             newErrors.phone = "Phone Number is required.";
         } else if (!/^\d{9,}$/.test(form.phone.replace(/\D/g, ""))) {
@@ -101,6 +105,7 @@ export function FinalCta() {
                 date: "",
                 time: "",
                 countryCode: form.countryCode,
+                description: "",
             });
         } catch (err) {
             alert("Something went wrong. Please try again.");
@@ -117,12 +122,12 @@ export function FinalCta() {
             <style jsx global>{`
                     input[type="date"]:not(:valid)::before {
                       content: attr(placeholder);
-                      color: #aaaaaa;
+                      color: #000000;
                       margin-right: 2px;
                     }
                     input[type="time"]:not(:valid)::before {
                       content: attr(placeholder);
-                      color: #aaaaaa;
+                      color: #000000;
                       margin-right: 2px;
                     }
                   `}</style>
@@ -233,13 +238,29 @@ export function FinalCta() {
                                         <label className="block text-sm font-medium">Phone</label>
                                         <div className="flex">
                                             <span className="px-3 py-2 bg-gray-100 border border-r-0 rounded-l-md text-gray-700">
-                                                {form.countryCode || "+--"}
+                                                {form.countryCode || "+966"}
                                             </span>
                                             <input
                                                 type="tel"
                                                 value={form.phone}
                                                 onChange={(e) => handleChange("phone", e.target.value)}
                                                 className="w-full border bg-white p-2 rounded-r-md"
+                                            />
+                                        </div>
+                                        {errors.phone && (
+                                            <p className="text-red-500 text-sm">{errors.phone}</p>
+                                        )}
+                                    </div>
+
+                                    <div>
+                                        <div>
+                                            <label className="block text-sm font-medium">Description</label>
+                                            <textarea
+                                                value={form.description}
+                                                onChange={(e) => handleChange("description", e.target.value)}
+                                                placeholder="Tell us a bit about your CRM needs..."
+                                                rows={3}
+                                                className="mt-1 w-full border bg-white p-2 rounded"
                                             />
                                         </div>
                                         {errors.phone && (
@@ -254,7 +275,7 @@ export function FinalCta() {
                                                 type="date"
                                                 value={form.date}
                                                 onChange={(e) => handleChange("date", e.target.value)}
-                                                className="w-full border bg-gray-200 p-2 rounded"
+                                                className="w-full border bg-gray-100 p-2 rounded"
                                             />
                                         </div>
 
@@ -264,7 +285,7 @@ export function FinalCta() {
                                                 type="time"
                                                 value={form.time}
                                                 onChange={(e) => handleChange("time", e.target.value)}
-                                                className="w-full border bg-gray-200 p-2 rounded"
+                                                className="w-full border bg-gray-100 p-2 rounded"
                                             />
                                         </div>
                                     </div>
