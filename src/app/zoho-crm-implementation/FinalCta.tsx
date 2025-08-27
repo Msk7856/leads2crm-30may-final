@@ -154,7 +154,9 @@ export function FinalCta() {
                         </button>
 
                         <Link
-                            href="#testimonials"
+                            href="https://wa.me/966559034101?text=Hello%2C%20I%20would%20like%20to%20talk%20to%20a%20CRM%20Consultant."
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-2 text-lg font-medium text-gray-100 hover:text-gray-700 transition hover:bg-gray-100 "
                         >
                             <UserCircle className="mr-2 h-5 w-5 hover:scale-105" />
