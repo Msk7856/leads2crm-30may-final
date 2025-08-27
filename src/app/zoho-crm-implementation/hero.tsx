@@ -105,6 +105,22 @@ export default function StandalonePage() {
                 id="hero"
                 className="relative flex flex-1 items-center justify-center text-center px-6 py-20"
             >
+
+
+                {/* ✅ Inline CSS fix for live issue */}
+                <style jsx global>{`
+                        input[type="date"]:not(:valid)::before {
+                          content: attr(placeholder);
+                          color: #aaa;
+                          margin-right: 5px;
+                        }
+                        input[type="time"]:not(:valid)::before {
+                          content: attr(placeholder);
+                          color: #aaa;
+                          margin-right: 5px;
+                        }
+                      `}</style>
+
                 <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-white to-orange-200 -z-10" />
 
                 <div className="max-w-4xl mx-auto">
