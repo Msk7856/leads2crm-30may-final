@@ -131,6 +131,8 @@
 //   );
 // }
 
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -140,18 +142,29 @@ const Footer = () => {
         {/* Top Section */}
         <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
           <div className="col-span-2 md:col-span-1">
-            <a href="/" title="Leads2CRM">
-              <img
+            <Link href="/" title="Leads2CRM">
+              {/* <img
                 src="/images/logo/Leads2crm.jpg"
                 alt="Maiprosoft Logo"
                 className="width-[210px] white-logo mx-auto mb-4 h-12 md:mx-0"
-              />{" "}
+              /> */}
+              <Image
+                src="/images/logo/Leads2crm.jpg"
+                alt="Leads2CRM Logo"
+                width={200}
+                height={60}
+                // priority
+                className="width-[210px] white-logo mx-auto mb-4 h-12 md:mx-0 rounded" // Optional: adjust styles
+              />
               {/* Adjust height as needed */}
-            </a>
+            </Link>
           </div>
           <div className="mt-4 flex items-center gap-2 text-[11px] uppercase tracking-widest text-gray-400 md:mt-0">
             Current Status{" "}
-            <span className="bg-green h-2 w-2 rounded-full"></span>
+            <span className="relative flex items-center justify-center h-8 w-8">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-green opacity-75 animate-ping"></span>
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-green"></span>
+            </span>
           </div>
         </div>
 
@@ -173,11 +186,11 @@ const Footer = () => {
               <li>
                 <a href="/contact-us">About Leads2CRM</a>
               </li>
-             
+
             </ul>
           </div>
 
-          
+
           {/* Column 3 */}
           <div>
             <h4 className="mb-4 font-semibold text-white">Discover</h4>
@@ -197,14 +210,14 @@ const Footer = () => {
               <li>
                 <a href="#">Case Studies</a>
               </li>
-             
+
             </ul>
           </div>
 
           {/* Column 4 */}
           <div>
             <h4 className="mb-4 font-semibold text-white">
-            Important Links
+              Important Links
             </h4>
             <ul className="space-y-2 text-gray-400">
               <li>
@@ -224,11 +237,11 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-       
 
 
-        {/* Column 2 */}
-        <div>
+
+          {/* Column 2 */}
+          <div>
             <h4 className="mb-4 font-semibold text-white">Stay connected</h4>
             <ul className="space-y-2 text-gray-400">
               <li>

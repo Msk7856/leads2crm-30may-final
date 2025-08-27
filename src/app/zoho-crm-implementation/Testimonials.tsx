@@ -47,7 +47,7 @@ export function Testimonials() {
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="flex flex-col justify-between border border-gray-300 bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-lg  transition-transform hover:-translate-y-2"
+                            className="flex flex-col justify-between border border-gray-300 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm hover:shadow-lg  transition-transform hover:-translate-y-2"
                         >
 
                             {/* Quote */}
