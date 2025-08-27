@@ -33,10 +33,11 @@ export function Testimonials() {
             <div className="container mx-auto px-4 md:px-10">
                 {/* Heading */}
                 <div className="text-center max-w-3xl mx-auto">
-                    <h1 className="text-3xl text-gray-950 font-headline text-center font-bold tracking-tight sm:text-4xl">
-                        What Our Clients Say
+                    <h1 className="text-4xl text-gray-950 font-headline text-center font-bold tracking-tight sm:text-5xl">
+                        How We Have  <span className="text-mai">Helped Businesses</span> Like Yours
+
                     </h1>
-                    <p className="mt-4 text-lg text-gray-700 text-center">
+                    <p className="mt-4 text-xl text-gray-700 text-center">
                         Hear from businesses that have transformed their operations with our help.
                     </p>
                 </div>
@@ -46,7 +47,7 @@ export function Testimonials() {
                     {testimonials.map((testimonial, index) => (
                         <div
                             key={index}
-                            className="flex flex-col justify-between border bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
+                            className="flex flex-col justify-between border bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
                         >
 
                             {/* Quote */}

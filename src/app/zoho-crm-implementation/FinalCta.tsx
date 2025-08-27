@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Calendar, X } from "lucide-react";
+import { ArrowRight, Calendar, UserCircle, X } from "lucide-react";
 import { db } from "@/lib/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import Link from "next/link";
 
 interface FormData {
     firstName: string;
@@ -105,29 +106,37 @@ export function FinalCta() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl text-white">
-                        Ready to Elevate Your CRM?
+                        Ready to Scale Smarter with Zoho CRM?
                     </h2>
-                    <p className="mt-4 text-lg text-white">
-                        Let&apos;s discuss how we can tailor Zoho CRM to meet your specific
+                    <p className="mt-4 text-lg text-center text-white">
+                        {/* Let&apos;s discuss how we can tailor Zoho CRM to meet your specific
                         business goals. Unlock your business&apos;s full potential with a
-                        personalized strategy.
+                        personalized strategy. */}
+
+                        Whether you&apos;re a growing enterprise or an established leader, we&apos;ll design and implement a Zoho CRM solution tailored for your entire organization.
                     </p>
 
-                    <div className="mt-8">
+                    <div className="mt-8 gap-2 flex items-center justify-center">
                         <button
                             onClick={() => setShowForm(true)}
-                            className="inline-flex items-center justify-center rounded-full bg-orange-500 text-white hover:bg-orange-400 hover:text-accent shadow-lg text-lg font-medium px-8 py-4 transition-all duration-300 group"
+                            className="inline-flex items-center justify-center rounded-full bg-orange-500 text-white hover:bg-orange-400 hover:text-accent shadow-lg text-lg font-medium px-6 py-3 transition-all duration-300 group"
                             aria-label="Book a 30-Minute Zoho CRM Strategy Call"
                         >
-                            Book a 30 Minute Strategy Call
+                            Request a Tailored Demo
                             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </button>
 
-                        <p className="mt-4 text-sm text-gray-300 flex items-center justify-center gap-2">
-                            <Calendar className="h-4 w-4" />
-                            <span>Powered by Lead2CRM </span>
-                        </p>
+                        <Link href="#testimonial" className="inline-flex items-center justify-center rounded-full border group-hover:translate-x-1 border-gray-300 px-6 py-2 text-lg font-medium text-gray-100 hover:text-gray-700 transition hover:bg-gray-100 " >
+                            <UserCircle className="mr-2 h-5 w-5 transition-transform  hover:scale-105" />
+                            Talk to a CRM Consultant
+                        </Link>
+
+
                     </div>
+                    <p className="mt-4 text-sm text-gray-300 flex items-center justify-center gap-2">
+                        <Calendar className="h-4 w-4" />
+                        <span>Powered by Lead2CRM </span>
+                    </p>
                 </div>
             </div>
 

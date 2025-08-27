@@ -15,7 +15,7 @@ export function TrustAuthority() {
                 {/* Heading */}
                 <div className="text-center max-w-4xl mx-auto">
                     <h2 className="text-3xl  text-center sm:text-4xl font-headline font-bold tracking-tight text-mai">
-                        Trusted by Businesses in Saudi Arabia, Dubai, Indai, <br />  and Beyond
+                        Trusted by Businesses in Saudi Arabia, Dubai,  <br />Indai,  and Beyond
                     </h2>
                     <p className="mt-4 text-center  text-lg text-foreground/70">
                         Top 1% Zoho CRM Consultant recognized for delivering scalable solutions that drive growth and efficiency.

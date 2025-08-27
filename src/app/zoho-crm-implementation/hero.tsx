@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, PlayCircle, X } from "lucide-react";
+import { ArrowRight, PlayCircle, UserCheck, UserCheck2, X } from "lucide-react";
 import { db } from "@/lib/firebase";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -109,15 +109,12 @@ export default function StandalonePage() {
 
                 <div className="max-w-4xl mx-auto">
                     <h1 className="font-headline text-gray-900 text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
-                        Scale Your Business with a{" "}
-                        <span className="text-mai">Zoho CRM</span> Partner You Can Trust
+                        Transform Your Business with Enterprise-Grade {" "}
+                        <span className="text-mai">Zoho CRM</span> Implementation
                     </h1>
 
                     <p className="mt-6 text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-                        Stop letting inefficient processes and scattered data hold you back.
-                        As a top 1% Zoho CRM consultant, we build scalable systems that
-                        streamline operations, boost sales, and give you clarity for
-                        confident decision-making.
+                        We help organizations replace chaos with clarity — delivering streamlined sales, integrated operations, and real-time insights across teams.
                     </p>
 
                     {/* CTA Buttons */}
@@ -126,7 +123,7 @@ export default function StandalonePage() {
                             onClick={() => setShowForm(true)}
                             className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3 text-lg font-medium text-white shadow-lg transition hover:bg-orange-400 hover:scale-105"
                         >
-                            Book Your Free Strategy Call
+                            Schedule a Company Demo
                             <ArrowRight className="ml-2 h-5 w-5" />
                         </button>
 
@@ -134,8 +131,8 @@ export default function StandalonePage() {
                             href="#results"
                             className="inline-flex items-center justify-center rounded-full border border-gray-300 px-8 py-3 text-lg font-medium text-gray-700 transition hover:bg-gray-100 hover:scale-105"
                         >
-                            <PlayCircle className="mr-2 h-5 w-5" />
-                            See Our Results
+                            <UserCheck2 className="mr-2 h-5 w-5" />
+                            Talk to a CRM Consultant
                         </Link>
                     </div>
                 </div>
