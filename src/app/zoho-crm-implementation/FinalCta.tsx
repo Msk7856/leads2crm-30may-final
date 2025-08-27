@@ -6,112 +6,132 @@ import { db } from "@/lib/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion"; // ✅ add animations
+import { BookingForm } from "./BookingForm";
 
-interface FormData {
-    firstName: string;
-    email: string;
-    phone: string;
-    date: string;
-    time: string;
-    countryCode: string;
-    description: string;
-}
+// interface FormData {
+//     firstName: string;
+//     email: string;
+//     phone: string;
+//     date: string;
+//     time: string;
+//     countryCode: string;
+//     description: string;
+// }
 
-interface ErrorState {
-    firstName?: string;
-    email?: string;
-    phone?: string;
-    date?: string;
-    time?: string;
-    description?: string;
-}
+// interface ErrorState {
+//     firstName?: string;
+//     email?: string;
+//     phone?: string;
+//     date?: string;
+//     time?: string;
+//     description?: string;
+// }
 
 export function FinalCta() {
     const [showForm, setShowForm] = useState(false);
-    const [form, setForm] = useState<FormData>({
-        firstName: "",
-        email: "",
-        phone: "",
-        date: "",
-        time: "",
-        countryCode: "",
-        description: "",
-    });
-    const [errors, setErrors] = useState<ErrorState>({});
-    const [loading, setLoading] = useState(false);
-    const [submitted, setSubmitted] = useState(false);
 
-    // ✅ Auto-fetch country code
-    useEffect(() => {
-        const fetchCountryCode = async () => {
-            try {
-                const res = await fetch("https://ipapi.co/json/");
-                const data = await res.json();
-                if (data.country_calling_code) {
-                    setForm((prev) => ({
-                        ...prev,
-                        countryCode: data.country_calling_code,
-                    }));
-                }
-            } catch (err) {
-                console.error("Failed to fetch country code", err);
-            }
-        };
-        fetchCountryCode();
-    }, []);
+    // const [form, setForm] = useState<FormData>({
+    //     firstName: "",
+    //     email: "",
+    //     phone: "",
+    //     date: "",
+    //     time: "",
+    //     countryCode: "",
+    //     description: "",
+    // });
 
-    // ✅ Validation
-    const validate = (): ErrorState => {
-        const newErrors: ErrorState = {};
-        if (!form.firstName.trim()) newErrors.firstName = "Full Name is required.";
-        if (!form.email.trim()) newErrors.email = "Email is required.";
-        if (!form.description.trim()) newErrors.description = "Email is required.";
-        if (!form.phone.trim()) {
-            newErrors.phone = "Phone Number is required.";
-        } else if (!/^\d{9,}$/.test(form.phone.replace(/\D/g, ""))) {
-            newErrors.phone = "Phone Number must be at least 10 digits.";
-        }
-        return newErrors;
-    };
+    // const [errors, setErrors] = useState<ErrorState>({});
+    // const [loading, setLoading] = useState(false);
+    // const [submitted, setSubmitted] = useState(false);
 
-    // ✅ Live validation on change
-    const handleChange = (field: keyof FormData, value: string) => {
-        setForm({ ...form, [field]: value });
-        setErrors((prev) => {
-            const updated = { ...prev };
-            delete updated[field]; // clear error once fixed
-            return updated;
-        });
-    };
 
-    // ✅ Handle submit
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        const validationErrors = validate();
-        setErrors(validationErrors);
-        if (Object.keys(validationErrors).length > 0) return;
+    // // ✅ Auto-fetch country code
+    // useEffect(() => {
+    //     const fetchCountryCode = async () => {
+    //         try {
+    //             const res = await fetch("https://ipapi.co/json/");
+    //             const data = await res.json();
+    //             if (data.country_calling_code) {
+    //                 setForm((prev) => ({
+    //                     ...prev,
+    //                     countryCode: data.country_calling_code,
+    //                 }));
+    //             }
+    //         } catch (err) {
+    //             console.error("Failed to fetch country code", err);
+    //         }
+    //     };
+    //     fetchCountryCode();
+    // }, []);
 
-        setLoading(true);
-        try {
-            await addDoc(collection(db, "CRM-Implementation"), {
-                ...form,
-                fullPhone: `${form.countryCode}${form.phone}`,
-            });
-            setSubmitted(true);
-            setForm({
-                firstName: "",
-                email: "",
-                phone: "",
-                date: "",
-                time: "",
-                countryCode: form.countryCode,
-                description: "",
-            });
-        } catch (err) {
-            alert("Something went wrong. Please try again.");
-        }
-        setLoading(false);
-    };
+    // // ✅ Validation
+    // const validate = (): ErrorState => {
+    //     const newErrors: ErrorState = {};
+    //     // Full Name
+    //     if (!form.firstName.trim()) {
+    //         newErrors.firstName = "Full Name is required.";
+    //     } else if (!/^[a-zA-Z\s]+$/.test(form.firstName.trim())) {
+    //         newErrors.firstName = "Full Name must contain only letters.";
+    //     }
+    //     // if (!form.firstName.trim()) newErrors.firstName = "Full Name is required.";
+
+    //     // Email
+    //     if (!form.email.trim()) {
+    //         newErrors.email = "Email is required.";
+    //     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+    //         newErrors.email = "Please enter a valid email address.";
+    //     }
+
+    //     // Phone
+    //     if (!form.phone.trim()) {
+    //         newErrors.phone = "Phone Number is required.";
+    //     } else if (!/^\d+$/.test(form.phone)) {
+    //         newErrors.phone = "Phone Number must contain only digits.";
+    //     } else if (form.phone.length < 10) {
+    //         newErrors.phone = "Phone Number must be at least 10 digits.";
+    //     }
+
+    //     return newErrors;
+    // };
+
+    // // ✅ Live validation on change
+    // const handleChange = (field: keyof FormData, value: string) => {
+    //     setForm({ ...form, [field]: value });
+    //     setErrors((prev) => {
+    //         const updated = { ...prev };
+    //         delete updated[field]; // clear error once fixed
+    //         return updated;
+    //     });
+    // };
+
+    // // ✅ Handle submit
+    // const handleSubmit = async (e: React.FormEvent) => {
+    //     e.preventDefault();
+    //     const validationErrors = validate();
+    //     setErrors(validationErrors);
+    //     if (Object.keys(validationErrors).length > 0) return;
+
+    //     setLoading(true);
+    //     try {
+    //         await addDoc(collection(db, "CRM-Implementation"), {
+    //             ...form,
+    //             fullPhone: `${form.countryCode}${form.phone}`,
+    //         });
+    //         setSubmitted(true);
+    //         setForm({
+    //             firstName: "",
+    //             email: "",
+    //             phone: "",
+    //             date: "",
+    //             time: "",
+    //             countryCode: form.countryCode,
+    //             description: "",
+    //         });
+    //     } catch (err) {
+    //         alert("Something went wrong. Please try again.");
+    //     }
+    //     setLoading(false);
+    // };
 
     return (
         <section
@@ -143,26 +163,29 @@ export function FinalCta() {
                         your entire organization.
                     </p>
 
-                    <div className="mt-8 gap-2 flex items-center justify-center">
+                    <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center w-full px-4">
+                        {/* Demo Button */}
                         <button
                             onClick={() => setShowForm(true)}
-                            className="inline-flex items-center justify-center rounded-full bg-orange-500 text-white hover:bg-orange-400 shadow-lg text-lg font-medium px-6 py-3 transition-all duration-300 group"
+                            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-orange-500 text-white hover:bg-orange-400 shadow-lg text-base sm:text-lg font-medium px-6 py-3 transition-all duration-300 group"
                             aria-label="Book a 30-Minute Zoho CRM Strategy Call"
                         >
                             Request a Tailored Demo
                             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                         </button>
 
+                        {/* WhatsApp Link */}
                         <Link
                             href="https://wa.me/966559034101?text=Hello%2C%20I%20would%20like%20to%20talk%20to%20a%20CRM%20Consultant."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-2 text-lg font-medium text-gray-100 hover:text-gray-700 transition hover:bg-gray-100 "
+                            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 text-base sm:text-lg font-medium text-gray-700 bg-white hover:text-gray-900 transition hover:bg-gray-100 hover:scale-105 shadow-sm"
                         >
-                            <UserCircle className="mr-2 h-5 w-5 hover:scale-105" />
+                            <UserCircle className="mr-2 h-5 w-5" />
                             Talk to a CRM Consultant
                         </Link>
                     </div>
+
 
                     {/* ✅ Urgency / social proof */}
                     <p className="mt-4 text-sm italic text-center text-orange-200 font-medium">
@@ -179,135 +202,10 @@ export function FinalCta() {
             {/* ✅ Popup Modal with animation */}
             <AnimatePresence>
                 {showForm && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
-                    >
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="bg-white rounded-2xl shadow-xl w-full max-w-sm p-6 relative"
-                        >
-                            <button
-                                onClick={() => setShowForm(false)}
-                                className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
-                            >
-                                <X className="h-6 w-6 bg-gray-200 hover:bg-red-400 rounded-full p-1" />
-                            </button>
-
-                            <h2 className="text-2xl text-gray-800 font-bold mb-4">
-                                Book Your Strategy Call
-                            </h2>
-
-                            {submitted ? (
-                                <p className="text-green font-medium">
-                                    ✅ Thank you! We&apos;ll contact you soon.
-                                </p>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="space-y-3 text-black">
-                                    <div>
-                                        <label className="block text-sm font-medium">Full Name</label>
-                                        <input
-                                            type="text"
-                                            value={form.firstName}
-                                            onChange={(e) => handleChange("firstName", e.target.value)}
-                                            className="mt-1 w-full border bg-white p-2 rounded"
-                                        />
-                                        {errors.firstName && (
-                                            <p className="text-red-500 text-sm">{errors.firstName}</p>
-                                        )}
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium">Email</label>
-                                        <input
-                                            type="email"
-                                            value={form.email}
-                                            onChange={(e) => handleChange("email", e.target.value)}
-                                            className="mt-1 w-full border bg-white p-2 rounded"
-                                        />
-                                        {errors.email && (
-                                            <p className="text-red-500 text-sm">{errors.email}</p>
-                                        )}
-                                    </div>
-
-                                    {/* ✅ Phone with country code */}
-                                    <div>
-                                        <label className="block text-sm font-medium">Phone</label>
-                                        <div className="flex">
-                                            <span className="px-3 py-2 bg-gray-100 border border-r-0 rounded-l-md text-gray-700">
-                                                {form.countryCode || "+966"}
-                                            </span>
-                                            <input
-                                                type="tel"
-                                                value={form.phone}
-                                                onChange={(e) => handleChange("phone", e.target.value)}
-                                                className="w-full border bg-white p-2 rounded-r-md"
-                                            />
-                                        </div>
-                                        {errors.phone && (
-                                            <p className="text-red-500 text-sm">{errors.phone}</p>
-                                        )}
-                                    </div>
-
-                                    <div>
-                                        <div>
-                                            <label className="block text-sm font-medium">Description</label>
-                                            <textarea
-                                                value={form.description}
-                                                onChange={(e) => handleChange("description", e.target.value)}
-                                                placeholder="Tell us a bit about your CRM needs..."
-                                                rows={3}
-                                                className="mt-1 w-full border bg-white p-2 rounded"
-                                            />
-                                        </div>
-                                        {errors.description && (
-                                            <p className="text-red-500 text-sm">{errors.description}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="flex gap-4">
-                                        <div className="flex-1">
-                                            <label className="block text-sm font-medium">Date</label>
-                                            <input
-                                                type="date"
-                                                value={form.date}
-                                                onChange={(e) => handleChange("date", e.target.value)}
-                                                className="w-full border bg-gray-100 p-2 rounded"
-                                            />
-                                        </div>
-
-                                        <div className="flex-1">
-                                            <label className="block text-sm font-medium">Time</label>
-                                            <input
-                                                type="time"
-                                                value={form.time}
-                                                onChange={(e) => handleChange("time", e.target.value)}
-                                                className="w-full border bg-gray-100 p-2 rounded"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <button
-                                        type="submit"
-                                        disabled={loading}
-                                        className="w-full bg-orange-500 text-white py-3 font-medium rounded hover:bg-orange-400 transition disabled:opacity-50"
-                                    >
-                                        {loading ? "Submitting..." : "Submit"}
-                                    </button>
-
-                                    {/* ✅ Trust signals */}
-                                    <p className="text-xs text-gray-500 mt-2 text-center">
-                                        🔒 Your information is safe with us. We respect your privacy.
-                                    </p>
-                                </form>
-                            )}
-                        </motion.div>
-                    </motion.div>
+                    <BookingForm
+                        onClose={() => setShowForm(false)}
+                        title="Book Your Strategy Call"
+                    />
                 )}
             </AnimatePresence>
 
@@ -315,7 +213,7 @@ export function FinalCta() {
             <div className="fixed bottom-4 inset-x-0 flex justify-center sm:hidden z-40">
                 <button
                     onClick={() => setShowForm(true)}
-                    className="px-6 py-3 bg-orange-500 text-white rounded-full shadow-lg"
+                    className="px-6 py-3 bg-orange-400  text-black rounded-full shadow-lg"
                 >
                     📅 Book a Demo
                 </button>
