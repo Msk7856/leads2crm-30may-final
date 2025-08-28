@@ -107,7 +107,7 @@ export function BookingForm({
         try {
             await addDoc(collection(db, collectionName), {
                 ...form,
-                fullPhone: `${form.countryCode}${form.phone}`,
+                phone: `${form.countryCode}${form.phone}`,
             });
             setSubmitted(true);
             setForm({
@@ -127,51 +127,58 @@ export function BookingForm({
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-            {/* <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6 relative"> */}
-            <div className="bg-gradient-to-r from-orange-300 via-pink-200 to-purple-400 text-white rounded-md shadow-lg w-full max-w-md p-6 relative">
+            <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 relative border border-gray-200">
 
+                {/* Close button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+                    className="absolute top-3 right-3 text-gray-400 hover:text-red-500 transition"
                 >
-                    <X className="h-6 w-6 bg-gray-200 hover:bg-red-500 font-bold rounded-full p-1" />
+                    <X className="h-6 w-6 rounded-full p-1 bg-gray-100 hover:bg-red-500 hover:text-white" />
                 </button>
 
-                <h2 className="text-2xl font-bold mb-4 text-gray-900">{title}</h2>
+                {/* Header */}
+                <h2 className="text-2xl font-bold mb-1 text-center text-gray-900">
+                    📅 Schedule Your Free CRM Strategy Call
+                </h2>
+                <p className="text-sm text-center text-gray-500 mb-4">
+                    Trusted by 50+ businesses across KSA, UAE & India
+                </p>
 
                 {submitted ? (
-                    <p className="text-white bg-green p-3 rounded font-medium">
+                    <p className="text-white bg-green border border-emerald-200 p-3 rounded font-medium text-center">
                         ✅ Thank you! We&apos;ll contact you soon.
                     </p>
                 ) : (
-                    <form onSubmit={handleSubmit} className="space-y-3 text-gray-800">
+                    <form onSubmit={handleSubmit} className="space-y-4 text-gray-800">
+
+                        {/* Full Name */}
                         <div>
                             <label className="block text-sm font-medium">Full Name</label>
                             <input
                                 type="text"
                                 value={form.firstName}
                                 onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-                                className="mt-1 w-full outline-none border bg-white p-2 rounded"
+                                placeholder="Enter your full name"
+                                className="mt-1 w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                             />
-                            {errors.firstName && (
-                                <p className="text-red-500 text-sm">{errors.firstName}</p>
-                            )}
+                            {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                         </div>
 
+                        {/* Email */}
                         <div>
                             <label className="block text-sm font-medium">Email</label>
                             <input
                                 type="email"
                                 value={form.email}
                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                className="mt-1 w-full outline-none border bg-white p-2 rounded"
+                                placeholder="example@email.com"
+                                className="mt-1 w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                             />
-                            {errors.email && (
-                                <p className="text-red-500 text-sm">{errors.email}</p>
-                            )}
+                            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                         </div>
 
-                        {/* Phone with country code */}
+                        {/* Phone */}
                         <div>
                             <label className="block text-sm font-medium">Phone</label>
                             <div className="flex">
@@ -182,27 +189,26 @@ export function BookingForm({
                                     type="tel"
                                     value={form.phone}
                                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                                    className="w-full outline-none border bg-white p-2 rounded-r-md"
+                                    placeholder="5XXXXXXXX"
+                                    className="w-full border border-gray-300 bg-white p-2 rounded-r-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 />
                             </div>
-                            {errors.phone && (
-                                <p className="text-red-500 text-sm">{errors.phone}</p>
-                            )}
+                            {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                         </div>
 
+                        {/* Description */}
                         <div>
                             <label className="block text-sm font-medium">Description</label>
                             <textarea
                                 value={form.description}
-                                onChange={(e) =>
-                                    setForm({ ...form, description: e.target.value })
-                                }
-                                placeholder="Tell us a bit about your CRM needs..."
+                                onChange={(e) => setForm({ ...form, description: e.target.value })}
+                                placeholder="e.g., Sales automation, Workflow fixes, Lead capture..."
                                 rows={3}
-                                className="mt-1 outline-none w-full border bg-white p-2 rounded"
+                                className="mt-1 w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                             />
                         </div>
 
+                        {/* Date & Time */}
                         <div className="flex gap-4">
                             <div className="flex-1">
                                 <label className="block text-sm font-medium">Date</label>
@@ -210,7 +216,7 @@ export function BookingForm({
                                     type="date"
                                     value={form.date}
                                     onChange={(e) => setForm({ ...form, date: e.target.value })}
-                                    className="w-full outline-none border bg-gray-100 p-2 rounded"
+                                    className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 />
                             </div>
                             <div className="flex-1">
@@ -219,25 +225,28 @@ export function BookingForm({
                                     type="time"
                                     value={form.time}
                                     onChange={(e) => setForm({ ...form, time: e.target.value })}
-                                    className="w-full outline-none border bg-gray-100 p-2 rounded"
+                                    className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 />
                             </div>
                         </div>
 
+                        {/* CTA Button */}
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-orange-600 text-white py-3 font-medium rounded hover:bg-orange-500 transition disabled:opacity-50"
+                            className="w-full bg-gradient-to-r from-orange-500 to-pink-500 text-white py-3 font-semibold rounded-md hover:opacity-90 transition disabled:opacity-50"
                         >
-                            {loading ? "Submitting..." : "Submit"}
+                            {loading ? "Submitting..." : " Schedule My Free Strategy Call"}
                         </button>
 
-                        <p className="text-sm text-gray-500 mt-2 text-center">
-                            🔒 Your information is safe with us. We respect your privacy.
+                        {/* Trust Note */}
+                        <p className="text-xs text-gray-500 mt-3 text-center">
+                            🔒 Your information is safe & confidential. We respect your privacy.
                         </p>
                     </form>
                 )}
             </div>
         </div>
+
     );
 }
