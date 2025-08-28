@@ -146,11 +146,11 @@ export function BookingForm({
                 </p>
 
                 {submitted ? (
-                    <p className="text-white bg-green border border-emerald-200 p-3 rounded font-medium text-center">
+                    <p className="text-white text-lg bg-green border border-emerald-200 p-3 rounded font-medium text-center">
                         ✅ Thank you! We&apos;ll contact you soon.
                     </p>
                 ) : (
-                    <form onSubmit={handleSubmit} className="space-y-4 text-gray-800">
+                    <form onSubmit={handleSubmit} className="space-y-3 text-gray-800">
 
                         {/* Full Name */}
                         <div>
@@ -182,7 +182,7 @@ export function BookingForm({
                         <div>
                             <label className="block text-sm font-medium">Phone</label>
                             <div className="flex">
-                                <span className="px-3 py-2 bg-gray-100 border border-r-0 rounded-l-md text-gray-700">
+                                <span className="px-3 py-2 bg-gray-100 border border-gray-300 border-r-0 rounded-l-md text-gray-700">
                                     {form.countryCode || "+966"}
                                 </span>
                                 <input
