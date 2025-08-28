@@ -221,7 +221,7 @@ export function BookingForm({
                                 <DatePicker
                                     selected={form.date}
                                     onChange={(date: Date | null) => setForm({ ...form, date })}
-                                    className="w-full border p-2 rounded-md overflow-hidden"
+                                    className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                     dateFormat="yyyy-mm-dd"
                                     minDate={new Date()}
                                     placeholderText="Date"
@@ -243,7 +243,7 @@ export function BookingForm({
                                     timeIntervals={15}
                                     timeCaption="Time"
                                     dateFormat="h:mm aa"
-                                    className="w-full border p-2 rounded-md"
+                                    className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 />
                                 {errors.time && (
                                     <p className="text-red-500 text-sm">{errors.time}</p>
