@@ -4,7 +4,7 @@ import React from "react";
 function CRMImage() {
     return (
         <div className="bg-gradient-to-b from-sky-400 via-mai to-orange-200 flex items-center justify-center py-16">
-            <div className="">
+            <div className="px-2">
                 <div className="gap-10 mb-16">
                     <h1 className="text-white text-center font-bold text-4xl">
                         Zoho Implementation
@@ -18,7 +18,7 @@ function CRMImage() {
                     title="Zoho CRM"
                     height={700}
                     width={800}
-                    className=""
+                    className="p-2"
                 />
             </div>
 
