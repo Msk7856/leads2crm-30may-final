@@ -187,7 +187,7 @@ export function FinalCta() {
                     </div>
 
 
-                    {/* ✅ Urgency / social proof */}
+                    {/* ✅ Urgency // social proof */}
                     <p className="mt-4 text-sm italic text-center text-orange-200 font-medium">
                         🫴🏻 Join 100+ businesses already scaling with Zoho CRM
                     </p>
