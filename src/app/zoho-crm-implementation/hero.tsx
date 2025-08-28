@@ -142,7 +142,7 @@ export default function StandalonePage() {
                   `}</style>
                 <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-white to-orange-200 -z-10" />
 
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-4xl mx-auto px-2">
                     <h1 className="font-headline text-gray-900 text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
                         Transform Your Business with Enterprise-Grade {" "}
                         <span className="text-mai">Zoho CRM</span> Implementation
