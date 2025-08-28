@@ -3,15 +3,17 @@
 import { useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { X, XCircleIcon } from "lucide-react";
+import { X } from "lucide-react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface FormData {
     firstName: string;
     email: string;
     phone: string;
     countryCode: string;
-    date: string;
-    time: string;
+    date: Date | null;
+    time: Date | null;
     description: string;
 }
 
@@ -40,8 +42,8 @@ export function BookingForm({
         email: "",
         phone: "",
         countryCode: "",
-        date: "",
-        time: "",
+        date: null,
+        time: null,
         description: "",
     });
     const [errors, setErrors] = useState<ErrorState>({});
@@ -108,6 +110,8 @@ export function BookingForm({
             await addDoc(collection(db, collectionName), {
                 ...form,
                 phone: `${form.countryCode}${form.phone}`,
+                date: form.date ? form.date.toISOString().split("T")[0] : null,
+                time: form.time ? form.time.toISOString().split("T")[1].slice(0, 5) : null,
             });
             setSubmitted(true);
             setForm({
@@ -115,8 +119,8 @@ export function BookingForm({
                 email: "",
                 phone: "",
                 countryCode: form.countryCode, // keep countryCode
-                date: "",
-                time: "",
+                date: null,
+                time: null,
                 description: "",
             });
         } catch (err) {
@@ -189,12 +193,13 @@ export function BookingForm({
                                     type="tel"
                                     value={form.phone}
                                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                                    placeholder="5XXXXXXXX"
+                                    placeholder="XXXXXXXXX"
                                     className="w-full border border-gray-300 bg-white p-2 rounded-r-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 />
                             </div>
                             {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                         </div>
+
 
                         {/* Description */}
                         <div>
@@ -210,23 +215,39 @@ export function BookingForm({
 
                         {/* Date & Time */}
                         <div className="flex gap-4">
-                            <div className="flex-1">
-                                <label className="block text-sm font-medium">Date</label>
-                                <input
-                                    type="date"
-                                    value={form.date}
-                                    onChange={(e) => setForm({ ...form, date: e.target.value })}
-                                    className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
+                            {/* Date Picker */}
+                            <div>
+                                <label className="block text-sm font-medium">Select Date</label>
+                                <DatePicker
+                                    selected={form.date}
+                                    onChange={(date: Date | null) => setForm({ ...form, date })}
+                                    className="w-full border p-2 rounded-md overflow-hidden"
+                                    dateFormat="yyyy-mm-dd"
+                                    minDate={new Date()}
+                                    placeholderText="Date"
                                 />
+                                {errors.date && (
+                                    <p className="text-red-500 text-sm">{errors.date}</p>
+                                )}
                             </div>
-                            <div className="flex-1">
-                                <label className="block text-sm font-medium">Time</label>
-                                <input
-                                    type="time"
-                                    value={form.time}
-                                    onChange={(e) => setForm({ ...form, time: e.target.value })}
-                                    className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
+
+                            {/* Time Picker */}
+                            <div>
+                                <label className="block text-sm font-medium">Select Time</label>
+                                <DatePicker
+                                    selected={form.time}
+                                    onChange={(time: Date | null) => setForm({ ...form, time })}
+                                    showTimeSelect
+                                    showTimeSelectOnly
+                                    placeholderText="Time"
+                                    timeIntervals={15}
+                                    timeCaption="Time"
+                                    dateFormat="h:mm aa"
+                                    className="w-full border p-2 rounded-md"
                                 />
+                                {errors.time && (
+                                    <p className="text-red-500 text-sm">{errors.time}</p>
+                                )}
                             </div>
                         </div>
 

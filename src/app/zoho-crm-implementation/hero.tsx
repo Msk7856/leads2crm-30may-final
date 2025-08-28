@@ -165,7 +165,7 @@ export default function StandalonePage() {
 
                         {/* WhatsApp Link */}
                         <Link
-                            href="https://wa.me/966559034101?text=Hello%2C%20I%20would%20like%20to%20talk%20to%20a%20CRM%20Consultant."
+                            href="https://wa.me/966538834362?text=Hello%2C%20I%20would%20like%20to%20talk%20to%20a%20CRM%20Consultant."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-gray-300 px-8 py-3 text-base sm:text-lg font-medium text-gray-700 shadow-sm transition hover:bg-gray-100 hover:scale-105"
