@@ -24,9 +24,9 @@ export function Header() {
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
         >
-            <div className={`container mx-auto flex h-20 items-center justify-between px-4 md:px-6 ${isScrolled ? "bg-white/50 shadow-md backdrop-blur-md" : "bg-transparent"}`}>
+            <div className={` mx-auto flex h-20 items-center justify-between px-4 md:px-6 ${isScrolled ? "bg-white/50 shadow-md backdrop-blur-md" : "bg-transparent"}`}>
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+                <Link href="/" className="md:ml-20 flex  items-center gap-2 font-bold text-xl">
                     {/* <Gem className="h-6 w-6 text-blue-500" /> */}
                     {/* <span className="font-headline">CRM Ascent</span> */}
                     <img src="/images/logo/logoTranparent.png" alt="Lead2crm logo" className="w-40" />
