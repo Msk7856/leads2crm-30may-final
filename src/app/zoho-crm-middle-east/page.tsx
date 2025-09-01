@@ -3,8 +3,8 @@ import FreeZohoCRMAuditLandingPage from '../zoho-crm-audit/page'
 import Script from 'next/script';
 
 export const metadata = {
-    title: "Zoho CRM Customization | Tailored CRM for Your Business",
-    description: "Customize Zoho CRM to match your workflows. Our experts help configure modules, fields, automation, and integrations as per your needs.",
+    title: "Zoho Partner in Middle East | Zoho CRM Experts in Middle East",
+    description: "Certified Zoho Partner in Dubai offering CRM solutions tailored to your business needs. Implementation, integration, and training services available.",
 };
 
 
@@ -12,7 +12,7 @@ const page = () => {
     const schemaData = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Zoho CRM Customization",
+        "serviceType": "Zoho Partner In Middle East",
         "provider": {
             "@type": "Organization",
             "name": "Leads2CRM",
@@ -24,12 +24,12 @@ const page = () => {
             { "@type": "Country", "name": "Saudi Arabia" },
             { "@type": "Country", "name": "United Arab Emirates" }
         ],
-        "description": "Implementation your existing CRM to Zoho with zero data loss. Our experts ensure smooth, secure CRM migration tailored to your business workflows."
+        "description": "Implementation your existing CRM to Zoho with zero data loss. Our experts ensure smooth, secure CRM tailored to your business workflows."
     };
     return (
         <div>
             <Script
-                id="zoho-crm-customization"
+                id="zoho-crm-middle-east"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
             />
