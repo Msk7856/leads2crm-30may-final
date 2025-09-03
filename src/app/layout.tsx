@@ -51,10 +51,10 @@ export default function RootLayout({
 
         {/* Google Analytics Script */}
         <Script
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-SR0XTSY1B3"
         />
-        
+
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -101,11 +101,11 @@ export default function RootLayout({
           {/* <Header /> */}
           {!isStandalone && <Header />}
           {children}
-          <Analytics />
           {!isStandalone && <Footer />}
           {/* <Footer /> */}
           {!isStandalone && <ScrollToTop />}
           {/* <ScrollToTop /> */}
+          <Analytics />
         </Providers>
 
       </body>
