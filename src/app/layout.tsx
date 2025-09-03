@@ -14,6 +14,8 @@ import "aos/dist/aos.css";
 import { Providers } from "./providers";
 import TopBar from "@/components/topbar";
 import { usePathname } from "next/navigation";
+import Script from "next/script";
+import AnalyticsListener from "./AnalyticsListener";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -43,14 +45,30 @@ export default function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <head />
+      <head>
+        {/* Google Analytics Script */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-SR0XTSY1B3"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SR0XTSY1B3', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
 
       {/* <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}> */}
       <body className={`bg-[#FFFFFF]  ${inter.className}`}>
 
 
-
         <Providers>
+          <AnalyticsListener />
           {/* <TopBar/> */}
           {/* <TopBar/> */}
           {/* <Header /> */}
