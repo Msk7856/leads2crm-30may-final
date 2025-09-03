@@ -47,6 +47,8 @@ export default function RootLayout({
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head>
+        <meta name="google-site-verification" content="T8TJAnB3DzozT9RGtMeL8hEwaq6uZY2pHYX-K2tvORQ" />
+
         {/* Google Analytics Script */}
         <Script
           strategy="afterInteractive"
