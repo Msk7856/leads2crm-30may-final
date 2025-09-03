@@ -16,6 +16,7 @@ import TopBar from "@/components/topbar";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 import AnalyticsListener from "./AnalyticsListener";
+import { Analytics } from "@vercel/analytics/next"
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -74,6 +75,7 @@ export default function RootLayout({
           {/* <Header /> */}
           {!isStandalone && <Header />}
           {children}
+          <Analytics />
           {!isStandalone && <Footer />}
           {/* <Footer /> */}
           {!isStandalone && <ScrollToTop />}
