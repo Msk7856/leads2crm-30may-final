@@ -1,5 +1,7 @@
 // components/CentersOfExcellence.tsx
 
+import Image from "next/image";
+
 const centers = [
     {
         title: "Software Engineering & Development",
@@ -53,10 +55,10 @@ export default function CentersOfExcellence() {
                     {centers.map((center, idx) => (
                         <div
                             key={center.title}
-                            className={`flex items-center gap-4 rounded-lg px-6 py-5 shadow-sm transition bg-gray-50 hover:bg-mai hover:text-white`}
+                            className={`flex items-center gap-4 rounded-lg px-6 py-4 shadow-sm transition bg-gray-50 hover:bg-mai hover:text-white`}
                         >
-                            <span className="flex-shrink-0 w-12 h-12 rounded-full bg-white flex items-center justify-center shadow">
-                                <img src={center.icon} alt={center.title} className="w-10 h-10" />
+                            <span className="flex-shrink-0 w-20 h-20 rounded-full bg-white flex items-center justify-center shadow">
+                                <Image width={20} height={20} src={center.icon} alt={center.title} className="w-20 h-20" />
                             </span>
                             <span
                                 className='font-semibold text-base md:text-lg text-blue-700 text-[#222] '

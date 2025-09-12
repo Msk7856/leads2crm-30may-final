@@ -1,23 +1,5 @@
 "use client"
 
-// const BookDemoIntro = () => {
-//   return (
-//     <div className="text-center lg:text-left">
-//       <h1 className="text-4xl font-extrabold text-gray-800 mb-6">Book a Demo</h1>
-//       <p className="text-lg text-gray-600 mb-6">
-//         We are committed to providing exceptional service to the German government and its
-//         departments. Our tailored solutions are designed to meet the unique needs of government
-//         projects. Book a demo now to explore our offerings and see how we can support your
-//         organization’s goals.
-//       </p>
-//       <p className="text-lg text-gray-600">
-//         Fill out the form on the right to schedule a free, no-obligation demonstration.
-//       </p>
-//     </div>
-//   );
-// };
-
-// export default BookDemoIntro;
 const BookDemoIntro = () => {
   return (
     <div className="text-center lg:text-left">

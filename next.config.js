@@ -101,6 +101,8 @@ const nextConfig = {
       process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
   },
   output: "standalone",
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 module.exports = nextConfig;

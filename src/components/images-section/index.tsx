@@ -2,40 +2,40 @@ import Image from "next/image";
 import './Img.css'
 
 const customerImages = [
-  "https://sedra.net.sa/wp-content/uploads/2024/08/12-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/11-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/10-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/9-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/8-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/7-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/6-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/5-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/4-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/3-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/2-1.png",
-  "https://sedra.net.sa/wp-content/uploads/2024/08/1-1.png",
+  "images/ClientLogos/1.png",
+  "images/ClientLogos/2.png",
+  "images/ClientLogos/3.png",
+  "images/ClientLogos/4.png",
+  "images/ClientLogos/5.png",
+  "images/ClientLogos/6.png",
+  "images/ClientLogos/7.png",
+  "images/ClientLogos/8.png",
+  "images/ClientLogos/9.png",
+  "images/ClientLogos/10.png",
+  "images/ClientLogos/11.png",
+  "images/ClientLogos/12.png",
+];
+
+
+const clients = [
+  { alt: 'Client 1', src: 'images/ClientLogos/1.png' },
+  { alt: 'Client 2', src: 'images/ClientLogos/2.png' },
+  { alt: 'Client 3', src: 'images/ClientLogos/3.png' },
+  { alt: 'Client 4', src: 'images/ClientLogos/4.png' },
+  { alt: 'Client 5', src: 'images/ClientLogos/5.png' },
+  { alt: 'Client 6', src: 'images/ClientLogos/6.png' },
+  { alt: 'Client 7', src: 'images/ClientLogos/7.png' },
+  { alt: 'Client 8', src: 'images/ClientLogos/8.png' },
+  { alt: 'Client 9', src: 'images/ClientLogos/9.png' },
+  { alt: 'Client 10', src: 'images/ClientLogos/10.png' },
+  { alt: 'Client 11', src: 'images/ClientLogos/11.png' },
+  { alt: 'Client 12', src: 'images/ClientLogos/12.png' },
 ];
 
 const FullScreenImage = () => {
   return (
     <div className="overflow-x-hidden bg-[#ffffff] ">
-      {/* <div className="relative w-full h-screen overflow-hidden">
-        // Desktop image 
-        <img
-          src="/images/Clients & Partners.png"
-          alt="Full Screen"
-          className="hidden sm:block absolute top-0 left-0 w-full h-full object-cover"
-        />
-
-         //  Mobile image  
-        <img
-          src="/images/mobile screen size.png"
-          alt="Mobile Screen"
-          className="sm:hidden absolute top-0 left-0 w-full h-full object-cover"
-        />
-      </div> */}
-
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-12 px-12 py-12 sm:py-16 md:flex-row md:items-center md:gap-0 md:py-28">
+          <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-12 px-12 py-12 sm:py-16 md:flex-row md:items-center md:gap-0 md:py-28">
         <div className="min-w-0 md:w-1/2">
           <h2 className="mb-3 text-3xl leading-tight text-[#0b1109] xl:text-[3rem] text-center lg:text-start capitalize font-sans">
             Our customers make us great
@@ -71,36 +71,3 @@ const FullScreenImage = () => {
 };
 
 export default FullScreenImage;
-
-// <div className="w-screen h-screen">
-//   <img
-//     src="/images/Clients & Partners.png"
-//     alt="Full Screen"
-//     className="w-full h-full object-contain sm:object-cover"
-//   />
-// </div>
-// <div className="relative w-screen h-screen">
-//   <img
-//     src="/images/Clients & Partners.png"
-
-//     "/images/mobile screen size.png"
-//     alt="Full Screen"
-//     className="absolute top-0 left-0 w-full h-full object-cover"
-//   />
-// </div>
-
-//     <div className="relative w-full h-screen overflow-hidden">
-//   {/* Default image for large screens */}
-//   <img
-//     src="/images/Clients & Partners.png"
-//     alt="Full Screen"
-//     className="hidden sm:block absolute top-0 left-0 w-full h-full object-cover"
-//   />
-
-//   {/* Image for mobile screens */}
-//   <img
-//     src="/images/mobile screen size.png"
-//     alt="Mobile Screen"
-//     className="sm:hidden absolute top-0 left-0 w-full h-full object-cover"
-//   />
-// </div>

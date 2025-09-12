@@ -1,5 +1,7 @@
 // components/EmpowersStaff.tsx
 
+import Image from "next/image";
+
 export default function EmpowersStaff() {
     return (
         <section className="w-full max-w-7xl mx-auto bg-[#f6f8fa] rounded-2xl px-2 sm:px-4 py-8 md:py-12 md:px-8 my-8">
@@ -67,7 +69,7 @@ export default function EmpowersStaff() {
                                             readOnly
                                             className="accent-blue-600 w-4 h-4 mr-2 sm:mr-3"
                                         />
-                                        <img
+                                        <Image width={8} height={8}
                                             src={row.avatar}
                                             alt={row.name}
                                             className="w-8 h-8 rounded-full mr-2 sm:mr-3"

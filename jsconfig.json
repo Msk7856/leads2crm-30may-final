@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "strict": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
-  }
+    },
+    "types": ["node", "minimatch"]
+  },
+  "exclude": ["node_modules"]
 }

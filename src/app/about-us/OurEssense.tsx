@@ -3,15 +3,15 @@ import { useState } from "react";
 const essenseItems = [
   {
     title: "Tech expertise",
-    image: "/images/about/essense/tech-expertise.jpg",
+    image: "/images/about/essense/tech-expertise.png",
     heading: "Tech Expertise",
-    videoThumb: "/images/about/essense/tech-expertise.jpg",
+    videoThumb: "/images/about/essense/tech-expertise.png",
   },
   {
     title: "One team",
-    image: "/images/about/essense/one-team.jpg",
+    image: "/images/about/essense/one-team.png",
     heading: "One Team",
-    videoThumb: "/images/about/essense/one-team.jpg",
+    videoThumb: "/images/about/essense/one-team.png",
   },
   {
     title: "Professional development opportunities",
@@ -21,9 +21,9 @@ const essenseItems = [
   },
   {
     title: "Unique recognition programs",
-    image: "/images/about/essense/unique-recognition.jpg",
+    image: "/images/about/essense/unique-recognition.png",
     heading: "Unique Recognition Programs",
-    videoThumb: "/images/about/essense/unique-recognition.jpg",
+    videoThumb: "/images/about/essense/unique-recognition.png",
   },
   {
     title: "Care culture",

@@ -1,35 +1,4 @@
-// // components/AnimatedWords.js
 
-// import React, { useEffect, useState } from 'react';
-
-// const AnimatedWords = () => {
-//   const words = ["Potential", "Performance", "Quality"];
-//   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-//     }, 2000); // Change word every 2 seconds
-
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   return (
-//     <h1 className="text-red-500 text-2xl">
-//       {words.map((word, index) => (
-//         <span 
-//           key={index}
-//           className={`transition-opacity duration-500 font-bold ${currentWordIndex === index ? 'opacity-100' : 'opacity-0'}`}
-//         >
-//           {word}
-//         </span>
-//       ))}
-//     </h1>
-//   );
-// };
-
-// export default AnimatedWords;
-//2
 import React, { useEffect, useState } from 'react';
 
 const AnimatedWords = () => {

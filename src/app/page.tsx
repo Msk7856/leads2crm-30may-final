@@ -40,6 +40,7 @@ import InteriorDesignCRMHero from "./zoho-crm/InteriorDesignCRMHero";
 import Login from '@/components/animate/Login'
 
 import 'react-phone-input-2/lib/style.css';
+import Experience from "./experience/page";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.leads2crm.com"),
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     ],
   },
   icons: {
-    icon: "/favicon.ico", // Path to your favicon
+    icon: "/images/meta/android-chrome-512x512.png", // Path to your favicon
   },
 };
 
@@ -78,6 +79,7 @@ export default function Home() {
       <ScrollUp />
       <Homes />
       <ExpertiseSection />
+      <Experience />
       <ZohoCRMIndustry />
       {/* <InteriorDesignCRMHero /> */}
       {/* <MeetClients/>
@@ -110,7 +112,7 @@ export default function Home() {
       <ContactUs />
       {/* <Pricing />  */}
       {/* <FAQs/> */}
-      <Blog />
+      {/* <Blog /> */}
       {/* <Contact /> */}
       {/* <RequestDemoForm/> */}
       {/* <DelayedForm/> */}

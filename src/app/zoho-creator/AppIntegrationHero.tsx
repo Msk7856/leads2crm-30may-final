@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
 
 export default function AppIntegrationHero() {
@@ -35,7 +36,7 @@ export default function AppIntegrationHero() {
             {/* App Integration Diagram */}
             <div className="flex justify-center mt-6 w-9/12 mx-auto">
                 {/* Replace the src below with your actual diagram image */}
-                <img
+                <Image
                     src="/images/zoho/zoho-creator/business-app-code.jpg"
                     alt="App Integration Ecosystem"
                     className="max-w-full h-auto"

@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+// import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { FiChevronDown, FiChevronRight, FiChevronUp } from "react-icons/fi";
+
 
 const Header = () => {
   const [currentMenu, setCurrentMenu] = useState<string | null>(null);
@@ -703,16 +706,6 @@ const Header = () => {
   ];
 
 
-
-
-
-
-
-
-
-
-
-
   const handleStickyNavbar = () => {
     // Remove the scroll check to keep the header fixed
     setSticky(true);
@@ -766,179 +759,132 @@ const Header = () => {
           <nav className="hidden sm:flex space-x-10 ml-auto">
             <ul className={`flex space-x-6 font-medium items-center transition-colors duration-300  ${sticky ? "text-black " : "text-black "}`}>
               {menuData.map((menu, menuIndex) => (
-                // <li
-                //   key={menuIndex}
-                //   className="relative group"
-                //   onMouseEnter={() => setCurrentMenu(menu.menuName)} // Set current menu on hover
-                //   onMouseLeave={() => {
-                //     setCurrentMenu(null); // Close the menu when leaving
-                //     setHoveredIndex(null); 
-                //   }}
-                // >
+
                 <li
                   key={menuIndex}
                   className="relative group"
                   onMouseEnter={() => {
                     setCurrentMenu(menu.menuName);
-                    // Change: Set hoveredIndex to 0 by default when menu is entered
-                    setHoveredIndex(0);
+                    setHoveredIndex(0); // Default hover index
                   }}
                   onMouseLeave={() => {
                     setCurrentMenu(null);
                     setHoveredIndex(null);
                   }}
                 >
-                  <span className="flex items-center  cursor-pointer text-md  font-sans hover:text-mai hover:decoration-mai transition-colors duration-300">
+                  {/* Main Menu Label */}
+                  <span className="flex items-center cursor-pointer text-md font-sans hover:text-mai hover:decoration-mai transition-colors duration-300">
                     {menu.menuName}
-                    <svg
-                      className={`ml-1 h-4 w-4 transform transition-transform duration-300 ${currentMenu === menu.menuName ? 'rotate-0' : 'rotate-180'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7" />
-                    </svg>
+                    <FiChevronUp
+                      className={`ml-1 h-4 mt-1 w-4 transform transition-transform duration-300 ${currentMenu === menu.menuName ? 'rotate-0' : 'rotate-180'
+                        }`}
+                    />
                   </span>
 
                   {/* Dropdown Menu */}
-
                   {currentMenu === menu.menuName && (
                     <div
-                      className="fixed left-0 right-0 top-18 bg-white text-black shadow-none  z-25 w-screen p-6"
-                      onMouseEnter={() => setCurrentMenu(menu.menuName)} // Keep dropdown open
+                      className="fixed left-0 right-0 top-18 bg-white text-black shadow-none z-25 w-screen p-6"
+                      onMouseEnter={() => setCurrentMenu(menu.menuName)}
                       onMouseLeave={() => {
-                        setCurrentMenu(null); // Close when not hovering over the entire dropdown
+                        setCurrentMenu(null);
                         setHoveredIndex(null);
                       }}
                     >
                       <div className="grid grid-cols-12 gap-4 max-w-6xl mx-auto">
-                        {/* <div className="col-span-5 bg-white p-4 border-r border-gray-200"> */}
-                        <div className="col-span-5 bg-white p-4  border-orange animate-border-color-change">
-
+                        {/* Left Menu List */}
+                        <div className="col-span-5 bg-white p-4 border-orange animate-border-color-change">
                           {menu.items.map((item, index) => (
                             <div
                               key={index}
-                              onMouseEnter={() => setHoveredIndex(index)} // Set hovered index
-                              className={`p-4 cursor-pointer flex items-center justify-between transition-all duration-200 ease-in-out rounded-lg ${hoveredIndex === index ? 'bg-[#eaf5fd] ' : ''} `}
-
-                            // className="p-4 cursor-pointer flex items-center justify-between transition-all duration-200 ease-in-out rounded-lg hover:bg-gray-100"
+                              onMouseEnter={() => setHoveredIndex(index)}
+                              className={`p-4 cursor-pointer flex items-center justify-between transition-all duration-200 ease-in-out rounded-lg ${hoveredIndex === index ? 'bg-[#eaf5fd]' : ''
+                                }`}
                             >
                               <div className="flex items-center">
-                                <img src={item.icon} alt="Item Icon" className="h-6 w-6 mr-2" />
-                                <h3 className="font-medium text-md text-gray-800  font-sans hover:decoration-mai  ">{item.title}</h3>
-                              </div>
-                              {/* <svg
-              className={`h-5 w-5 ml-5 transition-colors duration-300 transform rotate-45 ${hoveredIndex === index ? 'text-mai' : 'text-gray-500'}`}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 15l7-7 7 7" />
-            </svg> */}
-
-                              <svg
-                                className={`h-4 w-5 ml-5 transition-colors duration-300 transform ${hoveredIndex === index ? 'text-maiy' : 'text-gray-500'}`}
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <path
-                                  d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42s1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0s-.39 1.02 0 1.41l4.87 4.89h-11.17c-.55 0-1 .45-1 1s.45 1 1 1z"
-                                  transform="translate(-4 -4)"
+                                <Image
+                                  width={6}
+                                  height={6}
+                                  src={item.icon}
+                                  alt="Item Icon"
+                                  className="h-6 w-6 mr-2"
                                 />
-                              </svg>
+                                <h3 className="font-medium text-md text-gray-800 font-sans hover:decoration-mai">
+                                  {item.title}
+                                </h3>
+                              </div>
 
+                              {/* Right Arrow */}
+                              <FiChevronDown
+                                className={`h-4 w-5 ml-5 transition-colors duration-300 transform ${hoveredIndex === index ? 'text-maiy' : 'text-gray-500'
+                                  }`}
+                              />
                             </div>
                           ))}
                         </div>
 
+                        {/* Right Section - Submenu */}
                         <div className="col-span-7 bg-white p-4">
-                          {/* Display hovered title at the top */}
                           {hoveredIndex !== null && (
                             <>
-                              {/* <h3 className="font-medium text-md text-mai font-sans  mb-4">
-      {menu.items[hoveredIndex].title}
-
-      <hr className="border-t-2 border-[#808080] w-1/4  mt-2 " />
-
-    </h3> */}
                               <div className="inline-block">
                                 <h3 className="font-medium text-md text-mai font-sans mb-2">
                                   {menu.items[hoveredIndex].title}
                                 </h3>
                                 <hr className="border-t-2 border-mai w-[70%] mt-2 mr-auto" />
                               </div>
-
-
                             </>
-
-
                           )}
 
-
-
                           {hoveredIndex !== null && (
-
-
                             <div className="grid grid-cols-2 items-center gap-4">
                               {menu?.items[hoveredIndex]?.subtitle?.map((sub, idx) => (
-                                <div key={idx} className="flex items-center list-disc p-2 px-2  hover:bg-mai hover:text-white rounded text-gray-700">
-
-                                  <img src={sub.icon} alt={sub.altText} className='mr-4 w-6 items-center' />
+                                <div
+                                  key={idx}
+                                  className="flex items-center list-disc p-2 px-2 hover:bg-mai hover:text-white rounded text-gray-700"
+                                >
+                                  <Image
+                                    width={6}
+                                    height={6}
+                                    src={sub.icon}
+                                    alt={sub.altText}
+                                    className="mr-4 w-6 items-center"
+                                  />
                                   <li
-                                    className="text-sm font-medium items-center  hover:text-white text-gray-600 whitespace-nowrap"
+                                    className="text-sm font-medium items-center hover:text-white text-gray-600 whitespace-nowrap"
                                     style={{ width: '100%', listStyleType: 'none' }}
-                                    title={sub.altText} // Tooltip for hover
+                                    title={sub.altText}
                                   >
-                                    {/* <Link
-          href="#"
-          rel="noopener noreferrer"
-          className="hover:text-mai hover:underline hover:decoration-mai font-mono-system-ui capitalize"
-        >
-          {sub.text}
-        </Link> */}
                                     <Link
-                                      // href="#"
                                       href={sub?.url}
                                       rel="noopener noreferrer"
-                                      // className={`hover:text-mai hover:underline hover:decoration-mai font-mono-system-ui ${
-                                      //   sub.text === "jQuery" || sub.text === "iPaaS" ? "normal-case" : "capitalize"
-                                      // }`}
-
-                                      // className={`hover:text-mai hover:underline hover:decoration-mai font-mono-system-ui ${
-                                      //   ["iPaaS", "jQuery", "React.js", "Next.js", "Vue.js", "Node.js", "Express.js"].includes(sub.text)
-                                      //     ? "normal-case"
-                                      //     : "capitalize"
-                                      // }`}
-
-                                      className={`hover:underline items-center hover:text-white hover:decoration-gray-100 font-mono-system-ui ${["iPaaS", "jQuery", "React.js", "Next.js", "Vue.js", "Node.js", "Express.js", "iPaaS Integration Services"].includes(
-                                        sub.text.trim()
-                                      )
+                                      className={`hover:underline items-center hover:text-white hover:decoration-gray-100 font-mono-system-ui ${[
+                                        "iPaaS",
+                                        "jQuery",
+                                        "React.js",
+                                        "Next.js",
+                                        "Vue.js",
+                                        "Node.js",
+                                        "Express.js",
+                                        "iPaaS Integration Services",
+                                      ].includes(sub.text.trim())
                                         ? "normal-case"
                                         : "capitalize"
                                         }`}
-
-
                                     >
                                       {sub.text}
                                     </Link>
-
                                   </li>
                                 </div>
                               ))}
                             </div>
-
                           )}
                         </div>
-
                       </div>
                     </div>
                   )}
-
-
                 </li>
+
               ))}
               <li className='z-[9999]'>
                 <a href="/contact-us">

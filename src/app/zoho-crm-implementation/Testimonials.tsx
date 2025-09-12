@@ -1,4 +1,5 @@
 import { Building, Building2, ComponentIcon } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
     {
@@ -58,7 +59,7 @@ export function Testimonials() {
                             <p className="uppercase my-2 flex text-gray-600 gap-2"><Building2 className="h-6 w-6 text-mai" />{testimonial.hint}</p>
                             {/* Footer */}
                             <div className="flex items-center gap-4 mt-2">
-                                <img
+                                <Image width={12} height={12}
                                     src={testimonial.avatar}
                                     alt={testimonial.name}
                                     data-ai-hint={testimonial.hint}

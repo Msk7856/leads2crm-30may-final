@@ -79,12 +79,12 @@ export default function Testimonial() {
                         className="flex flex-col items-start gap-6 transition-all duration-300 ease-in-out"
                     >
                         <div className="relative">
-                            <div className="bg-white px-1 py-2 rounded-md">
+                            <div className="bg-white px-1 py-1 rounded-md">
                                 <Image
                                     src={image}
                                     alt={name}
-                                    width={80}
-                                    height={80}
+                                    width={60}
+                                    height={60}
                                     className="rounded-md object-cover"
                                 />
                             </div>

@@ -1,12 +1,3 @@
-// components/MeetClients.js
-
-// import export default MeetClients;
-// components/Testimonials.js
-
-// components/Testimonials.js
-// components/ClientSlider.js
-
-
 
 "use client"
 
@@ -60,16 +51,6 @@ const clientImages = [
   "/images/ClientLogos/SAR/Saudi Arabia Rails.png",
   "/images/ClientLogos/Refrigeration House/REFRIGERATION house.png",
   ,
-
-  // "/images/ClientLogos/ALOMAIR/ALOMAIR LOGO.png",
-  // "/images/ClientLogos/ASSA ABLOY/g8.png",
-  // "/images/ClientLogos/BNP PARIBAS/g59.png",
-  // "/images/ClientLogos/Electro Power/image1.png",
-  // "/images/ClientLogos/KAEC/g7.png",
-  // "/images/ClientLogos/Refrigeration House/image91.png",
-  // "/images/ClientLogos/SAR/g91.png",
-  // "/images/ClientLogos/SPS/SPS.png"
-  // Add more image paths as needed
 ];
 
 const MeetClients = () => {

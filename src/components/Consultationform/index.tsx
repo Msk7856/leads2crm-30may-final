@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 
 const ConsultationForm = () => {
   return (
@@ -21,7 +22,7 @@ const ConsultationForm = () => {
         <div className="bg-[#ffffff] shadow-lg rounded-lg flex flex-col md:flex-row max-w-6xl">
           {/* Image Section */}
           <div className="w-full md:w-1/2">
-            <img
+            <Image height={100} width={100}
               src="https://storage.googleapis.com/a1aa/image/V8UI6L5Jyq7AINt0gmjWDXqLWqunPYaHLytKh6HvuZbU40fJA.jpg"
               alt="Person working on multiple computer screens with code displayed"
               className="w-full h-full object-cover rounded-l-lg"

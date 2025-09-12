@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FaCheckCircle } from "react-icons/fa";
 
@@ -7,7 +8,7 @@ export default function AutomateBusinessProcesses() {
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8">
                 {/* Left: Screenshot/Image */}
                 <div className="flex-1 flex justify-center">
-                    <img
+                    <Image
                         src="/images/zoho/zoho-creator/automatic-business-process.jpg"
                         alt="Scheduled Releases"
                         className="rounded-lg shadow-lg max-w-full"

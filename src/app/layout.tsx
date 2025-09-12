@@ -99,15 +99,10 @@ export default function RootLayout({
 
         <Providers>
           <AnalyticsListener />
-          {/* <TopBar/> */}
-          {/* <TopBar/> */}
-          {/* <Header /> */}
           {!isStandalone && <Header />}
           {children}
           {!isStandalone && <Footer />}
-          {/* <Footer /> */}
           {!isStandalone && <ScrollToTop />}
-          {/* <ScrollToTop /> */}
           <Analytics />
         </Providers>
 
