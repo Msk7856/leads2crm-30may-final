@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, getDocs, deleteDoc, doc, orderBy, query } from "firebase/firestore";
 import Loader from "@/app/Loader";
+import { useRouter } from "next/navigation";
 
 interface Blog {
     id: string; // Firestore doc id
@@ -15,6 +16,7 @@ interface Blog {
 const ManageBlogsPage = () => {
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
     // ✅ Fetch blogs from Firestore
     const fetchBlogs = async () => {
@@ -58,9 +60,10 @@ const ManageBlogsPage = () => {
         }
     };
 
+
+
     const handleEdit = (id: string) => {
-        alert(`Navigate to edit page for blog ID: ${id}`);
-        // later: router.push(`/admin/blogs/${id}/edit`);
+        router.push(`/admin/blogs/${id}/edit`);
     };
 
     return (
@@ -90,13 +93,13 @@ const ManageBlogsPage = () => {
                                 <td className="p-3 flex gap-2 justify-center">
                                     <button
                                         onClick={() => handleEdit(blog.id)}
-                                        className="px-3 py-1 bg-mai text-white rounded hover:bg-blue-700"
+                                        className="px-3 py-1 bg-purple-500 text-white rounded hover:bg-blue-700"
                                     >
                                         Edit
                                     </button>
                                     <button
                                         onClick={() => handleDelete(blog.id)}
-                                        className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700"
+                                        className="px-3 py-1 bg-red-400 text-white rounded hover:bg-red-700"
                                     >
                                         Delete
                                     </button>

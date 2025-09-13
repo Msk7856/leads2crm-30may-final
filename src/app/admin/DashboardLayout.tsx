@@ -10,7 +10,7 @@ interface DashboardLayoutProps {
 
 const navItems = [
     { href: "/admin", label: "Dashboard", icon: <LayoutDashboard className="w-5 h-5" /> },
-    { href: "/admin", label: "Create Blog", icon: <PlusCircle className="w-5 h-5" /> },
+    { href: "/admin/create-blog", label: "Create Blog", icon: <PlusCircle className="w-5 h-5" /> },
     { href: "/admin/blogs", label: "Manage Blogs", icon: <FileText className="w-5 h-5" /> },
     { href: "/admin/users", label: "Users", icon: <Users className="w-5 h-5" /> },
     { href: "/admin/settings", label: "Settings", icon: <Settings className="w-5 h-5" /> },
