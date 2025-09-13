@@ -30,7 +30,7 @@ export function Header() {
                 <Link href="/" className="md:ml-20 flex  items-center gap-2 font-bold text-xl">
                     {/* <Gem className="h-6 w-6 text-blue-500" /> */}
                     {/* <span className="font-headline">CRM Ascent</span> */}
-                    <Image src="/images/logo/logoTranparent.png" alt="Lead2crm logo" className="w-40" />
+                    <Image width={140} height={60} src="/images/logo/logoTranparent.png" alt="Lead2crm logo" className="w-40" />
                 </Link>
 
                 {/* Desktop Nav */}
@@ -72,7 +72,7 @@ export function Header() {
                     <div className="fixed top-0 right-0 h-full w-64 bg-white shadow-lg p-4 py-6 flex flex-col z-50">
                         <div className="flex items-center justify-between">
                             <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                                <Image src="/images/logo/logoTranparent.png" alt="Lead2crm logo" className="w-40" />
+                                <Image width={140} height={60} src="/images/logo/logoTranparent.png" alt="Lead2crm logo" className="w-40" />
                             </Link>
                             <button
                                 className="self-end p-2 rounded-md hover:bg-gray-100 transition"

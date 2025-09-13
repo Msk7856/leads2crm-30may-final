@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { X } from "lucide-react";
 import DatePicker from "react-datepicker";
@@ -50,22 +50,69 @@ export function BookingForm({
     const [loading, setLoading] = useState(false);
     const [submitted, setSubmitted] = useState(false);
 
-    // ✅ Auto-detect country code
+
+    // Auto-detect country code
     useEffect(() => {
         fetch("https://ipapi.co/json/")
             .then((res) => res.json())
             .then((data) => {
                 if (data && data.country_calling_code) {
-                    setForm((prev) => ({
-                        ...prev,
-                        countryCode: data.country_calling_code,
-                    }));
+                    setForm((prev) => ({ ...prev, countryCode: data.country_calling_code }));
                 }
             })
             .catch(() => console.log("Country code fetch failed"));
     }, []);
 
-    // ✅ Validation
+    useEffect(() => {
+        if (!submitted) return;
+
+        // timerId type: number in browser environments
+        const timerId = window.setTimeout(() => {
+            // clear submitted flag (so message disappears if modal stays open)
+            setSubmitted(false);
+
+            // close the modal (calls parent onClose)
+            try {
+                onClose();
+            } catch (err) {
+                // fallback: ignore if onClose is not provided for some reason
+                console.warn("onClose not available", err);
+            }
+        }, 5000); // 5000ms = 5s
+
+        return () => {
+            window.clearTimeout(timerId);
+        };
+    }, [submitted, onClose]);
+
+    // Format date (local)
+    const selectedDate = form.date
+        ? form.date.toISOString().split("T")[0]  // this is fine for date
+        : null;
+
+    // Format time (local)
+    const selectedTime = form.time
+        ? `${form.time.getHours().toString().padStart(2, "0")}:${form.time
+            .getMinutes()
+            .toString()
+            .padStart(2, "0")}`
+        : null;
+
+    // Helpers — format local date/time (no timezone-shift)
+    const formatDateForStorage = (d: Date) => {
+        const yyyy = d.getFullYear();
+        const mm = String(d.getMonth() + 1).padStart(2, "0"); // month is 0-indexed
+        const dd = String(d.getDate()).padStart(2, "0");
+        return `${yyyy}-${mm}-${dd}`; // ISO-like date for storage
+    };
+
+    const formatTimeForStorage = (d: Date) => {
+        const hh = String(d.getHours()).padStart(2, "0");
+        const min = String(d.getMinutes()).padStart(2, "0");
+        return `${hh}:${min}`; // 24-hour HH:MM
+    };
+
+    // Validation
     const validate = (): ErrorState => {
         const newErrors: ErrorState = {};
 
@@ -81,7 +128,6 @@ export function BookingForm({
             newErrors.email = "Enter a valid email.";
         }
 
-        // Phone Number
         if (!form.phone.trim()) {
             newErrors.phone = "Phone Number is required.";
         } else if (!/^\d+$/.test(form.phone)) {
@@ -98,7 +144,7 @@ export function BookingForm({
         return newErrors;
     };
 
-    // ✅ Handle submit
+    // Submit
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const validationErrors = validate();
@@ -107,33 +153,48 @@ export function BookingForm({
 
         setLoading(true);
         try {
-            await addDoc(collection(db, collectionName), {
-                ...form,
+            // Build payload — store both selectedDate/selectedTime and createdAt (server)
+            const payload: any = {
+                firstName: form.firstName.trim(),
+                email: form.email.trim(),
                 phone: `${form.countryCode}${form.phone}`,
-                date: form.date ? form.date.toISOString().split("T")[0] : null,
-                time: form.time ? form.time.toISOString().split("T")[1].slice(0, 5) : null,
-            });
+                description: form.description.trim(),
+                collection: collectionName,
+                selectedDate,
+                selectedTime,
+                createdAt: serverTimestamp(), // Firestore server timestamp
+            };
+
+            if (form.date) payload.selectedDate = formatDateForStorage(form.date);
+            else payload.selectedDate = null;
+
+            if (form.time) payload.selectedTime = formatTimeForStorage(form.time);
+            else payload.selectedTime = null;
+
+            await addDoc(collection(db, collectionName), payload);
+
             setSubmitted(true);
+            // reset (keep detected countryCode if you want)
             setForm({
                 firstName: "",
                 email: "",
                 phone: "",
-                countryCode: form.countryCode, // keep countryCode
+                countryCode: form.countryCode,
                 date: null,
                 time: null,
                 description: "",
             });
         } catch (err) {
+            console.error(err);
             alert("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
         }
-        setLoading(false);
     };
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
             <div className="bg-white rounded-xl shadow-xl w-full max-w-md p-6 relative border border-gray-200">
-
-                {/* Close button */}
                 <button
                     onClick={onClose}
                     className="absolute top-3 right-3 text-gray-400 hover:text-red-500 transition"
@@ -141,13 +202,10 @@ export function BookingForm({
                     <X className="h-6 w-6 rounded-full p-1 bg-gray-100 hover:bg-red-500 hover:text-white" />
                 </button>
 
-                {/* Header */}
                 <h2 className="text-2xl font-bold mb-1 text-center text-gray-900">
                     📅 Schedule Your Free CRM Strategy Call
                 </h2>
-                <p className="text-sm text-center text-gray-500 mb-4">
-                    Trusted by 50+ businesses across KSA, UAE & India
-                </p>
+                <p className="text-sm text-center text-gray-500 mb-4">Trusted by 100+ businesses across KSA, UAE & India</p>
 
                 {submitted ? (
                     <p className="text-white text-lg bg-green border border-emerald-200 p-3 rounded font-medium text-center">
@@ -155,7 +213,6 @@ export function BookingForm({
                     </p>
                 ) : (
                     <form onSubmit={handleSubmit} className="space-y-3 text-gray-800">
-
                         {/* Full Name */}
                         <div>
                             <label className="block text-sm font-medium">Full Name</label>
@@ -200,7 +257,6 @@ export function BookingForm({
                             {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
                         </div>
 
-
                         {/* Description */}
                         <div>
                             <label className="block text-sm font-medium">Description</label>
@@ -216,23 +272,21 @@ export function BookingForm({
                         {/* Date & Time */}
                         <div className="flex gap-4">
                             {/* Date Picker */}
-                            <div>
+                            <div className="flex-1">
                                 <label className="block text-sm font-medium">Select Date</label>
                                 <DatePicker
                                     selected={form.date}
                                     onChange={(date: Date | null) => setForm({ ...form, date })}
                                     className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
-                                    dateFormat="yyyy-mm-dd"
+                                    dateFormat="dd-MM-yyyy" // show dd-mm-yyyy in the UI
                                     minDate={new Date()}
                                     placeholderText="Date"
                                 />
-                                {errors.date && (
-                                    <p className="text-red-500 text-sm">{errors.date}</p>
-                                )}
+                                {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
                             </div>
 
                             {/* Time Picker */}
-                            <div>
+                            <div className="flex-1">
                                 <label className="block text-sm font-medium">Select Time</label>
                                 <DatePicker
                                     selected={form.time}
@@ -245,9 +299,7 @@ export function BookingForm({
                                     dateFormat="h:mm aa"
                                     className="w-full border border-gray-300 bg-white p-2 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"
                                 />
-                                {errors.time && (
-                                    <p className="text-red-500 text-sm">{errors.time}</p>
-                                )}
+                                {errors.time && <p className="text-red-500 text-sm">{errors.time}</p>}
                             </div>
                         </div>
 
@@ -257,7 +309,7 @@ export function BookingForm({
                             disabled={loading}
                             className="w-full bg-gradient-to-r from-orange-500 to-pink-500 text-white py-3 font-semibold rounded-md hover:opacity-90 transition disabled:opacity-50"
                         >
-                            {loading ? "Submitting..." : " Schedule My Free Strategy Call"}
+                            {loading ? "Submitting..." : "Schedule My Free Strategy Call"}
                         </button>
 
                         {/* Trust Note */}
@@ -268,6 +320,5 @@ export function BookingForm({
                 )}
             </div>
         </div>
-
     );
 }

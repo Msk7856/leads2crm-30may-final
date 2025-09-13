@@ -1,8 +1,10 @@
 
 
+import { MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { FaCamera, FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -12,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col items-start justify-between md:flex-row md:items-center">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" title="Leads2CRM">
-              
+
               <Image
                 src="/images/logo/Leads2crm.jpg"
                 alt="Leads2CRM Logo"
@@ -126,16 +128,65 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-
-
         </div>
 
 
         {/* Bottom Row */}
-        <div className="flex flex-col items-center justify-between border-t border-gray-800 pt-6 text-xs text-gray-500 md:flex-row">
-          <p className="mb-4 md:mb-0">@Leads2CRM 2025</p>
-          <div></div>
+        <div className="flex flex-col items-center justify-between border-t border-gray-800 pt-4 text-xs text-gray-500 md:flex-row">
+          <p className="mb-4 md:mb-0"> Copyright ©2025 All rights reserved <span className="text-mai">Leads2CRM</span>.</p>
+
+          {/* ✅ Social Media Icons */}
+          <div className="flex gap-5 text-gray-400">
+            <a
+              href="https://www.facebook.com/profile.php?id=61569045539977"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue transition"
+              aria-label="Facebook"
+            >
+              <FaFacebook className="h-6 w-6" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/leads2crm?igsh=Nm5qb2V2cXp0eXl2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-600 transition"
+              aria-label="Instagram"
+            >
+              <FaInstagram className="h-6 w-6" />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/company/104812516/admin/dashboard/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue transition"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="h-6 w-6" />
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sky-500 transition"
+              aria-label="Twitter"
+            >
+              <FaTwitter className="h-6 w-6" />
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-purple-500 transition"
+              aria-label="Threads"
+            >
+              <MessageCircle className="h-6 w-6" />
+            </a>
+          </div>
           <div className="flex gap-5">
             <a href="#">Terms</a>
             <a href="#">Privacy</a>
