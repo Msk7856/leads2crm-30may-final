@@ -21,6 +21,7 @@ export default function CreateBlogs() {
     const [industries, setIndustries] = useState("");
     const [category, setCategory] = useState("");
     const [tags, setTags] = useState<string[]>([]);
+    const [tagsInput, setTagsInput] = useState("");
 
     const [authorName, setAuthorName] = useState("");
     const [authorDesignation, setAuthorDesignation] = useState("");
@@ -42,7 +43,7 @@ export default function CreateBlogs() {
                 description,
                 industries,
                 category,
-                tags,
+                tags: tagsInput.split(",").map((t) => t.trim()).filter(Boolean),
                 slug: slugify(title),
                 image: blogImageUrl || "/images/dummyBlogImg.jpg",
                 author: {
@@ -63,6 +64,7 @@ export default function CreateBlogs() {
             setIndustries("");
             setCategory("");
             setTags([]);
+            setTagsInput("");
             setAuthorName("");
             setAuthorDesignation("");
             setAuthorImageUrl("");
@@ -125,9 +127,8 @@ export default function CreateBlogs() {
                         />
                         <InputField
                             label="Tags (comma separated) Tag-1, Tag-2, Tag-3, ..."
-                            onChange={(v) =>
-                                setTags(v.split(",").map((t) => t.trim()).filter(Boolean))
-                            }
+                            value={tagsInput}
+                            onChange={setTagsInput}
                             className="md:col-span-2"
                         />
                     </div>
