@@ -53,15 +53,28 @@ export function BookingForm({
 
     // Auto-detect country code
     useEffect(() => {
-        fetch("https://ipapi.co/json/")
-            .then((res) => res.json())
-            .then((data) => {
-                if (data && data.country_calling_code) {
-                    setForm((prev) => ({ ...prev, countryCode: data.country_calling_code }));
+        fetch("https://ipwho.is/")
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.country_code) {
+                    const codes: Record<string, string> = {
+                        IN: "+91",
+                        SA: "+966",
+                        AE: "+971",
+                        US: "+1",
+                    };
+                    setForm(prev => ({
+                        ...prev,
+                        countryCode: codes[data.country_code] || "+966"
+                    }));
                 }
             })
-            .catch(() => console.log("Country code fetch failed"));
+            .catch(() => {
+                // fallback if API fails
+                setForm(prev => ({ ...prev, countryCode: "+966" }));
+            });
     }, []);
+
 
     useEffect(() => {
         if (!submitted) return;
