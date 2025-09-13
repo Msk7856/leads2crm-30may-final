@@ -39,6 +39,8 @@ export default function RootLayout({
 
   // If pathname is not ready yet, fallback to showing layout
   const isStandalone = pathname?.startsWith("/zoho-crm-implementation");
+  const isDashboard = pathname?.startsWith("/admin");
+  const showLayout = !(isStandalone || isDashboard);
 
   return (
     <html suppressHydrationWarning lang="en">
@@ -99,10 +101,10 @@ export default function RootLayout({
 
         <Providers>
           <AnalyticsListener />
-          {!isStandalone && <Header />}
+          {showLayout && <Header />}
           {children}
-          {!isStandalone && <Footer />}
-          {!isStandalone && <ScrollToTop />}
+          {showLayout && <Footer />}
+          {showLayout && <ScrollToTop />}
           <Analytics />
         </Providers>
 

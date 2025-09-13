@@ -70,6 +70,7 @@ const nextConfig = {
   images: {
     domains: [
       "localhost",
+      "www.leads2crm.com",
       "www.zohowebstatic.com",
       "hcltech.imgix.net",
       "www.epicor.com",
