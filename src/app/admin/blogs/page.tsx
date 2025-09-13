@@ -5,6 +5,7 @@ import { db } from "@/lib/firebase";
 import { collection, getDocs, deleteDoc, doc, orderBy, query } from "firebase/firestore";
 import Loader from "@/app/Loader";
 import { useRouter } from "next/navigation";
+import { Edit, Edit2, Trash2 } from "lucide-react";
 
 interface Blog {
     id: string; // Firestore doc id
@@ -76,6 +77,7 @@ const ManageBlogsPage = () => {
                 <table className="w-full bg-white shadow rounded-lg overflow-hidden">
                     <thead className="bg-sky-500 text-left text-white">
                         <tr>
+                            <th className="p-3">#Id</th>
                             <th className="p-3">Title</th>
                             <th className="p-3">Author</th>
                             <th className="p-3">Created At</th>
@@ -83,25 +85,31 @@ const ManageBlogsPage = () => {
                         </tr >
                     </thead >
                     <tbody>
-                        {blogs.map((blog) => (
+                        {blogs.map((blog, index) => (
                             <tr key={blog.id} className="border-t text-gray-700 border-gray-200 hover:bg-gray-100">
+                                <td className="p-3">{index + 1}</td>
                                 <td className="p-3">{blog.title}</td>
                                 <td className="p-3">
                                     {typeof blog.author === "string" ? blog.author : blog.author?.name}
                                 </td>
                                 <td className="p-3">{blog.createdAt}</td>
-                                <td className="p-3 flex gap-2 justify-center">
+                                <td className="p-3 flex gap-4 justify-center">
+                                    {/* Edit Button */}
                                     <button
                                         onClick={() => handleEdit(blog.id)}
-                                        className="px-3 py-1 bg-purple-500 text-white rounded hover:bg-blue-700"
+                                        className="p-2 rounded-full bg-purple-100 text-purple-600 hover:bg-purple-200 transition"
+                                        title="Edit Blog"
                                     >
-                                        Edit
+                                        <Edit className="w-5 h-5" />
                                     </button>
+
+                                    {/* Delete Button */}
                                     <button
                                         onClick={() => handleDelete(blog.id)}
-                                        className="px-3 py-1 bg-red-400 text-white rounded hover:bg-red-700"
+                                        className="p-2 rounded-full bg-red-100 text-red-600 hover:bg-red-200 transition"
+                                        title="Delete Blog"
                                     >
-                                        Delete
+                                        <Trash2 className="w-5 h-5" />
                                     </button>
                                 </td>
                             </tr>

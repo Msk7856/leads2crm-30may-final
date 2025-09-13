@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { db } from "@/lib/firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { Loader2 } from "lucide-react";
 
-// ✅ Slugify helper
 function slugify(text: string) {
     return text
         .toLowerCase()
@@ -18,9 +18,9 @@ export default function CreateBlogs() {
     const [subtitle, setSubtitle] = useState("");
     const [excerpt, setExcerpt] = useState("");
     const [description, setDescription] = useState("");
-    const [tags, setTags] = useState<string[]>([]);
     const [industries, setIndustries] = useState("");
     const [category, setCategory] = useState("");
+    const [tags, setTags] = useState<string[]>([]);
 
     const [authorName, setAuthorName] = useState("");
     const [authorDesignation, setAuthorDesignation] = useState("");
@@ -56,15 +56,13 @@ export default function CreateBlogs() {
             });
 
             alert("✅ Blog created successfully!");
-
-            // reset form
             setTitle("");
             setSubtitle("");
             setExcerpt("");
             setDescription("");
             setIndustries("");
             setCategory("");
-            setTags([""]);
+            setTags([]);
             setAuthorName("");
             setAuthorDesignation("");
             setAuthorImageUrl("");
@@ -78,133 +76,145 @@ export default function CreateBlogs() {
     };
 
     return (
-        <div className="max-w-6xl mx-auto p-4 ">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800">Create Blog</h2>
+        <div className="max-w-5xl mx-auto py-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">📝 Create Blog</h2>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <div className="flex gap-4">
-                    {/* Title */}
-                    <input
-                        type="text"
-                        placeholder="Blog Title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        className="border border-mai outline-blue focus:border-l-lime-400 w-full p-2 bg-white text-gray-950 rounded"
-                        required
-                    />
-
-                    {/* Subtitle */}
-                    <input
-                        type="text"
-                        placeholder="Subtitle"
-                        value={subtitle}
-                        onChange={(e) => setSubtitle(e.target.value)}
-                        className="border border-mai outline-blue focus:border-l-lime-400 w-full p-2 bg-white text-gray-950 rounded"
-                    />
-                </div>
-
-                {/* Excerpt */}
-                <input
-                    type="text"
-                    placeholder="Excerpt"
-                    value={excerpt}
-                    onChange={(e) => setExcerpt(e.target.value)}
-                    className="border border-mai outline-blue focus:border-l-lime-400 p-2 bg-white text-gray-950 rounded"
-                />
-
-                {/* Description */}
-                <textarea
-                    placeholder="Blog Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    className="border border-mai outline-blue focus:border-l-lime-400 p-2 bg-white text-gray-950 rounded"
-                    rows={4}
-                    required
-                />
-
-                {/* Industries */}
-                <div className="flex gap-4">
-                    <input
-                        type="text"
-                        placeholder="Industries"
-                        value={industries}
-                        onChange={(e) => setIndustries(e.target.value)}
-                        className="border border-mai outline-blue focus:border-l-lime-400 w-full p-2 bg-white text-gray-950 rounded"
-                    />
-
-                    {/* Category */}
-                    <input
-                        type="text"
-                        placeholder="Category"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        className="border border-mai outline-blue focus:border-l-lime-400 w-full p-2 bg-white text-gray-950 rounded"
-                    />
-                </div>
-
-                <div className="flex gap-4">
-                    {/* Blog Image */}
-                    <input
-                        type="url"
-                        placeholder="Blog Image URL (https://example.com/img.png)"
-                        value={blogImageUrl}
-                        onChange={(e) => setBlogImageUrl(e.target.value)}
-                        className="border w-6/12  border-mai outline-blue focus:border-l-lime-400 p-2 bg-white text-gray-950 rounded"
-                    />
-
-                    {/* Tags */}
-                    <input
-                        type="text"
-                        placeholder="Tags (comma separated) - one, two, three, ..."
-                        onChange={(e) =>
-                            setTags(
-                                e.target.value
-                                    .split(",")
-                                    .map((t) => t.trim())
-                                    .filter(Boolean)
-                            )
-                        }
-                        className="border w-6/12 border-mai outline-blue focus:border-l-lime-400 p-2 bg-white text-gray-950 rounded"
-                    />
-
-
+            <form
+                onSubmit={handleSubmit}
+                className="bg-white rounded-2xl shadow-xl p-6 space-y-4 border border-gray-100"
+            >
+                {/* Blog Info */}
+                <div>
+                    <h3 className="text-xl font-semibold text-gray-800 border-b border-pink-400 pb-2 mb-6">
+                        Blog Information
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <InputField label="Blog Title" value={title} onChange={setTitle} />
+                        <InputField
+                            label="Subtitle"
+                            value={subtitle}
+                            onChange={setSubtitle}
+                        />
+                        <InputField
+                            label="Excerpt"
+                            value={excerpt}
+                            onChange={setExcerpt}
+                            className="md:col-span-2"
+                        />
+                        <TextAreaField
+                            label="Blog Description"
+                            value={description}
+                            onChange={setDescription}
+                            className="md:col-span-2"
+                        />
+                        <InputField
+                            label="Industries"
+                            value={industries}
+                            onChange={setIndustries}
+                        />
+                        <InputField
+                            label="Category"
+                            value={category}
+                            onChange={setCategory}
+                        />
+                        <InputField
+                            label="Blog Image URL - https://leads2crm.com/blog/image1.jpg"
+                            value={blogImageUrl}
+                            onChange={setBlogImageUrl}
+                            className="md:col-span-2"
+                        />
+                        <InputField
+                            label="Tags (comma separated) Tag-1, Tag-2, Tag-3, ..."
+                            onChange={(v) =>
+                                setTags(v.split(",").map((t) => t.trim()).filter(Boolean))
+                            }
+                            className="md:col-span-2"
+                        />
+                    </div>
                 </div>
 
                 {/* Author Info */}
-                <h3 className="font-semibold mt-2 text-gray-900">Author Info</h3>
-                <div className="flex gap-4">
-                    <input
-                        type="text"
-                        placeholder="Author Name"
-                        value={authorName}
-                        onChange={(e) => setAuthorName(e.target.value)}
-                        className="border border-mai outline-blue focus:border-l-lime-400 w-full p-2 bg-white text-gray-950 rounded"
-                    />
-                    <input
-                        type="text"
-                        placeholder="Author Designation"
-                        value={authorDesignation}
-                        onChange={(e) => setAuthorDesignation(e.target.value)}
-                        className="border border-mai outline-blue focus:border-l-lime-400 w-full p-2 bg-white text-gray-950 rounded"
-                    />
+                <div>
+                    <h3 className="text-xl font-semibold text-gray-800 border-b pb-3 mb-6">
+                        Author Information
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <InputField
+                            label="Author Name"
+                            value={authorName}
+                            onChange={setAuthorName}
+                        />
+                        <InputField
+                            label="Author Designation"
+                            value={authorDesignation}
+                            onChange={setAuthorDesignation}
+                        />
+                        <InputField
+                            label="Author Image URL - https://authorImage/image.png"
+                            value={authorImageUrl}
+                            onChange={setAuthorImageUrl}
+                            className="md:col-span-2"
+                        />
+                    </div>
                 </div>
-                <input
-                    type="url"
-                    placeholder="Author Image URL (https://example.com/author.png)"
-                    value={authorImageUrl}
-                    onChange={(e) => setAuthorImageUrl(e.target.value)}
-                    className="border border-mai outline-blue focus:border-l-lime-400 p-2 bg-white text-gray-950 rounded"
-                />
 
                 {/* Submit */}
-                <button
-                    type="submit"
-                    disabled={loading}
-                    className="bg-mai hover:bg-blue-700 text-white py-2 rounded disabled:opacity-50"
-                >
-                    {loading ? "Saving..." : "Save Blog"}
-                </button>
+                <div>
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-indigo-400 to-indigo-700 hover:opacity-90 text-white py-3 px-6 rounded-xl font-medium shadow-lg transition disabled:opacity-50"
+                    >
+                        {loading && <Loader2 className="w-5 h-5 animate-spin" />}
+                        {loading ? "Saving..." : " Publish Blog"}
+                    </button>
+                </div>
             </form>
         </div>
     );
 }
+
+/* ---- Reusable Components ---- */
+const InputField = ({
+    label,
+    value,
+    onChange,
+    className = "",
+}: {
+    label: string;
+    value?: string;
+    onChange: (val: string) => void;
+    className?: string;
+}) => (
+    <div className={`flex flex-col ${className}`}>
+        <label className="text-md font-medium text-gray-600 mb-1">{label}</label>
+        <input
+            type="text"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white shadow-sm"
+        />
+    </div>
+);
+
+const TextAreaField = ({
+    label,
+    value,
+    onChange,
+    className = "",
+}: {
+    label: string;
+    value?: string;
+    onChange: (val: string) => void;
+    className?: string;
+}) => (
+    <div className={`flex flex-col ${className}`}>
+        <label className="text-md font-medium text-gray-600 mb-1">{label}</label>
+        <textarea
+            rows={4}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition bg-white shadow-sm"
+        />
+    </div>
+);
