@@ -18,6 +18,7 @@ const Footer = () => {
               <Image
                 src="/images/logo/Leads2crm.jpg"
                 alt="Leads2CRM Logo"
+                loading="lazy"
                 width={200}
                 height={60}
                 // priority

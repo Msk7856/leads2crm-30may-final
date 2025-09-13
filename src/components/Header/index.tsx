@@ -726,6 +726,7 @@ const Header = () => {
               src="/images/logo/Leads2crm.jpg"
               alt="Leads2CRM Logo"
               width={160}
+              loading="lazy"
               height={60}
               // priority
               className="z-40 mt-[-1px]" // Optional: adjust styles
@@ -806,6 +807,7 @@ const Header = () => {
                                   width={6}
                                   height={6}
                                   src={item.icon}
+                                  loading="lazy"
                                   alt="Item Icon"
                                   className="h-6 w-6 mr-2"
                                 />
