@@ -3,7 +3,7 @@ import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { Blog } from "@/types/blog";
 
-// ✅ Helper: convert Firestore Timestamp | string | undefined -> ISO string
+// ✅ Convert Firestore Timestamp | string | undefined -> ISO string
 function toISOStringSafe(value: any): string {
   if (!value) return "";
   if (typeof value === "string") return value;
@@ -11,20 +11,26 @@ function toISOStringSafe(value: any): string {
   return "";
 }
 
-// ✅ Helper: normalize author whether object or array
+// ✅ Normalize string values (trim + fallback)
+function normalizeString(val: any, fallback = ""): string {
+  if (!val) return fallback;
+  return String(val).trim();
+}
+
+// ✅ Normalize author whether object or array
 function normalizeAuthor(data: any) {
   let rawAuthor: any = null;
 
   if (Array.isArray(data.author)) {
-    rawAuthor = data.author[0]; // take first author
+    rawAuthor = data.author[0]; // take first author if array
   } else if (typeof data.author === "object" && data.author !== null) {
     rawAuthor = data.author;
   }
 
   return {
-    name: rawAuthor?.name ?? "Unknown",
-    image: rawAuthor?.image ?? "/images/userIcon.png",
-    designation: rawAuthor?.designation ?? "",
+    name: normalizeString(rawAuthor?.name, "Unknown"),
+    image: rawAuthor?.image || "/images/userIcon.png",
+    designation: normalizeString(rawAuthor?.designation),
   };
 }
 
@@ -41,21 +47,23 @@ export async function getBlogs(): Promise<{
 
     return {
       id: doc.id,
-      title: data.title ?? "",
-      subtitle: data.subtitle ?? "",
-      category: data.category ?? "General",
-      description: data.description ?? "",
-      excerpt: data.excerpt ?? "",
-      industries: data.industries ?? "",
-      slug: typeof data.slug === "string" ? data.slug : "",
-      image: data.image ?? "/images/dummyBlogImg.jpg",
-      paragraph: data.paragraph ?? "",
+      title: normalizeString(data.title),
+      subtitle: normalizeString(data.subtitle),
+      category: normalizeString(data.category, "General"),
+      description: normalizeString(data.description),
+      excerpt: normalizeString(data.excerpt),
+      industries: normalizeString(data.industries),
+      slug: normalizeString(data.slug),
+      image: data.image || "/images/dummyBlogImg.jpg",
+      paragraph: normalizeString(data.paragraph),
 
       // ✅ normalized author
       author: normalizeAuthor(data),
 
       // ✅ tags fallback
-      tags: Array.isArray(data.tags) ? data.tags : [data.category ?? "General"],
+      tags: Array.isArray(data.tags)
+        ? data.tags.map((t: any) => normalizeString(t)).filter(Boolean)
+        : [normalizeString(data.category, "General")],
 
       // ✅ normalized dates
       publishDate: toISOStringSafe(data.publishDate ?? data.createdAt),
@@ -64,25 +72,17 @@ export async function getBlogs(): Promise<{
     };
   });
 
-  // Plain JSON (removes any Firestore metadata)
-  const plainBlogs: Blog[] = JSON.parse(JSON.stringify(blogs));
-
-  // Unique categories
+  // ✅ Collect unique categories & industries (no empty strings)
   const categories: string[] = Array.from(
-    new Set(plainBlogs.map((b) => b.category)),
+    new Set(blogs.map((b) => b.category).filter(Boolean)),
   );
 
-  // Unique industries
   const industries: string[] = Array.from(
-    new Set(
-      plainBlogs
-        .map((b) => b.industries)
-        .filter((ind) => typeof ind === "string" && ind.trim() !== ""),
-    ),
+    new Set(blogs.map((b) => b.industries).filter(Boolean)),
   );
 
   return {
-    blogs: plainBlogs,
+    blogs,
     categories,
     industries,
   };
