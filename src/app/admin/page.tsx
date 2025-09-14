@@ -9,11 +9,13 @@ import {
     CheckCircle2,
     Loader2,
 } from "lucide-react";
+import Link from "next/link";
 
 interface Blog {
     id: string;
     title: string;
-    status?: string; // e.g., "draft" or "published"
+    slug: string;
+    status?: string;
     createdAt: string;
 }
 
@@ -24,7 +26,11 @@ export default function AdminDashboardPage() {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const q = query(collection(db, "blogs"), orderBy("createdAt", "desc"), limit(10));
+                const q = query(
+                    collection(db, "blogs"),
+                    orderBy("createdAt", "desc"),
+                    limit(10)
+                );
                 const snapshot = await getDocs(q);
 
                 const data: Blog[] = snapshot.docs.map((docSnap) => {
@@ -32,6 +38,7 @@ export default function AdminDashboardPage() {
                     return {
                         id: docSnap.id,
                         title: d.title || "Untitled",
+                        slug: d.slug || "",
                         status: d.status || "draft",
                         createdAt: d.createdAt?.toDate
                             ? d.createdAt.toDate().toLocaleDateString()
@@ -51,7 +58,10 @@ export default function AdminDashboardPage() {
     }, []);
 
     const totalBlogs = blogs.length;
-    const liveBlogs = blogs.filter((b) => b.status === "published").length;
+    const liveBlogs = blogs.length
+    // const liveBlogs = blogs.filter((b) => b.status === "published").length;
+    // const draftBlogs = blogs.filter((b) => b.status !== "published").length;
+    const draftBlogs = ""
 
     return (
         <div className="p-6 space-y-8">
@@ -83,9 +93,7 @@ export default function AdminDashboardPage() {
                         <h2 className="text-lg font-semibold">Draft Blogs</h2>
                         <FileText className="w-8 h-8 opacity-80" />
                     </div>
-                    <p className="text-3xl font-bold mt-4">
-                        {loading ? "--" : totalBlogs - liveBlogs}
-                    </p>
+                    <p className="text-3xl font-bold mt-4">{loading ? "--" : totalBlogs - liveBlogs}</p>
                 </div>
             </div>
 
@@ -122,9 +130,12 @@ export default function AdminDashboardPage() {
                                         </span>
                                     </span>
                                 </div>
-                                <button className="text-sky-600  hover:underline text-sm">
+                                <Link
+                                    href={`/blog/${blog.slug}`}
+                                    className="text-sky-600 hover:underline text-sm"
+                                >
                                     View
-                                </button>
+                                </Link>
                             </li>
                         ))}
                     </ul>
