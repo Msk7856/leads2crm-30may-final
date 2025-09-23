@@ -63,10 +63,13 @@
 // module.exports = nextConfig;
 
 /** @type {import('next').NextConfig} */
+
+
 const nextConfig = {
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
+
   images: {
     domains: [
       "localhost",
@@ -87,6 +90,7 @@ const nextConfig = {
       "img.icons8.com",
     ],
   },
+  
   env: {
     NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:

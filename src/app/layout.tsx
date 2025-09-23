@@ -100,11 +100,11 @@ export default function RootLayout({
         {/* <!-- End Google Tag Manager (noscript) --> */}
 
         <Providers>
-          <AnalyticsListener />
           {showLayout && <Header />}
           {children}
           {showLayout && <Footer />}
           {showLayout && <ScrollToTop />}
+          <AnalyticsListener />
           <Analytics />
         </Providers>
 
