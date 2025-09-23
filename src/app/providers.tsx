@@ -6,14 +6,15 @@ import Loader from "./Loader";
 
 export function Providers({ children }: { children: React.ReactNode }) {
 
-  const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Hydration completed
-    setMounted(true);
+    // Show loader for 3s (customizable)
+    const timer = setTimeout(() => setLoading(false), 3000);
+    return () => clearTimeout(timer);
   }, []);
 
-  if (!mounted) {
+  if (loading) {
     return <Loader />; // show loader until hydration
   }
 
